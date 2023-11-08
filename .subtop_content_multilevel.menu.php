@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Новости", 
+		"/articles/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Партнерам", 
+		"/about/cooperation/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Реклама", 
+		"/about/advantages/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"О проекте", 
+		"/about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

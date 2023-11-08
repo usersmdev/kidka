@@ -1,0 +1,45 @@
+syntax: glob
+local/php_interface/
+upload
+uploads
+admin
+plugins
+kernel
+downloads
+bitrix/wizards/*
+bitrix/tmp/*
+bitrix/themes/*
+bitrix/cache/*
+bitrix/stack_cache/*
+bitrix/otp/*
+bitrix/modules/*
+bitrix/managed_cache/*
+bitrix/components/bitrix/*
+bitrix/js/*
+bitrix/gadgets/*
+bitrix/image_uploader/*
+bitrix/catalog_export/*
+bitrix/images/*
+New Folder
+
+
+.idea
+.settings
+.project
+.htaccess
+
+updater.log
+*.xml
+robots.txt
+syntax: regexp
+#^\.hgignore$
+.htaccess
+.dev/auth.php
+composer.json
+.htpasswd
+
+
+syntax: regexp
+#^bitrix/.*$
+
+

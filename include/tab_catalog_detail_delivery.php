@@ -1,0 +1,1 @@
+<a href="/payment/delivery/" target="_blank">Подробнее о доставке</a>

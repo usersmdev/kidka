@@ -1,0 +1,20 @@
+.slider-inter-tmb{
+    margin-top: 20px;
+}
+.slider-inter-tmb .img{
+    margin-right: 10px;
+    max-height: 168px;
+}
+.imp-tooltip.imp-tooltip-visible {
+    z-index: 206;
+}
+.imp-social-container.imp-social-container-position-1 {
+    top:unset;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slider-inter-tmb .slick-list {
+    overflow: hidden !important;
+}

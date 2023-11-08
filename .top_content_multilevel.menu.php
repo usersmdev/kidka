@@ -1,0 +1,60 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Детские товары", 
+		"/products/", 
+		Array(), 
+		Array("NOT_VISIBLE"=>"Y", "CLASS"=>"catalog wide_menu ", "ICON"=>"icon_catalog"), 
+		"" 
+	),
+	Array(
+		"Отдых", 
+		"/otdykh/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Учеба", 
+		"/uchyeba/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Спорт", 
+		"/sport/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Здоровье", 
+		"/zdorove/", 
+		Array(), 
+		Array("ICON"=>"icon_discount"), 
+		"" 
+	),
+	Array(
+		"Праздники", 
+		"/prazdniki/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Будущей маме", 
+		"/budushchey-mame/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Мультимедиа", 
+		"/razvlecheniya/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

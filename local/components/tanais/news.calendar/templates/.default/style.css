@@ -1,0 +1,130 @@
+.with-event span{
+  background-color: #e31e24 !important;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #fff;
+}
+.news-calendar{
+  width: 400px;
+  position: relative;
+}
+.calendar{
+  width: fit-content;
+  display: inline-block;
+}
+.calendar-inner{
+  display: inline-block;
+  flex-wrap: nowrap;
+  position: relative;
+  width: fit-content;
+}
+.arrow{
+  width: 13px;
+  height: 21px;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  background-position: center left;
+  position: absolute;
+  top: 9px;
+}
+.arrow-right.arrow{
+  right:10px;
+  background-image: url("img/right-arrow.png");
+}
+.arrow-left.arrow{
+  left:10px;
+  background-image: url("img/left-arrow.png");
+}
+.calendar-inner table tr.header-line td{
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 5px;
+  background-color: #f9ede0;
+  height: 26px;
+}
+.calendar-inner table tr{
+  height: 25px;
+}
+.calendar-inner table tr td{
+  width: 30px;
+  background-color: #fff;
+  font-size: 16px;
+  color: rgb(33,33,33);
+}
+.dm_text .calendar-inner table{
+  margin-top: 0px;
+}
+.dm_text .calendar-inner TABLE TD.border-bottom{
+  padding-top: 0px;
+  border-bottom: 1px solid #cccccc;
+}
+.calendar-inner table .width-border-bottom{
+  padding-top: 0px;
+  height: 0px;
+
+}
+.day_names{
+  height: 35px;
+}
+.dm_text table .day_names td{
+  padding-top: 15px;
+  padding-bottom: 0px;
+}
+.dm_text table .day_names td span{
+  font-weight: bold;
+  font-size: 13px;
+}
+.dm_text .news-calendar TBODY TR:nth-child(even) TD{
+  background-color: #fff;
+}
+.dm_text .calendar-inner TABLE TD, .dm_text .calendar-inner TABLE TH{
+}
+.dm_text .calendar-inner TABLE TD.standart-td span{
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  font-size: 12px;
+}
+.book-changer{
+  display: inline-block;
+  white-space: pre-wrap;
+  float: right;
+  margin-top: -65px;
+  margin-bottom: -40px;
+}
+.book-changer .fit-content{
+  display: inline-block;
+  background-color: #f9ede0;
+  border-radius: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  width: fit-content;
+  text-align: left;
+  margin-left: -10px;
+}
+.book-changer .fit-content a, .book-changer .fit-content a:active, .book-changer .fit-content a:visited{
+  color: #000;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
+  display: inline-block;
+  margin-left: -25px;
+  line-height: 25px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.book-changer .fit-content a:first-child{
+  margin-top: 10px;
+}
+.book-changer .fit-content a.active{
+  background-color: #e31f25;
+  color: #fff;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}

@@ -1,0 +1,67 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Иностранные языки", 
+		"/offers/ucheba/inostrannye-yazyki/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Русский язык и литература", 
+		"/offers/ucheba/russkiy-yazyk-i-literatura/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Математика", 
+		"/offers/ucheba/matematika/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"География", 
+		"/offers/ucheba/geografiya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Биология", 
+		"/offers/ucheba/biologiya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Физика", 
+		"/offers/ucheba/fizika/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Химия", 
+		"/offers/ucheba/khimiya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"История", 
+		"/offers/ucheba/istoriya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Наука и техника", 
+		"/offers/ucheba/nauka-i-tekhnika/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
