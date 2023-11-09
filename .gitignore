@@ -87,6 +87,7 @@ bitrix/php_interface/include/kda.importexcel/
 !bitrix/php_interface/include/delivery_restriction/deliveryRestriction.php
 !bitrix/components/aspro/tabs.max/component.php
 !bitrix/components/bitrix/search.tags.cloud/component.php
+local/log/*
 
 .vscode/sftp.json
 local/import/last-import.txt
@@ -94,3 +95,4 @@ local/catalog/delay_modify_products.txt
 bitrix/templates/dm/.verstka/
 *.zip
 bitrix/templates/dm/images/jquery.uniform/sprite.psd
+/local/log/
