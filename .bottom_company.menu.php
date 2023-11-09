@@ -1,29 +1,36 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"ДЕТСКИЕ ТОВАРЫ", 
-		"/products/", 
+		"УСЛУГИ", 
+		SITE_DIR."#", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Одежда", 
-		"/products/odezhda/", 
+		"Спорт", 
+		SITE_DIR."/sport/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Книги", 
-		"/products/knigi/", 
+		"Здоровье", 
+		SITE_DIR."/zdorove/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Игрушки", 
-		"/products/igrushki/", 
+		"Праздники", 
+		SITE_DIR."/archbureau/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Учёба", 
+		SITE_DIR."/uchyeba/", 
 		Array(), 
 		Array(), 
 		"" 

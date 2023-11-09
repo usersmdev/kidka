@@ -4,11 +4,8 @@
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 }?>
 <!-- caralog type 2 -->
-<?$APPLICATION->IncludeComponent(
-	"aspro:tabs.max", 
-	"main", 
-	array(
-		"IBLOCK_TYPE" => "aspro_max_catalog",
+<?$APPLICATION->IncludeComponent("aspro:tabs.max", "main_products_block", array(
+	"IBLOCK_TYPE" => "aspro_max_catalog",
 		"IBLOCK_ID" => "72",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
@@ -72,8 +69,7 @@
 		"SHOW_ONE_CLICK_BUY" => "Y",
 		"SHOW_PRICE_COUNT" => "1",
 		"PRICE_VAT_INCLUDE" => "Y",
-		"PRODUCT_PROPERTIES" => array(
-		),
+		"PRODUCT_PROPERTIES" => "",
 		"USE_PRODUCT_QUANTITY" => "N",
 		"CONVERT_CURRENCY" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
@@ -150,5 +146,8 @@
 			1 => "",
 		)
 	),
-	false
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
 );?>
