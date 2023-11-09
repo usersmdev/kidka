@@ -111,7 +111,7 @@ function deliveryRestrictionEventResult() {
 	return new \Bitrix\Main\EventResult(
         \Bitrix\Main\EventResult::SUCCESS,
         array(
-            "\\Tns\\deliveryRestriction" => 
+            "\\Tns\\deliveryRestriction" =>
             	"/bitrix/php_interface/include/delivery_restriction/deliveryRestriction.php",
         )
     );

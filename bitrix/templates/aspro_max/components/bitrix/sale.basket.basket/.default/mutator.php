@@ -119,7 +119,7 @@ foreach ($this->basketItems as $row)
 	}
 	$rowData['MONTAGE_SUM_PRICE_FORMATED'] = CCurrencyLang::CurrencyFormat($rowData['MONTAGE_SUM_PRICE'], $rowData['CURRENCY'], true);
 	$pLength = 0;
-	$pLength = preg_replace('/[^-.,+\d]+/', '', $row['~PROPERTY_DLINA_MM_VALUE'])*1;
+	$pLength = (int)preg_replace('/[^-.,+\d]+/', '', $row['~PROPERTY_DLINA_MM_VALUE'])*1;
 	$rowData['DESIGN_SUM_PRICE'] = $pLength ? ($pLength/1000)*350 * $row['QUANTITY'] : 0;
 	$rowData['DESIGN_SUM_PRICE_FORMATED'] = CCurrencyLang::CurrencyFormat($rowData['DESIGN_SUM_PRICE'], $rowData['CURRENCY'], true);
 	$httpQueryData[] = [

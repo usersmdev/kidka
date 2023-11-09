@@ -1048,7 +1048,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 
 <?//files?>
 <?$instr_prop = ($arParams["DETAIL_DOCS_PROP"] ? $arParams["DETAIL_DOCS_PROP"] : "INSTRUCTIONS");?>
-<?if((count($arResult["PROPERTIES"][$instr_prop]["VALUE"]) && is_array($arResult["PROPERTIES"][$instr_prop]["VALUE"])) || count($arResult["SECTION_FULL"]["UF_FILES"])):?>
+<?if((is_countable($arResult["PROPERTIES"][$instr_prop]["VALUE"])) && (count($arResult["PROPERTIES"][$instr_prop]["VALUE"]) && is_array($arResult["PROPERTIES"][$instr_prop]["VALUE"])) || (is_countable($arResult["SECTION_FULL"]["UF_FILES"])) && count($arResult["SECTION_FULL"]["UF_FILES"])):?>
 	<?
 	$arFiles = array();
 	if($arResult["PROPERTIES"][$instr_prop]["VALUE"])
