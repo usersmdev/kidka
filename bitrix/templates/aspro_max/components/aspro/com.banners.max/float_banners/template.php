@@ -2,7 +2,7 @@
 <? $this->setFrameMode( true ); ?>
 <?if($arResult['ITEMS']):?>
 	<?
-	$col = (round(12/$arParams['SIZE_IN_ROW']));
+	//$col = (12/$arParams['SIZE_IN_ROW']);
 	$position = ($arParams['BG_POSITION'] ? ' set-position '.$arParams['BG_POSITION'] : '');
 	$bType2 = ($arParams['TYPE_BLOCK'] == 'type2');
 	?>
