@@ -1,16 +1,13 @@
-<?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"front_map_offer", 
-	array(
-		"IBLOCK_TYPE" => 'aspro_max_content',
-		"IBLOCK_ID" => '82',
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "front_map_offer", array(
+	"IBLOCK_TYPE" => "aspro_max_content",
+		"IBLOCK_ID" => "82",
 		"NEWS_COUNT" => "999",
 		"SORT_BY1" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER2" => "ASC",
 		"SHOW_DISCOUNT_TIME_EACH_SKU" => "N",
-		"FILTER_NAME" => 'offersMapFilter',
+		"FILTER_NAME" => "offersMapFilter",
 		"FIELD_CODE" => array(
 			0 => "PREVIEW_PICTURE",
 			1 => "NAME",
@@ -29,9 +26,9 @@
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N",
-		"CACHE_TYPE" => 'A',
-		"CACHE_TIME" => '3600000',
-		"CACHE_GROUPS" => 'Y',
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600000",
+		"CACHE_GROUPS" => "Y",
 		"CACHE_FILTER" => "Y",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
@@ -40,8 +37,8 @@
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"PARENT_SECTION" => '',
-		"PARENT_SECTION_CODE" => '',
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"PAGER_TITLE" => "",
@@ -62,14 +59,17 @@
 		"SET_LAST_MODIFIED" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"STRICT_SECTION_CHECK" => "N",
-		"TITLE_BLOCK" => '',
-		"TITLE_BLOCK_DETAIL_NAME" => '',
-		"TITLE_BLOCK_ALL" => '',
-		"ALL_URL" => '',
+		"TITLE_BLOCK" => "",
+		"TITLE_BLOCK_DETAIL_NAME" => "",
+		"TITLE_BLOCK_ALL" => "",
+		"ALL_URL" => "",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"SHOW_404" => "N",
 		"MAP_TYPE" => "0",
 		"MESSAGE_404" => ""
 	),
-	false
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
 );?>

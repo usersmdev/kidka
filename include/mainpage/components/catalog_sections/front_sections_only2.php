@@ -3,11 +3,8 @@
 	define("STATISTIC_SKIP_ACTIVITY_CHECK", "true");
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 }?>
-<?$APPLICATION->IncludeComponent(
-	"aspro:wrapper.block.max", 
-	"front_sections_only", 
-	array(
-		"IBLOCK_TYPE" => "aspro_max_catalog",
+<?$APPLICATION->IncludeComponent("aspro:wrapper.block.max", "front_sections_only", array(
+	"IBLOCK_TYPE" => "aspro_max_catalog",
 		"IBLOCK_ID" => "72",
 		"FILTER_NAME" => "arrPopularSections",
 		"COMPONENT_TEMPLATE" => "front_sections_only",
@@ -32,5 +29,8 @@
 		"SCROLL_SUBSECTIONS" => "N",
 		"INCLUDE_FILE" => ""
 	),
-	false
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
 );?>

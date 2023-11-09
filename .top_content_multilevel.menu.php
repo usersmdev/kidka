@@ -1,57 +1,50 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Детские товары", 
-		"/products/", 
-		Array(), 
-		Array("NOT_VISIBLE"=>"Y", "CLASS"=>"catalog wide_menu ", "ICON"=>"icon_catalog"), 
-		"" 
-	),
-	Array(
-		"Отдых", 
-		"/otdykh/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Учеба", 
-		"/uchyeba/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Спорт", 
-		"/sport/", 
+		SITE_DIR."/sport/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Здоровье", 
-		"/zdorove/", 
+		SITE_DIR."/zdorove/", 
 		Array(), 
 		Array("ICON"=>"icon_discount"), 
 		"" 
 	),
 	Array(
 		"Праздники", 
-		"/prazdniki/", 
+		SITE_DIR."/prazdniki/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Будущей маме", 
-		"/budushchey-mame/", 
+		"Учеба", 
+		SITE_DIR."/uchyeba/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Отдых", 
+		SITE_DIR."/otdykh/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Мультимедиа", 
-		"/razvlecheniya/", 
+		SITE_DIR."/razvlecheniya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Будущей маме", 
+		SITE_DIR."/budushchey-mame/", 
 		Array(), 
 		Array(), 
 		"" 

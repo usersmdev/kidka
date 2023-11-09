@@ -2,63 +2,28 @@
 $aMenuLinks = Array(
 	Array(
 		"УСЛУГИ", 
-		"#", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Спорт", 
-		"/sport/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Учёба", 
-		"/uchyeba/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Здоровье", 
-		"/zdorove/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Развитие", 
-		"/zdorove/", 
+		SITE_DIR."#", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Отдых", 
-		"/otdykh/", 
+		SITE_DIR."/otdykh/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Праздники", 
-		"/archbureau/", 
+		"Мультимедиа", 
+		SITE_DIR."/razvlecheniya/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Будущей маме", 
-		"/budushchey-mame/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Развлечения", 
-		"/razvlecheniya/", 
+		SITE_DIR."/budushchey-mame/", 
 		Array(), 
 		Array(), 
 		"" 
