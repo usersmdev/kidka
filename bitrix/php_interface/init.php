@@ -149,7 +149,7 @@ function WBLOnBeforeEventSendHandler(&$arFields, &$arTemplate){
 
 class dmClass
 {
-	function OnPageStartHandler()
+	static public function OnPageStartHandler()
 	{
 		global $APPLICATION;
 
@@ -163,7 +163,7 @@ class dmClass
 		}
 	}
 
-	function OnEndBufferContentHandler(&$content)
+    static public function OnEndBufferContentHandler(&$content)
 	{
 		$content = str_replace('<i class="rub"><u>руб.</u></i>', '<i class="rub"><u><i class="rub"><u>руб.</u></i></u></i>', $content);
 	}

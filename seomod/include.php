@@ -33,7 +33,7 @@ AddEventHandler("main", "OnEndBufferContent", Array("seoMod", "CatalogText"));
 class seoMod
 {
 	//Мета теги
-	function MetaTags()
+    static public function MetaTags()
 	{
 		if (!CModule::IncludeModule('iblock')) return;
 		global $APPLICATION;
@@ -61,7 +61,7 @@ class seoMod
 	}
 
 	//h1
-	function h1_replace(&$content)
+    static public function h1_replace(&$content)
 	{
 		if (!CModule::IncludeModule('iblock')) return;
 		global $APPLICATION;
@@ -74,7 +74,7 @@ class seoMod
 	}
 
 	//абсолютные ссылки и внешние ссылки
-	/*function AbsoluteAndExternal(&$content)
+    static public function AbsoluteAndExternal(&$content)
 	{
 		//$content = str_replace('href="/', 'href="http://'.$_SERVER['HTTP_HOST'].'/', $content);
 		//$content = str_replace("href='/", "href='http://".$_SERVER['HTTP_HOST']."/", $content);
@@ -90,9 +90,9 @@ class seoMod
 			}
 		}
 	}
-	*/
+
 	//Редиректы
-	function PermanentRedirects()
+    static public function PermanentRedirects()
 	{
 
 		if (!CModule::IncludeModule('iblock')) return;
@@ -107,7 +107,7 @@ class seoMod
 
 
 	//текст
-	function CatalogText(&$content)
+    static public function CatalogText(&$content)
 	{
 		if (!CModule::IncludeModule('iblock')) return;
 		global $APPLICATION;
