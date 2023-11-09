@@ -1,9 +1,9 @@
-<?define("STATISTIC_SKIP_ACTIVITY_CHECK", "true");?>
-<?define('STOP_STATISTICS', true);
+<?php define("STATISTIC_SKIP_ACTIVITY_CHECK", "true");?>
+<?php define('STOP_STATISTICS', true);
 define('PUBLIC_AJAX_MODE', true);?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");?>
 
-<?
+<?php
 $context = \Bitrix\Main\Application::getInstance()->getContext();
 $request = $context->getRequest();
 $arPost = $request->getPostList()->toArray();
@@ -25,8 +25,8 @@ if(!$arPost['CLASS'])
 	$arPost['CLASS'] = "inner_content";
 ?>
 
-<?if($arPost["PARAMS"]):?>
-	<?
+<?php if($arPost["PARAMS"]):?>
+    <?php
 	$arPost["PARAMS"]["SHOW_ABSENT"] = true; // set true for opacity 0.4 unable item
 
 	if(!strlen($arPost["PARAMS"]["BASKET_URL"])){
@@ -1363,7 +1363,7 @@ if(!$arPost['CLASS'])
 				if(wrapper.find('.quantity_block .values').length)
 					wrapper.find('.quantity_block .values .item span.value').text(obOffers[index].MAX_QUANTITY).css({'opacity':'1'});
 
-				<?//if($arPost['PARAMS']['SHOW_PROPS'] == 'Y'):?>
+                <?php//if($arPost['PARAMS']['SHOW_PROPS'] == 'Y'):?>
 					if(wrapper.find('.properties').length)
 					{
 						var props = '';
@@ -1408,7 +1408,7 @@ if(!$arPost['CLASS'])
 						}
 						wrapper.find('.props_list.js-container').html(props).show();
 					}
-				<?//endif;?>
+                <?php//endif;?>
 
 				/*set discount*/
 				if(obOffers[index].SHOW_DISCOUNT_TIME_EACH_SKU == 'Y')
@@ -1665,7 +1665,7 @@ if(!$arPost['CLASS'])
 					break;
 
 				allValues = [];
-				<?if($arPost["PARAMS"]["SHOW_ABSENT"]):?>
+                <?phpif($arPost["PARAMS"]["SHOW_ABSENT"]):?>
 					arCanBuyValues = [];
 					tmpFilter = [];
 					// tmpFilter = BX.clone(arFilter, true);
@@ -1679,9 +1679,9 @@ if(!$arPost['CLASS'])
 							arCanBuyValues[arCanBuyValues.length] = arShowValues[j];
 						}
 					}
-				<?else:?>
+                <?phpelse:?>
 					arCanBuyValues = arShowValues;
-				<?endif;?>
+                <?phpendif;?>
 
 				if (selectedValues[strName] && BX.util.in_array(selectedValues[strName], arCanBuyValues))
 				{
@@ -1689,11 +1689,11 @@ if(!$arPost['CLASS'])
 				}
 				else
 				{
-					<?if($arPost["PARAMS"]["SHOW_ABSENT"]):?>
+                    <?phpif($arPost["PARAMS"]["SHOW_ABSENT"]):?>
 						arFilter[strName] = (arCanBuyValues.length ? arCanBuyValues[0] : allValues[0]);
-					<?else:?>
+                    <?phpelse:?>
 						arFilter[strName] = arCanBuyValues[0];
-					<?endif;?>
+                    <?phpendif;?>
 				}
 
 				UpdateRow(i, arFilter[strName], arShowValues, arCanBuyValues);
@@ -1705,4 +1705,4 @@ if(!$arPost['CLASS'])
 			UpdateRowsImages();
 		}
 	</script>
-<?endif;?>
+<?php endif;?>

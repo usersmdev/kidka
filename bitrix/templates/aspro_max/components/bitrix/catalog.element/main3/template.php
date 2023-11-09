@@ -777,7 +777,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 														<div class="properties__title muted properties__item--inline"><?=$arProp['NAME']?></div>
 														<div class="properties__hr muted properties__item--inline">&mdash;</div>
 														<div class="properties__value darken properties__item--inline">
-															<?if(count($arProp["DISPLAY_VALUE"]) > 1):?>
+															<?if(is_countable($arProp["DISPLAY_VALUE"]) && count($arProp["DISPLAY_VALUE"]) > 1):?>
 																<?=implode(', ', $arProp["DISPLAY_VALUE"]);?>
 															<?else:?>
 																<?=$arProp["DISPLAY_VALUE"];?>
@@ -1398,7 +1398,7 @@ $iCountProps = count($arResult['DISPLAY_PROPERTIES']);?>
 
 <?//files?>
 <?$instr_prop = ($arParams["DETAIL_DOCS_PROP"] ? $arParams["DETAIL_DOCS_PROP"] : "INSTRUCTIONS");?>
-<?if((count($arResult["PROPERTIES"][$instr_prop]["VALUE"]) && is_array($arResult["PROPERTIES"][$instr_prop]["VALUE"])) || count($arResult["SECTION_FULL"]["UF_FILES"])):?>
+<?if((is_countable($arResult["PROPERTIES"][$instr_prop]["VALUE"])) && (count($arResult["PROPERTIES"][$instr_prop]["VALUE"]) && is_array($arResult["PROPERTIES"][$instr_prop]["VALUE"])) || (is_countable($arResult["SECTION_FULL"]["UF_FILES"])) && count($arResult["SECTION_FULL"]["UF_FILES"])):?>
 	<?
 	$arFiles = array();
 	if($arResult["PROPERTIES"][$instr_prop]["VALUE"])

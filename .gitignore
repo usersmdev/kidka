@@ -59,6 +59,7 @@ bitrix/*
 bitrix/components/
 bitrix/components/bitrix/
 !bitrix/php_interface/
+!bitrix/modules/aspro.max/classes/general/CMax.php
 bitrix/php_interface/dbconn.php
 upload/
 bitrix/templates/landing24/
@@ -81,6 +82,12 @@ bitrix/php_interface/include/sale_delivery/
 bitrix/php_interface/include/delivery_restriction/
 bitrix/php_interface/include/kda.exportexcel/
 bitrix/php_interface/include/kda.importexcel/
+
+
+!bitrix/php_interface/include/delivery_restriction/deliveryRestriction.php
+!bitrix/components/aspro/tabs.max/component.php
+!bitrix/components/bitrix/search.tags.cloud/component.php
+
 .vscode/sftp.json
 local/import/last-import.txt
 local/catalog/delay_modify_products.txt
