@@ -2,21 +2,28 @@
 $aMenuLinks = Array(
 	Array(
 		"ИНФОРМАЦИЯ", 
-		"#", 
+		SITE_DIR."#", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Статьи", 
-		"/articles/", 
+		SITE_DIR."/articles/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Новости", 
-		"/articles/", 
+		SITE_DIR."/articles/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Регистрация", 
+		SITE_DIR."/registratsiya/", 
 		Array(), 
 		Array(), 
 		"" 
