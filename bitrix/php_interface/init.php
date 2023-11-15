@@ -73,6 +73,17 @@ function onBeforeUserRegisterHandler(&$arFields) {
 
 function onAfterUserRegisterHandler(&$arFields) {
 	session_start();
+    $user = new CUser;
+    $ID = $arFields["USER_ID"];
+    $arrGroups_old = $user->GetUserGroupArray();
+    var_dump($arrGroups_old);
+    if ($arrGroups_old[0] == 2 && $_SESSION['sms_phone2'] == 1) {
+        $fields = array("ACTIVE" => "Y",);
+        $user->Update($ID, $fields);
+        $user->Authorize($ID);
+        LocalRedirect('/');
+    }
+
 
 	if(isset($_REQUEST["user-type"]) &&
 			$_REQUEST["user-type"] == "designer") {
