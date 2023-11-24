@@ -1,0 +1,12 @@
+.addtab.active{
+    background: #ccc;
+}
+.tab{
+    display: none;
+}
+.tab.active{
+    display: block;
+}
+.container li{
+    float: left;
+}
