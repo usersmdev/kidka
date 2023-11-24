@@ -81,7 +81,7 @@ function onAfterUserRegisterHandler(&$arFields) {
         $fields = array("ACTIVE" => "Y",);
         $user->Update($ID, $fields);
         $user->Authorize($ID);
-        LocalRedirect('/');
+        LocalRedirect('/registratsiya/dobavit-rebenka.php');
     }
 
 
