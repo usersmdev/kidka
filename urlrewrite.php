@@ -165,6 +165,14 @@ $arUrlRewrite=array (
     'PATH' => '/company/news/index.php',
     'SORT' => 100,
   ),
+  125 => 
+  array (
+    'CONDITION' => '#^/test-catalog/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/test-catalog/index.php',
+    'SORT' => 100,
+  ),
   81 => 
   array (
     'CONDITION' => '#^/catalogs/3d/#',

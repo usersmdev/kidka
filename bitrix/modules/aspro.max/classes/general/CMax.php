@@ -8458,7 +8458,8 @@ class CMax{
 					}
 					$arShop['GPS_S'] = false;
 					$arShop['GPS_N'] = false;
-					if($arStoreMap = explode(',', $arShop['DISPLAY_PROPERTIES']['MAP']['VALUE'])){
+                    $strarr = strval($arShop['DISPLAY_PROPERTIES']['MAP']['VALUE']);
+					if($arStoreMap = explode(',',  $strarr)){
 						$arShop['GPS_S'] = $arStoreMap[0];
 						$arShop['GPS_N'] = $arStoreMap[1];
 					}

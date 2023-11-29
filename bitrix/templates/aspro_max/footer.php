@@ -13,8 +13,16 @@
 					<?//if(($isIndex && $isShowIndexLeftBlock) || (!$isIndex && !$isHideLeftBlock) && !$isBlog):?>
 					<?if(($isIndex && ($isShowIndexLeftBlock || $bActiveTheme)) || (!$isIndex && !$isHideLeftBlock)):?>
 						</div> <?// .right_block?>
-						<?if($APPLICATION->GetProperty("HIDE_LEFT_BLOCK") != "Y" && !defined("ERROR_404")):?>
-							<?CMax::ShowPageType('left_block');?>
+							<?if($APPLICATION->GetProperty("HIDE_LEFT_BLOCK") != "Y" && !defined("ERROR_404")):?>
+								<?if(CSite::InDir("/test-catalog/")): ?>
+								<?else:?>
+								<?CMax::ShowPageType('left_block');?>									<?endif;?>
+							<?endif;?>
+							<?if($APPLICATION->GetProperty("HIDE_LEFT_BLOCK") != "Y" && !defined("ERROR_404")):?>
+							<?if($APPLICATION->GetCurPage() != "/test-catalog/" && $count_page < 3): ?>
+								<?CMax::ShowPageType('left_block');?>
+							<?endif;?>
+							
 						<?endif;?>
 					<?endif;?>
 					</div> <?// .container_inner?>
