@@ -21,6 +21,10 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 	<?if($bIncludedModule)
 		CMax::Start(SITE_ID);?>
 	<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/header_include/head.php'));?>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=6b4c2a54-1ff3-4f1f-b458-ce0b57678048&lang=ru_RU" type="text/javascript">
+    </script>
+   <? use Bitrix\Main\Page\Asset;
+   Asset::getInstance()->addCss("/local/css/custom_styles.css");?>
 <meta name="yandex-verification" content="ad1f0d8e4ed3ceda" />
 <meta name="yandex-verification" content="f659c7b3dffb2bf7" />
 </head>
@@ -51,10 +55,17 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 			<?elseif(!$isWidePage):?>
 				<div class="wrapper_inner <?=($isHideLeftBlock ? "wide_page" : "");?> <?=$APPLICATION->ShowViewContent('wrapper_inner_class')?>">
 			<?endif;?>
-				
 				<div class="container_inner clearfix <?=$APPLICATION->ShowViewContent('container_inner_class')?>">
+						<? $url = $APPLICATION->GetCurPage();
+						$count_page = substr_count($url, '/');?>
+				<?if(CSite::InDir("/test-catalog/")): ?>
+				<?$classblock = '';?>
+					<?else:?>
+				<?$classblock = 'right_block';?>
+				<?endif;?>
+
 				<?if(($isIndex && ($isShowIndexLeftBlock || $bActiveTheme)) || (!$isIndex && !$isHideLeftBlock)):?>
-					<div class="right_block <?=(defined("ERROR_404") ? "error_page" : "");?> wide_<?=CMax::ShowPageProps("HIDE_LEFT_BLOCK");?> <?=$APPLICATION->ShowViewContent('right_block_class')?>">
+					<div class="<?=$classblock;?> <?=(defined("ERROR_404") ? "error_page" : "");?> wide_<?=CMax::ShowPageProps("HIDE_LEFT_BLOCK");?> <?=$APPLICATION->ShowViewContent('right_block_class')?>">
 				<?endif;?>
 					<div class="middle <?=($is404 ? 'error-page' : '');?> <?=$APPLICATION->ShowViewContent('middle_class')?>">
 						<?CMax::get_banners_position('CONTENT_TOP');?>
