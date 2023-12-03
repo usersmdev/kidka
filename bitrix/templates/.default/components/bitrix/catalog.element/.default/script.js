@@ -333,7 +333,9 @@
 			{
 				this.errorCode = -1;
 			}
-
+			this.initFavorit();
+			this.initYandexMap();
+			this.PriceTarif();
 			this.obBigSlider = BX(this.visual.BIG_SLIDER_ID);
 			this.node.imageContainer = this.getEntity(this.obProduct, 'images-container');
 			this.node.imageSliderBlock = this.getEntity(this.obProduct, 'images-slider-block');
@@ -483,8 +485,9 @@
 				this.smallCardNodes.aligner = this.getEntity(this.obProduct, 'main-button-container');
 			}
 
-			this.initPopup();
-			this.initTabs();
+			//this.initPopup();
+			//this.initTabs();
+			document.querySelectorAll('.rating').forEach(dom => new Rating(dom));
 
 			if (this.smallCardNodes.panel)
 			{
@@ -638,6 +641,149 @@
 					BX.bind(this.obCompare, 'click', BX.proxy(this.compare, this));
 					BX.addCustomEvent('onCatalogDeleteCompare', BX.proxy(this.checkDeletedCompare, this));
 				}
+			}
+		},
+		PriceTarif: function (){
+			$( "select" ).change(function () {
+				var str = "";
+				let select = $(this);
+				$(this).find( "option:selected" ).each(function() {
+					str = $( this ).val();
+					let productid = str;
+					$.ajax({
+						type: "POST",
+						url: '/local/components/smdev/service.price.block/ajax/getPrice.php',
+						data: {productid: productid},
+						timeout: 3000,
+						beforeSend: function () {
+							$('.preloader').addClass('loaded_hiding');
+						},
+						error: function (request, error) {
+							if (error == "timeout") {
+								alert('timeout');
+							} else {
+								alert('Error! Please try again!');
+							}
+						},
+						success: function (data) {
+							select.parents('#productitem').find('.blockoffer').html(data);
+						}
+					});
+
+				});
+				$( "div.text" ).text( str );
+			})
+		},
+		initYandexMap: function (){
+			$('#view_map').on('click', function (){
+				$('#yandexdetail').modal('show');
+				ymaps.load(inityndex);
+			})
+			function inityndex() {
+				let result = [];
+					let ItemObject = new Object();
+					let arr_pointr = [];
+					let arr_address = [];
+					let point;
+					let address;
+					$('.mappoint').each(function () {
+						point = $(this).val().split(',');
+						arr_pointr.push(point);
+					});
+					$('.address div').each(function () {
+						address = $(this).text();
+						arr_address.push(address);
+					});
+					ItemObject['title'] = $('.bx-title').text();
+					ItemObject['point'] = arr_pointr;
+					ItemObject['address'] = arr_address;
+					result.push(ItemObject);
+				let myMap = new ymaps.Map("map", {
+					center: arr_pointr[0],
+					zoom: 10,
+					controls: [
+						'zoomControl',
+						'rulerControl',
+						'routeButtonControl',
+						'trafficControl',
+						'typeSelector',
+						'fullscreenControl',
+						new ymaps.control.SearchControl({
+							options: {
+								size: 'large',
+								provider: 'yandex#search'
+							}
+						})
+
+					]
+				});
+
+					for (let l = 0; l < ItemObject['point'].length; l++) {
+						myMap.geoObjects.add( new ymaps.Placemark(ItemObject['point'][l], {
+							balloonContent: '<h3>'+ItemObject['title']+'</h3><strong>'+ItemObject['address'][l]+'</strong><br>'
+						}));
+					}
+				$('#yandexdetail').on('hidden.bs.modal', function (e) {
+					myMap.destroy();
+				})
+			}
+		},
+		initFavorit: function() {
+			$('.favor').on('click', function (e) {
+				var favorID = $(this).attr('data-item');
+				if ($(this).hasClass('active_ds')) {
+					var doAction = 'delete';
+					//$('.fav_page').find('.favor[data-item="' + favorID + '"]').parents('.cat_list').remove(); // Моментальное удаление, если мы на странице избранного
+				} else {
+					var doAction = 'add';
+					addFavorite(favorID, doAction);
+				}
+			});
+			/* Favorites */
+			$('.favor').on('click', function (e) {
+				if ($(this).hasClass('active_d')) {
+					$(this).removeClass('active_d')
+				} else {
+					$(this).addClass('active_d')
+				}
+
+			});
+
+			/* Избранное */
+			function addFavorite(id, action) {
+				var param = 'id=' + id + "&action=" + action;
+				$.ajax({
+					url: '/local/components/smdev/favorite.elements/ajax.php', // URL отправки запроса
+					type: "GET",
+					dataType: "html",
+					data: param,
+					timeout: 3000,
+					beforeSend: function () {
+						$('.preloader').addClass('loaded_hiding');
+					},
+					error: function (request, error) {
+						if (error == "timeout") {
+							alert('timeout');
+						} else {
+							alert('Error! Please try again!');
+						}
+						console.log('Error: ' + errorThrown);
+					},
+					success: function (response) {
+						var result = response;
+						//$('.favor').text(response)
+						if (result == 1) { // Если всё хорошо, то выполняем действия, которые показывают, что данные отправлены
+							$('.favor[data-item="' + id + '"]').addClass('active_d');
+							var wishCount = parseInt($('#want .col').html()) + 1;
+							$('#want .col').html(wishCount); // Визуально меняем количество у иконки
+						}
+						if (result == 2) {
+							$('.favor[data-item="' + id + '"]').removeClass('active_d');
+							var wishCount = parseInt($('#want .col').html()) - 1;
+							$('#want .col').html(wishCount); // Визуально меняем количество у иконки
+						}
+					}
+				});
 			}
 		},
 
@@ -1093,6 +1239,7 @@
 					}
 				}
 			}
+
 		},
 
 		checkTouch: function(event)
@@ -3597,5 +3744,13 @@
 
 			}
 		}
+
+
 	}
+
+	/* Favorites */
+
+
+
+
 })(window);

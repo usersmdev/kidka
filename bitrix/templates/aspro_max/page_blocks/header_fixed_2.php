@@ -50,6 +50,15 @@ $logoClass = ($arTheme['COLORED_LOGO']['VALUE'] !== 'Y' ? '' : ' colored');
 				<?=CMax::ShowCabinetLink(true, false, 'big');?>
 			</div>
 		</div>
-		<?=CMax::ShowBasketWithCompareLink('inner-table-block', 'big');?>
+        <div class="inner-table-block nopadding small-block topfix">
+        <div class="favorit_top">
+            <? $APPLICATION->IncludeComponent(
+                "smdev:favorite.elements",
+                "",
+                false
+            );?>
+        </div>
+        </div>
+		<?//=CMax::ShowBasketWithCompareLink('inner-table-block', 'big');?>
 	</div>
 </div>

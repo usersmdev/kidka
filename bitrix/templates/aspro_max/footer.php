@@ -54,6 +54,7 @@
 			$GLOBALS['dopBodyClass'] .= ' '.$APPLICATION->GetPageProperty("body_class");;
 		}
 		?>
-<link href="/bitrix/templates/aspro_max/css/custom_2.css" type="text/css"  data-template-style="true"  rel="stylesheet" />
+	<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'local/include/modal.php'));?>
+	<link href="/bitrix/templates/aspro_max/css/custom_2.css" type="text/css"  data-template-style="true"  rel="stylesheet" />
 	</body>
 </html>

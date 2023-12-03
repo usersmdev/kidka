@@ -268,11 +268,11 @@ $APPLICATION->SetTitle("test-catalog");
 		"USE_SALE_BESTSELLERS" => "N",
 		"USE_STORE" => "N",
 		"SEF_URL_TEMPLATES" => array(
-			"sections" => "#SECTION_CODE#/1asas",
+			"sections" => "#SECTION_CODE#/121a11",
 			"section" => "#SECTION_CODE_PATH#/",
-			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+			"element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
 			"compare" => "compare.php?action=#ACTION_CODE#",
-			"smart_filter" => "#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
+			"smart_filter" => "#SECTION_CODE_PATH#/#SMART_FILTER_PATH#/show/",
 		),
 		"VARIABLE_ALIASES" => array(
 			"compare" => array(
@@ -283,4 +283,4 @@ $APPLICATION->SetTitle("test-catalog");
 	false
 );?>
 </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
