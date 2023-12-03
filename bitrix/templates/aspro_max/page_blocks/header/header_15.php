@@ -10,12 +10,12 @@ $logoClass = ($arTheme['COLORED_LOGO']['VALUE'] !== 'Y' ? '' : ' colored');
 $bLongHeader = true;
 ?>
 <div class="top-block top-block-v1 header-v15">
-	<div class="maxwidth-theme">		
+	<div class="maxwidth-theme">
 		<div class="wrapp_block">
 			<div class="row">
 				<div class="col-md-12">
 
-					
+
 					<div class="pull-left menus">
 						<div class="menus-inner">
 							<?$APPLICATION->IncludeComponent("bitrix:main.include", ".default",
@@ -34,15 +34,25 @@ $bLongHeader = true;
 
 					<div class="newtop"> <!-- black -->
 					<div class="right-icons pull-right wb top-block-item logo_and_menu-row">
-						<div class="pull-right">
-							<?=CMax::ShowBasketWithCompareLink('', 'big', '', 'wrap_icon wrap_basket baskets');?>
-						</div>
+
+
+							<?//=CMax::ShowBasketWithCompareLink('', 'big', '', 'wrap_icon wrap_basket baskets');?>
+
 
 						<div class="pull-right">
 							<div class="wrap_icon inner-table-block1 person">
 								<?=CMax::showCabinetLink(true, true, 'big');?>
 							</div>
 						</div>
+                        <div class="pull-right">
+                            <div class="favorit_top top_menu">
+                                <? $APPLICATION->IncludeComponent(
+                                    "smdev:favorite.elements",
+                                    "",
+                                    false
+                                );?>
+                            </div>
+                        </div>
 					</div>
 
 					<div class="top-block-item pull-right">
@@ -112,7 +122,7 @@ $bLongHeader = true;
 								</nav>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="lines-row"></div>

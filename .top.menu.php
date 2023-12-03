@@ -2,49 +2,56 @@
 $aMenuLinks = Array(
 	Array(
 		"О компании", 
-		"/company/", 
+		SITE_DIR."/company/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Услуги", 
-		"/services/", 
+		SITE_DIR."/services/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Как купить", 
-		"/help/", 
+		SITE_DIR."/help/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Производители", 
-		"/info/brands/", 
+		SITE_DIR."/info/brands/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Магазины", 
-		"/contacts/stores/", 
+		SITE_DIR."/contacts/stores/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Контакты", 
-		"/contacts/", 
+		SITE_DIR."/contacts/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Праздники", 
-		"/prazdniki/", 
+		SITE_DIR."/prazdniki/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"favorit", 
+		SITE_DIR."/Избранные услуги/", 
 		Array(), 
 		Array(), 
 		"" 

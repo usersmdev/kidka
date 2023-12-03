@@ -393,28 +393,13 @@
 				$( "div.text" ).text( str );
 			})
 
-			// $('#view_map').on('click', function (){
-			// 	ymaps.load(init);
-			// })
-			$('#view_map').on('click', function (){
-				$('#myModal').modal('show');
-				ymaps.load(init);
-			})
-			// function point() {
-			// 	let arr_point = [];
-			// 	$('.map_point').each(function () {
-			// 		point = $(this).val().split(',');
-			// 		arr_point.push(point);
-			// 	});
-			// 	return arr_point;
-			// }
+				$('#view_map').on('click', function (){
+					$('#myModal').modal('show');
+					ymaps.load(init);
+				})
 
 
 				function init() {
-					// Создание карты.
-					// https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/map-docpage/
-
-
 					let result = [];
 
 					$('.catalog-row .news-item').each(function () {
@@ -492,6 +477,7 @@
 					})
 
 			}
+
 		}
 
 	};

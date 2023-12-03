@@ -245,7 +245,9 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
         <div class="col-md-6 col-xs-12">
             <div class="title"><?= $arItem['NAME']; ?></div>
             <div class="address">
-                <div><?= $arItem['PROPERTIES']['ADDRESS']['VALUE']; ?></div>
+            <? if ($arItem['PROPERTIES']['ADDRESS']['VALUE'][0]):?>
+                <div><?= $arItem['PROPERTIES']['ADDRESS']['VALUE'][0]; ?></div>
+            <?endif; ?>
             </div>
             <div class="age">
                 <? if ($arItem['PROPERTIES']['CHILD_AGE']['VALUE']):?>
@@ -447,7 +449,8 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 
                     ?>
                 </select>
-                <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn button about">Подробнее</a>
+
+                <a href="<?=$arItem["DETAIL_PAGE_URL"] ?>" class="btn button about">Подробнее</a>
 
         <?
         endif;
@@ -465,20 +468,19 @@ endforeach;
 ?>
 </div>
     <button id="view_map">Показать на карте</button>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Название модали</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="map" style="width: 600px; height: 400px"></div>
-                </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="map" style="width: 600px; height: 400px"></div>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
 <?
 //		foreach ($arResult['ITEM_ROWS'] as $rowData)

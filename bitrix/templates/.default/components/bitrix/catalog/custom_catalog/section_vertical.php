@@ -52,7 +52,9 @@ if ($isFilter || $isSidebar ): ?>
 						"SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
 						"SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
 						"PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
-						"INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
+						//"INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
+                       //"SEF_RULE" => "/test-catalog/#SECTION_CODE#/#SMART_FILTER_PATH#/show/",
+                        //"SMART_FILTER_PATH" => $_REQUEST["SMART_FILTER_PATH"],
                         "AJAX_MODE" => "Y",
                         "INSTANT_RELOAD" => "Y",
                         "AJAX_OPTION_JUMP" => "N",
@@ -329,7 +331,7 @@ if ($count_page == 2)
 					"SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
                     "PROPERTY_CODE" => array("qwerty",""),
 
-                    "AJAX_MODE" => "Y",
+                    "AJAX_MODE" => "N",
                     "USE_FILTER" => "Y",
 
 

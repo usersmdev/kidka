@@ -1,0 +1,1 @@
+<? require($_SERVER["DOCUMENT_ROOT"]."/local/components/smdev/catalog.comments/templates/catalog.comments.custom/ajax.php"); ?>

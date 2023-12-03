@@ -1,0 +1,13 @@
+.rating polygon:hover {
+    cursor: pointer;
+    transition: 500ms;
+}
+.rating polygon:hover {
+    fill: black;
+}
+.rating polygon {
+    fill: lightgray;
+}
+.rating polygon.active {
+    fill: #01afae;
+}

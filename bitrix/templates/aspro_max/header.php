@@ -24,7 +24,14 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=6b4c2a54-1ff3-4f1f-b458-ce0b57678048&lang=ru_RU" type="text/javascript">
     </script>
    <? use Bitrix\Main\Page\Asset;
-   Asset::getInstance()->addCss("/local/css/custom_styles.css");?>
+   Asset::getInstance()->addCss("/local/css/custom_styles.css");
+	Asset::getInstance()->addJs("/local/js/script.js");?>
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+	<link
+	  rel="stylesheet"
+	  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+	/>
+
 <meta name="yandex-verification" content="ad1f0d8e4ed3ceda" />
 <meta name="yandex-verification" content="f659c7b3dffb2bf7" />
 </head>
@@ -35,8 +42,9 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 		<?$APPLICATION->SetTitle(GetMessage("ERROR_INCLUDE_MODULE_ASPRO_MAX_TITLE"));?>
 		<center><?$APPLICATION->IncludeFile(SITE_DIR."include/error_include_module.php");?></center></body></html><?die();?>
 	<?endif;?>
-	
 	<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/header_include/body_top.php'));?>
+	
+									
 
 	<?$arTheme = $APPLICATION->IncludeComponent("aspro:theme.max", ".default", array("COMPONENT_TEMPLATE" => ".default"), false, array("HIDE_ICONS" => "Y"));?>
 	<?include_once('defines.php');?>
