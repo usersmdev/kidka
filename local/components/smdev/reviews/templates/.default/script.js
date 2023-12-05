@@ -106,34 +106,5 @@ $(document).ready(function () {
     });
     document.querySelectorAll('.rating').forEach(dom => new Rating(dom));
 
-    $().fancybox({
-        selector : '.gal_image',
-        backFocus : false
-    });
-    // $(".gal_image").slick({
-    //     slidesToShow   : 3,
-    //     infinite : true,
-    //     dots     : false,
-    //     arrows   : false
-    // });
-    function gallery_hide() {
-        let count_element;
-        count_element = $(".cust").length
-        $(".cust").each(function (key, value) {
-            if (key > 13) {
-                $(this).addClass('hide_image');
-            }
-            if (key == 13) {
-                let count = count_element - key;
-                $(this).find('span').html('+' + count);
-                $(this).on('click', function (){
-                    $(this).removeClass('show_con');
-                    $('.hide_image').toggle(300);
-                });
-            }
 
-        });
-
-    }
-    gallery_hide();
 });
