@@ -247,6 +247,12 @@ $res_price = CCatalogSKU::getOffersList(
                                 <? endforeach; ?>
                             </div>
                         <? endif; ?>
+                        <? if(empty($arProps["rating"]["VALUE"])):?>
+                            <?$arProps["rating"]["VALUE"] = 0 ;?>
+                        <?endif;?>
+                        <? if(empty($arProps["COUNT_REVIEWS"]["VALUE"])):?>
+                            <?$arProps["COUNT_REVIEWS"]["VALUE"] = 0 ;?>
+                        <?endif;?>
                         <div class="vote">
                                 <span class="rating" data-value="<?= round($arProps["rating"]["VALUE"], 2); ?>"
                                       style="pointer-events: none;"></span>
@@ -509,10 +515,12 @@ $res_price = CCatalogSKU::getOffersList(
                                     <h4>Стоимость</h4>
                                     <div class="description">
                                         <?
+                                        if($arProps['PRICE_DETAIL_P']["VALUE"]):
                                         $dwkwa_out = $arProps['PRICE_DETAIL_P']["VALUE"]['TEXT'];
                                         $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
                                         $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
                                         echo $dwkwa_out;
+                                        endif;
                                         ?>
                                     </div>
 

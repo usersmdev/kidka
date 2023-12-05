@@ -33,6 +33,9 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
     <a href="javascript:void(0);" class="btn bb" id="reviews_to" >Отправить</a>
 </div>
 <?php
+global $arrFilter;
+$arrfilter=array();
+$arrFilter["PROPERTY_ID_RESOURCE"] = $arParams['ELEMENT_ID'];
 
 ?>
 <?$APPLICATION->IncludeComponent(
@@ -60,8 +63,10 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
         "DISPLAY_PICTURE" => "N",
         "DISPLAY_PREVIEW_TEXT" => "N",
         "DISPLAY_TOP_PAGER" => "N",
+        "USE_FILTER" => "Y",
         "FIELD_CODE" => array("",""),
-        "FILTER_NAME" => "",
+        "FILTER_NAME" => "arrFilter",
+
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
         "IBLOCK_ID" => "86",
         "IBLOCK_TYPE" => "aspro_max_content",
@@ -79,7 +84,7 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
         "PARENT_SECTION" => "",
         "PARENT_SECTION_CODE" => "",
         "PREVIEW_TRUNCATE_LEN" => "",
-        "PROPERTY_CODE" => array("EMAIL","AUTHOR","DATE","REVIEW","REITING","APPROV", "ANSWER_ADMIN"),
+        "PROPERTY_CODE" => array("EMAIL","AUTHOR","DATE","REVIEW","REITING","APPROV", "ANSWER_ADMIN","ID_RESOURCE"),
         "SET_BROWSER_TITLE" => "N",
         "SET_LAST_MODIFIED" => "N",
         "SET_META_DESCRIPTION" => "N",
