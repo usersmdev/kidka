@@ -7,9 +7,14 @@
 $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
 
-if($arResult['PROPERTY_1160']) {
+$arFilter = Array("IBLOCK_ID"=>$arResult['IBLOCK_ID'], "ID"=>$arResult['ID']);
+$res = CIBlockElement::GetList(Array(), $arFilter);
+if ($ob = $res->GetNextElement()){;
+    $arProps = $ob->GetProperties();
+}
+if($arProps["MORE_PHOTO"]["VALUE"]) {
     $arResult['PICTURE'] = array();
-    foreach ($arResult['PROPERTY_1160'] as $key => &$arItem) {
+    foreach ($arProps["MORE_PHOTO"]["VALUE"] as $key => &$arItem) {
         $picture = $arItem;
         if($picture) {
             $arFileTmp = \CFile::ResizeImageGet(
@@ -26,9 +31,9 @@ if($arResult['PROPERTY_1160']) {
 
     }
 }
-if($arResult['PROPERTY_1236']) {
-    $arResult['PICTURE_1236'] = array();
-    foreach ($arResult['PROPERTY_1236'] as $key => &$arItem) {
+if($arProps["FIRST_TAB_IMG"]["VALUE"]) {
+    $arResult['PICTURE_FIRST_TAB'] = array();
+    foreach ($arProps["FIRST_TAB_IMG"]["VALUE"] as $key => &$arItem) {
         $picture = $arItem;
         if($picture) {
             $arFileTmp2 = \CFile::ResizeImageGet(
@@ -39,15 +44,15 @@ if($arResult['PROPERTY_1236']) {
             );
             if($arFileTmp2['src'])
                 $arFileTmp2['src'] = \CUtil::GetAdditionalFileURL($arFileTmp2['src'], true);
-            $arResult['PICTURE_1236'][] = array_change_key_case($arFileTmp2, CASE_UPPER);;
+            $arResult['PICTURE_FIRST_TAB'][] = array_change_key_case($arFileTmp2, CASE_UPPER);;
 
         }
 
     }
 }
-if($arResult['PROPERTY_1237']) {
-    $arResult['PICTURE_1237'] = array();
-    foreach ($arResult['PROPERTY_1237'] as $key => &$arItem) {
+if($arProps["SECOND_TAB_IMG"]["VALUE"]) {
+    $arResult['PICTURE_SECOND_TAB'] = array();
+    foreach ($arProps["SECOND_TAB_IMG"]["VALUE"] as $key => &$arItem) {
         $picture = $arItem;
         if($picture) {
             $arFileTmp3 = \CFile::ResizeImageGet(
@@ -58,15 +63,15 @@ if($arResult['PROPERTY_1237']) {
             );
             if($arFileTmp3['src'])
                 $arFileTmp3['src'] = \CUtil::GetAdditionalFileURL($arFileTmp3['src'], true);
-            $arResult['PICTURE_1237'][] = array_change_key_case($arFileTmp3, CASE_UPPER);;
+            $arResult['PICTURE_SECOND_TAB'][] = array_change_key_case($arFileTmp3, CASE_UPPER);;
 
         }
 
     }
 }
-if($arResult['PROPERTY_1238']) {
-    $arResult['PICTURE_1238'] = array();
-    foreach ($arResult['PROPERTY_1238'] as $key => &$arItem) {
+if($arProps["THIRD_TAB_IMG"]["VALUE"]) {
+    $arResult['PICTURE_HIRD_TAB'] = array();
+    foreach ($arProps["THIRD_TAB_IMG"]["VALUE"] as $key => &$arItem) {
         $picture = $arItem;
         if($picture) {
             $arFileTmp4 = \CFile::ResizeImageGet(
@@ -77,7 +82,7 @@ if($arResult['PROPERTY_1238']) {
             );
             if($arFileTmp4['src'])
                 $arFileTmp4['src'] = \CUtil::GetAdditionalFileURL($arFileTmp4['src'], true);
-            $arResult['PICTURE_1238'][] = array_change_key_case($arFileTmp4, CASE_UPPER);;
+            $arResult['PICTURE_THIRD_TAB'][] = array_change_key_case($arFileTmp4, CASE_UPPER);;
 
         }
 

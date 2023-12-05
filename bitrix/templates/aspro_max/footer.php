@@ -9,7 +9,9 @@
 								<?CMax::ShowPageType('indexblocks');?>
 							<?endif;?>
 							<?CMax::get_banners_position('CONTENT_BOTTOM');?>
-						</div> <?// .middle?>
+						</div>
+
+ <?// .middle?>
 					<?//if(($isIndex && $isShowIndexLeftBlock) || (!$isIndex && !$isHideLeftBlock) && !$isBlog):?>
 					<?if(($isIndex && ($isShowIndexLeftBlock || $bActiveTheme)) || (!$isIndex && !$isHideLeftBlock)):?>
 						</div> <?// .right_block?>
@@ -36,6 +38,7 @@
 		</div><?// .wrapper?>
 
 		<?//FLOAT_BANNERS?>
+                       
 		<?if(!$isIndex):?>
 			<div class="middle  ">
 				<div class="container float_banners text-inside" data-class="middle_adv_drag">
@@ -48,13 +51,15 @@
 			<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/footer_include/under_footer.php'));?>
 			<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/footer_include/top_footer.php'));?>
 		</footer>
+
 		<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/footer_include/bottom_footer.php'));?>
 		<?
 		if ($APPLICATION->GetPageProperty('body_class')) {
 			$GLOBALS['dopBodyClass'] .= ' '.$APPLICATION->GetPageProperty("body_class");;
 		}
 		?>
-	<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'local/include/modal.php'));?>
+
 	<link href="/bitrix/templates/aspro_max/css/custom_2.css" type="text/css"  data-template-style="true"  rel="stylesheet" />
+
 	</body>
 </html>

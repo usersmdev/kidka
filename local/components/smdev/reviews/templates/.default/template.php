@@ -9,8 +9,12 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
     $rsUser = CUser::GetByID($USER->GetID());
     $arUser = $rsUser->Fetch();
 }?>
+<div class="add_reviews">
+    <a href="javascript:void(0)" class="btn bb">Добавить отзыв</a>
+</div>
 <div class="suc"></div>
-<div id="reviews_dev">
+<div id="reviews_dev" style="display: none;">
+    <h4>Оставьте отзыв о <span class="lager_review"></span></h4>
     <div class="answer"></div>
     <div class="error_message"></div>
     <span class="rating" id="raiting_reviews"></span>
@@ -26,13 +30,11 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
     <input type="hidden" name="tent" id="tent" value="">
     <input type="hidden" name="id" value="<?=$arParams['IBLOCK_ID']?>">
     <input type="hidden" name="elementid" value="<?=$arParams['ELEMENT_ID']?>">
-    <a href="javascript:void(0);" class="btn button" id="reviews_to" >Отправить</a>
+    <a href="javascript:void(0);" class="btn bb" id="reviews_to" >Отправить</a>
 </div>
 <?php
 
 ?>
-Список отзывов
-
 <?$APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "reviews.list",
@@ -77,7 +79,7 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
         "PARENT_SECTION" => "",
         "PARENT_SECTION_CODE" => "",
         "PREVIEW_TRUNCATE_LEN" => "",
-        "PROPERTY_CODE" => array("EMAIL","AUTHOR","DATE","REVIEW","REITING","APPROV"),
+        "PROPERTY_CODE" => array("EMAIL","AUTHOR","DATE","REVIEW","REITING","APPROV", "ANSWER_ADMIN"),
         "SET_BROWSER_TITLE" => "N",
         "SET_LAST_MODIFIED" => "N",
         "SET_META_DESCRIPTION" => "N",

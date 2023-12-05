@@ -59,7 +59,7 @@ $first_offer = $arProps;
                     <div class="sale_s"><?= number_format($sale_s, 0, '', ' ') . ' ' . $currency ?></div>
                 </div>
                 <div>
-                    <div class="price_s"><strike><?= $price_whith_cur ?></strike></div>
+                    <div class="price_s"><?= $price_whith_cur ?></div>
                 </div>
             </div>
             <? if ($first_offer['SALE']['VALUE'] || $first_offer['SALELAGER']['VALUE']):
@@ -74,7 +74,7 @@ $first_offer = $arProps;
                     <?endif;?>
                 </div>
                 <div>
-                    <div class="sale_p">Скидка - <?= $sale_percent ?>%</div>
+                    <div class="sale_pb">Скидка - <?= $sale_percent ?>%</div>
                 </div>
             </div>
         <? else: ?>
@@ -97,23 +97,22 @@ $first_offer = $arProps;
         <? endif; ?>
         <? if ($first_offer['SALE']['VALUE']): ?>
             <div class="sale_lager row-flex">
-                <span class="text_l">Скидка от лагеря</span>
-                <span
-                        class="price_l">...........<?= number_format($first_offer['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
+                <span class="text_l">Скидка от лагеря ...........</span>
+                <span class="price_l"> - <?= number_format($first_offer['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
         <? if ($first_offer['SALELAGER']['VALUE']): ?>
-            <div class="sale_site row-flex"><span class="text_l">Скидка от Kidka.ru</span><span class="price_l">..........<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
+            <div class="sale_site row-flex"><span class="text_l">Скидка от Kidka.ru ...........</span><span class="price_l"> -<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
-        <? $rsStoreProduct = \Bitrix\Catalog\StoreProductTable::getList(array(
-            'filter' => array('=PRODUCT_ID' => $first_offer['ID']),
-        ));
-        while ($arStoreProduct = $rsStoreProduct->fetch()) {
-            if (IntVal($arStoreProduct["AMOUNT"]) < 10):?>
-                <? echo "<div class='amount'>Осталось мест: " . $arStoreProduct["AMOUNT"] . '</div>';
-            endif;
-        } ?>
+<!--        --><?// $rsStoreProduct = \Bitrix\Catalog\StoreProductTable::getList(array(
+//            'filter' => array('=PRODUCT_ID' => $first_offer['ID']),
+//        ));
+//        while ($arStoreProduct = $rsStoreProduct->fetch()) {
+//            if (IntVal($arStoreProduct["AMOUNT"]) < 10):?>
+<!--                --><?// echo "<div class='amount'>Осталось мест: " . $arStoreProduct["AMOUNT"] . '</div>';
+//            endif;
+//        } ?>
     </div>
 
 <?php

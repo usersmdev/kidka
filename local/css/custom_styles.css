@@ -210,7 +210,7 @@
 .main_block .vote .rating, .main_block .vote .count_rating {
     margin-right: 8px;
 }
-.fast_answer a{
+.fast_answer div{
     position: relative;
     color: #FF773C;
     /* 14 reg */
@@ -222,7 +222,7 @@
     letter-spacing: 0.2px;
     padding-left: 28px;
 }
-.fast_answer a:before {
+.fast_answer div:before {
     content: "";
     background-image: url("../images/icons/mail.svg");
     background-position: center;
@@ -236,9 +236,9 @@
     position: absolute;
     background-repeat: no-repeat;
 }
-.fast_answer a:hover{
-    color: #ed6f38;
-}
+/*.fast_answer div:hover{*/
+/*    color: #ed6f38;*/
+/*}*/
 .advert {
     display: flex;
     align-items: center;
@@ -311,7 +311,7 @@
     line-height: 32px; /* 133.333% */
     letter-spacing: 0.1px;
 }
-#fast_answer .form_head{
+#fast_answer .form_head, #more_information .form_head{
     display:none;
 }
 .fancybox-container .fancybox-bg, .fancybox-container .fancybox-button {
@@ -324,6 +324,7 @@
     align-items: center;
     margin: 24px 0;
 }
+
 .main_block .gallery a, .main_block .gallery div{
     margin-right: 8px;
     margin-bottom: 8px;
@@ -394,7 +395,7 @@ display: none;
     margin-bottom: 12px;
  }
 .detail_tabs{
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .detail_tabs .nav-tabs a {
@@ -427,4 +428,508 @@ display: none;
     line-height: 16px; /* 133.333% */
     letter-spacing: 0.2px;
     padding: 16px 28px;
+}
+.detail_tabs #FOURTH_TAB, .detail_tabs #REVIEWS, .detail_tabs #bay {
+    margin-top: 24px;
+}
+.white_button{
+    color: #009B9A!important;
+    text-align: center;
+    /* 16 bol */
+    font-family: Ubuntu;
+    font-size: 16px!important;
+    font-style: normal;
+    font-weight: 700!important;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    background-color: #ffffff!important;
+    border-radius: 4px!important;
+    border: 1px solid #E5E5E5!important;
+    padding: 18px 16px!important;
+    text-transform: none!important;
+    max-width: 552px;
+    width: 100%;
+    margin-top: 40px!important;
+}
+.detail_tabs .description{
+    color: #333;
+    /* 14 reg */
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+}
+.detail_tabs h4{
+    color: #333;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    margin: 24px 0 !important
+}
+h4.modal-title {
+    color: #333;
+    font-family: Ubuntu;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: 0.1px;
+}
+.main_block .detail_tabs .gallery{
+
+    margin: 0 0 24px 0;
+}
+.detail_tabs  .place{
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+}
+.detail_tabs  .place .map{
+    margin-top: 0px;
+    margin-left: 12px;
+}
+.emplo {
+    text-align: center;
+    font-family: Ubuntu;
+    color: #333;
+
+}
+.emplo .flex_block{
+    display:flex;
+    flex-wrap:wrap;
+}
+.emplo .item_flex{
+    width:calc( ( 100%  ) / 4 );
+margin-top: 12px;
+}
+.emplo img{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+}
+.emplo .name_empl{
+     font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+}
+.emplo .position_empl{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+}
+.emplo .speciality_empl{
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+}
+#REVIEWS .add_reviews {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+#REVIEWS .bb {
+    border-radius: 4px;
+    background: #009B9A;
+    color: #F7F7F7;
+    text-align: center;
+    font-family: Ubuntu;
+    text-transform:none!important;
+    font-size: 14px;
+    padding: 5px 15px!important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+}
+#reviews_dev{
+    margin-bottom: 24px;
+}
+#reviews_dev h4{
+    margin: 24px 0 10px 0 !important;
+}
+#reviews_dev .rating {
+    height: 20px;
+    margin: 10px 0px 10px;
+    display: block;
+}
+.list_reviews_top h4 {
+    color: #333;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    margin: 0!important;
+}
+.list_reviews_top, .list_reviews_botttom {
+    display: flex;
+    justify-content: space-between;
+}
+.content_review {
+    color: #777;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    margin: 24px 0;
+}
+.list_reviews_botttom .name{
+    color: #333;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+}
+.list_reviews_botttom .date{
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+}
+.border_line{
+    margin: 16px 0 24px;
+    border-bottom: 1px solid #AFB2B6;
+}
+.price_block .price-col{
+    display: flex;
+    justify-content: space-between;
+}
+
+.price_block .price-row-flex{
+    display: flex;
+}
+.price_block .left_price{
+    max-width: 60%;
+}
+.price_block .product_name{
+    color: #333;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    margin-bottom: 11px;
+}
+.price_block .price_date{
+margin-bottom: 2px;
+}
+.price_block .price_date, .price_block  .days{
+    color: #333;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+}
+.price_block .price_date span, .price_block .days span{
+    font-weight: 700;
+}
+.price_block .price_desc{
+    margin-top: 11px;
+    color:#777;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+}
+.price_block .price_desc.hide_desc{
+    height: 40px;
+}
+
+.price_block{
+    border-bottom: 1px solid #AFB2B6;
+    padding: 24px 16px;
+    margin-bottom: 24px;
+}
+.price_block .price_count_day{
+    color: #333;
+    /* 16 bol */
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    margin-right: 24px;
+}
+.price_block .price_count_day span{
+    font-weight: 400;
+}
+.price_block .base_sale_price{
+    color: #333;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    margin-right: 24px;
+}
+.price_block .base_price{
+    color: #777;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+    letter-spacing: 0.2px;
+    text-decoration: line-through;
+}
+.price_block .sale_price {
+    color: #FFF;
+    /* 16 reg */
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    text-align: right;
+    border-radius: 4px;
+    background: #FF773C;
+    padding: 2px 8px;
+    margin: 20px 0;
+}
+.price_block .sale_block{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.price_block .right_price a{
+    padding: 18px 16px;
+    color: #F7F7F7;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    border-radius: 4px;
+    background:#009B9A;
+    width: 100%;
+    max-width: 208px;
+    margin-top: 18px;
+    text-transform: none!important;
+}
+.price_block .buy_button{
+    display: flex;
+    justify-content: flex-end;
+}
+.price_block .sale_lag{
+    color: #FF773C;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.2px;
+}
+.price_block .point_border{
+    border-bottom: 1px solid #777;
+}
+.show_text{
+    display: none;
+}
+.show_link {
+    display: block;
+}
+.show_text {
+    color: #009B9A;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    border-radius: 8px;
+    background: rgba(0, 155, 154, 0.10);
+    backdrop-filter: blur(17px);
+    margin-top: 11px;
+    padding: 1px 8px;
+    display: inline-block;
+    cursor: pointer;
+}
+.price_ajax .goc{
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    position: relative;
+    margin-bottom: 8px;
+}
+.price_ajax .goc:after {
+    content: "";
+    background-image: url("../images/icons/gos.svg") ;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height:20px;
+    top: 0px;
+    margin-left: 4px;
+    transition: 0.5s;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.price_ajax .certificate{
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    position: relative;
+    margin-bottom: 8px;
+}
+.price_ajax .certificate:after {
+    content: "";
+    background-image: url("../images/icons/sert.svg") ;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height:20px;
+    top: 0px;
+    margin-left: 4px;
+    transition: 0.5s;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.price_ajax .thwer a{
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    position: relative;
+
+}
+.price_ajax .thwer a:hover{
+    color: #009B9A;
+}
+.price_ajax .thwer{margin-bottom: 24px;}
+.price_ajax .thwer a:after {
+    content: "";
+    background-image: url("../images/icons/desh.svg") ;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height:20px;
+    top: 0px;
+    margin-left: 4px;
+    transition: 0.5s;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.price_ajax .sale_s{
+    color: #333;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    margin-bottom: 12px;
+}
+.price_ajax .price_s {
+    color: #777;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+    letter-spacing: 0.2px;
+    text-decoration: line-through;
+}
+.price_ajax .sale_p{
+    color: var(--Black, #333);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    margin-bottom: 12px;
+}
+.price_ajax .sale_p span {
+    font-weight: 400;
+}
+.price_ajax .sale_pb{
+    display: inline-block;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    border-radius: 4px;
+    background: #FF773C;
+    padding: 2px 8px;
+}
+.price_ajax .days{
+    color: #333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    margin-bottom: 12px;
+}
+.price_ajax .text_l{
+    color: #777;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 133.333% */
+    letter-spacing: 0.2px;
+}
+.price_ajax .price_l{
+    color:#FF773C;
+    text-align: right;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.2px;
+}
+.price_ajax{
+    margin-bottom: 12px;
+}
+a.about{
+    color: #F7F7F7!important;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    border-radius: 4px;
+    background: #009B9A;
+    padding: 18px 16px;
+    width: 100%;
+    margin-top: 16px;
+    text-transform: none!important;
 }

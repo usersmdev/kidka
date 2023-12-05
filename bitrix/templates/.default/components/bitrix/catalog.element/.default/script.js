@@ -336,6 +336,13 @@
 			this.initFavorit();
 			this.initYandexMap();
 			this.PriceTarif();
+			this.Gallery();
+			this.Fansy();
+			this.InitModal();
+			this.AddReviews();
+			this.FuncAll();
+
+
 			this.obBigSlider = BX(this.visual.BIG_SLIDER_ID);
 			this.node.imageContainer = this.getEntity(this.obProduct, 'images-container');
 			this.node.imageSliderBlock = this.getEntity(this.obProduct, 'images-slider-block');
@@ -642,6 +649,69 @@
 					BX.addCustomEvent('onCatalogDeleteCompare', BX.proxy(this.checkDeletedCompare, this));
 				}
 			}
+		},
+		InitModal: function (){
+			// $('#fast_answer_click').on('click', function () {
+			// 	$('#fast_answer').modal('toggle');
+			// });
+			$('#more_information_click').on('click', function () {
+				$('#more_information').modal('toggle');
+			});
+
+		},
+		AddReviews: function (){
+			$('.add_reviews a').on('click', function (){
+				$('#reviews_dev').show(500);
+				$(this).hide();
+				// if ($(this).text() === 'Скрыть форму')
+				// 	$(this).text('Добавить отзыв')
+				// else
+				// 	$(this).text('Скрыть форму')
+			});
+			$('h4 .lager_review').text($('.bx-title').text());
+		},
+		FuncAll: function (){
+			$('.description_wrapp').each(function (){
+				let description = $(this).find('.price_desc').text().replace(/(<([^>]+)>)/gi, '');
+				let deck_this = $(this);
+				if(description.length > 90){
+					$(this).find('.show_text').addClass('show_link');
+					$(this).find('.show_text').click(function(){
+						deck_this.find('.price_desc').toggleClass('hide_desc');
+						if (deck_this.find('.price_desc').hasClass('hide_desc')) {
+							deck_this.find('.show_text').text('Развернуть');
+						} else {
+							deck_this.find('.show_text').text('Скрыть');
+						}
+						return false;
+					});
+				}
+
+			});
+		},
+		Gallery:function (){
+			let count_element;
+			count_element = $(".cust").length
+			$(".cust").each(function (key, value) {
+				if (key > 13) {
+					$(this).addClass('hide_image');
+				}
+				if (key == 13) {
+					let count = count_element - key;
+					$(this).find('span').html('+' + count);
+					$(this).on('click', function (){
+						$(this).removeClass('show_con');
+						$('.hide_image').toggle(300);
+					});
+				}
+
+			});
+		},
+		Fansy: function (){
+			$().fancybox({
+				selector : '.gal_image',
+				backFocus : false
+			});
 		},
 		PriceTarif: function (){
 			$( "select" ).change(function () {
@@ -3754,3 +3824,4 @@
 
 
 })(window);
+
