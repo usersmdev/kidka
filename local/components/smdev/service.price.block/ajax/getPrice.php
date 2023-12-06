@@ -105,6 +105,7 @@ $first_offer = $arProps;
             <div class="sale_site row-flex"><span class="text_l">Скидка от Kidka.ru ...........</span><span class="price_l"> -<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
+        <input type="hidden" id="id_prodect_price" value="<?=$productid?>">
 <!--        --><?// $rsStoreProduct = \Bitrix\Catalog\StoreProductTable::getList(array(
 //            'filter' => array('=PRODUCT_ID' => $first_offer['ID']),
 //        ));
