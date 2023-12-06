@@ -190,6 +190,7 @@ $res_price = CCatalogSKU::getOffersList(
     $propertyFilter = array("CODE" => ["DAYS", "SALE", "SALELAGER", "COMPENSATION", "CERTIFICATE", "DATE_SMENA", "DESCRIPTION_PRICE"])
 );
 
+
 ?>
 <div class="bx-catalog-element bx-<?= $arParams['TEMPLATE_THEME'] ?>" id="<?= $itemIds['ID'] ?>"
      itemscope itemtype="http://schema.org/Product">
@@ -630,7 +631,7 @@ $res_price = CCatalogSKU::getOffersList(
                                                         </div>
                                                     <? endif; ?>
                                                     <div class="buy_button">
-                                                        <a href="javascript:void(0)" class="btn bb">Купить</a>
+                                                        <a href="" class="btn bb" id="buy_lager" data-toggle="modal" data-target="#reservation" data-id="<?=$r['ID']?>">Купить</a>
                                                     </div>
                                                 </div>
                                                 <? // echo sizeof($res[$arResult['ID']]) . ' смены:'; ?>
@@ -644,7 +645,7 @@ $res_price = CCatalogSKU::getOffersList(
                             </div>
                         </div>
                         <a href="javascript:void(0)" class="white_button btn btn-default" id="more_information_click" data-toggle="modal"
-                           data-target="#more_information">Запросить больше информации</a>
+                           data-target="#more_information" >Запросить больше информации</a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 nopadding">
@@ -746,6 +747,8 @@ $res_price = CCatalogSKU::getOffersList(
                                         </div>
                                     <? endif; ?>
                                 </div>
+                                <input type="hidden" id="id_prodect_price" value="<?=$first_offer['ID']?>">
+
 <!--                                --><?// $rsStoreProducts = \Bitrix\Catalog\StoreProductTable::getList(array(
 //                                    'filter' => array('=PRODUCT_ID' => $first_offer['ID']),
 //                                ));
@@ -769,13 +772,14 @@ $res_price = CCatalogSKU::getOffersList(
                                 ?>
                             </select>
 
-                            <a href="javascript:void(0)" class="btn about">Забронировать</a>
+                            <a href="" id="bron" class="btn about" data-toggle="modal" data-target="#reservation">Забронировать</a>
 
                             <?
                             endif;
 
 
                             ?>
+
                         </div>
                     </div>
                 </div>

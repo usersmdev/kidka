@@ -68,7 +68,7 @@ $arrFilter["PROPERTY_ID_RESOURCE"] = $arParams['ELEMENT_ID'];
         "FILTER_NAME" => "arrFilter",
 
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "84",
+        "IBLOCK_ID" => "86",
         "IBLOCK_TYPE" => "aspro_max_content",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",
