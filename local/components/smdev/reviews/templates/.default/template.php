@@ -36,7 +36,7 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
 global $arrFilter;
 $arrfilter=array();
 $arrFilter["PROPERTY_ID_RESOURCE"] = $arParams['ELEMENT_ID'];
-
+$iblock_id = \GetID\Helper\IBlock::getInfoByCodeCache('reviews');
 ?>
 <?$APPLICATION->IncludeComponent(
     "bitrix:news.list",
@@ -68,7 +68,7 @@ $arrFilter["PROPERTY_ID_RESOURCE"] = $arParams['ELEMENT_ID'];
         "FILTER_NAME" => "arrFilter",
 
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "86",
+        "IBLOCK_ID" => $iblock_id['IBLOCK_ID'],
         "IBLOCK_TYPE" => "aspro_max_content",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "N",

@@ -3,6 +3,10 @@ include('include/debugger.php');
 
 include(\Bitrix\Main\Application::getInstance()->getDocumentRoot() . "/vendor/autoload.php");
 
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/autoload.php')) {
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/autoload.php');
+}
+
 if(file_exists($_SERVER["DOCUMENT_ROOT"]."/seomod/include.php")) @require($_SERVER["DOCUMENT_ROOT"]."/seomod/include.php");
 
 CModule::AddAutoloadClasses(

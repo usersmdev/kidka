@@ -363,7 +363,19 @@
 					}
 				}
 			}
-			$( "select" ).change(function () {
+			$('#productType').change(function(){
+				//url = BX.util.htmlspecialcharsback(result.FILTER_AJAX_URL);
+				let ID = $('#AJAX_ID').data("id");
+				console.log(ID)
+				BX.ajax.insertToNode($(this).val()+'&bxajaxid='+ID, 'comp_'+ID);
+
+				// var xmlHttp = new XMLHttpRequest();
+				// xmlHttp.open( "GET", $(this).val(), false ); // false for synchronous request
+				// xmlHttp.send( null );
+
+			});
+
+			$( "#productitem select" ).change(function () {
 				var str = "";
 				let select = $(this);
 				$(this).find( "option:selected" ).each(function() {

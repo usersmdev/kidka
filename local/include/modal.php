@@ -1,11 +1,12 @@
 <div class="modal fade" id="yandexdetail" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog for_map">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Область на карте</h4>
             </div>
             <div class="modal-body">
-                <div id="map" style="width: 600px; height: 400px"></div>
+                <div id="map" style="width: 100%; height: 543px"></div>
             </div>
 
         </div>
@@ -201,30 +202,29 @@
                 <h4 class="modal-title" id="myModalLabel">Бронирование путевки</h4>
             </div>
             <div class="modal-body">
-                <p style="text-align: center; color: #333;">
-                <div class="form_flex">
-                    <div class="lager">Лагерь:</div>
-                    <div class="lager_name_name"></div>
-                </div>
-                <div class="form_flex">
-                    <div class="lager">Смена:</div>
-                    <div class="lager_name_type"></div>
-                </div>
-                <div class="form_flex">
-                    <div class="lager">Стоимость:</div>
-                    <div class="lager_price">
-                        <div class="lager_real_price"></div>
-                        <div class="lager_base_price"></div>
-                        <div class="lager_sale_price"></div>
+                <div class="text_before">
+                    <div class="form_flex">
+                        <div class="lager">Лагерь:</div>
+                        <div class="lager_name_name"></div>
+                    </div>
+                    <div class="form_flex">
+                        <div class="lager">Смена:</div>
+                        <div class="lager_name_type"></div>
+                    </div>
+                    <div class="form_flex">
+                        <div class="lager">Стоимость:</div>
+                        <div class="lager_price">
+                            <div class="lager_real_price"></div>
+                            <div class="lager_base_price"></div>
+                            <div class="lager_sale_price"></div>
+                        </div>
                     </div>
                 </div>
-
-
-                </p>
                 <div class="form-control">
                     <label><span>Дата путевки</span></label>
                     <select name="modal_price" id="modal_price">
-                    </select></div>
+                    </select>
+                </div>
 
                 <?
                 $APPLICATION->IncludeComponent(

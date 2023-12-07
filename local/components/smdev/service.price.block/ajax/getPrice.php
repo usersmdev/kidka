@@ -97,12 +97,12 @@ $first_offer = $arProps;
         <? endif; ?>
         <? if ($first_offer['SALE']['VALUE']): ?>
             <div class="sale_lager row-flex">
-                <span class="text_l">Скидка от лагеря ...........</span>
+                <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
                 <span class="price_l"> - <?= number_format($first_offer['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
         <? if ($first_offer['SALELAGER']['VALUE']): ?>
-            <div class="sale_site row-flex"><span class="text_l">Скидка от Kidka.ru ...........</span><span class="price_l"> -<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
+            <div class="sale_site row-flex"><span class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span><span class="price_l"> -<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
         <input type="hidden" id="id_prodect_price" value="<?=$productid?>">

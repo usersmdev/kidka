@@ -1,5 +1,5 @@
 <?php
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {die();}
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Catalog\ProductTable;
@@ -471,9 +471,11 @@ $res_price = CCatalogSKU::getOffersList(
                                             foreach ($arProps['EMPLOYEESS']['VALUE'] as $EMPLOYEESS) {
                                                 $ids[] = intval($EMPLOYEESS);
                                             }
+                                            $arrFilter["PROPERTY_ID_RESOURCE"] = $arParams['ELEMENT_ID'];
+                                            $iblock_id = \GetID\Helper\IBlock::getInfoByCodeCache('employees');
                                             $res = CIBlockElement::GetList(
                                                 ["SORT" => "ASC"],
-                                                ['IBLOCK_ID' => '87', 'ID' => $ids],
+                                                ['IBLOCK_ID' => $iblock_id['IBLOCK_ID'], 'ID' => $ids],
                                                 false,
                                                 false,
                                                 ['ID', 'IBLOCK_ID', 'NAME', 'POSITION']
@@ -538,7 +540,7 @@ $res_price = CCatalogSKU::getOffersList(
                                                 for ($i = 0; $i < count($arPrice); $i++) {
                                                     if ($arPrice[$i]["CAN_ACCESS"] == "Y") {
                                                         if ($arPrice[$i]["CAN_BUY"] == "Y" && (IntVal($arProduct["QUANTITY"]) > 0 || $arProduct["QUANTITY_TRACE"] != "Y"))
-                                                            $bCanBuy = True;
+                                                            {$bCanBuy = true;}
                                                         $currency = $arPrice[$i]["CURRENCY"];
                                                         if ($currency == 'RUB'):
                                                             $currency = '&#8381';
@@ -620,14 +622,14 @@ $res_price = CCatalogSKU::getOffersList(
                                                 <div class="right_price">
                                                     <? if ($first_offer['PROPERTIES']['SALE']['VALUE']): ?>
                                                         <div class="sale_lager row-flex">
-                                                            <span class="text_l">Скидка от лагеря</span>
-                                                            <span class="price_l">  .........  <span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
+                                                            <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
+                                                            <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                                         </div>
                                                     <? endif; ?>
                                                     <? if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
                                                         <div class="sale_site row-flex"><span
-                                                                    class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span><span
-                                                                    class="price_l">  .........  <span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
+                                                                    class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span>
+                                                            <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                                         </div>
                                                     <? endif; ?>
                                                     <div class="buy_button">
@@ -668,7 +670,7 @@ $res_price = CCatalogSKU::getOffersList(
                                 for ($i = 0; $i < count($arPrice); $i++) {
                                     if ($arPrice[$i]["CAN_ACCESS"] == "Y") {
                                         if ($arPrice[$i]["CAN_BUY"] == "Y" && (IntVal($arProduct["QUANTITY"]) > 0 || $arProduct["QUANTITY_TRACE"] != "Y"))
-                                            $bCanBuy = True;
+                                            {$bCanBuy = true;}
                                         $currency = $arPrice[$i]["CURRENCY"];
                                         if ($currency == 'RUB'):
                                             $currency = '&#8381';
@@ -736,13 +738,13 @@ $res_price = CCatalogSKU::getOffersList(
                                     <? endif; ?>
                                     <? if ($first_offer['PROPERTIES']['SALE']['VALUE']): ?>
                                         <div class="sale_lager row-flex">
-                                            <span class="text_l">Скидка от лагеря...........</span>
+                                            <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
                                             <span class="price_l"> -<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
                                         </div>
                                     <? endif; ?>
                                     <? if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
                                         <div class="sale_site row-flex"><span
-                                                    class="text_l">Скидка от Kidka.ru..........</span><span
+                                                    class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span><span
                                                     class="price_l"> -<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
                                         </div>
                                     <? endif; ?>
@@ -774,12 +776,13 @@ $res_price = CCatalogSKU::getOffersList(
 
                             <a href="" id="bron" class="btn about" data-toggle="modal" data-target="#reservation">Забронировать</a>
 
-                            <?
-                            endif;
-
-
-                            ?>
-
+                            <ul class="price_property_button">
+                                <li>Бесплатное бронирование без комиссии и предоплат</li>
+                                <li>Бесплатная отмена</li>
+                                <li>Можно оплатить бонусами</li>
+                                <li>Есть свободные места</li>
+                            </ul>
+                        <?endif;?>
                         </div>
                     </div>
                 </div>
