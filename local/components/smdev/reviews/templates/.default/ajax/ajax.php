@@ -18,10 +18,12 @@ $PROP['REVIEW'] = $_POST['textarea'];
 $PROP['REITING'] = $_POST['rating'];
 $PROP['APPROV'] = 8699; // все отзывы одобрены
 $PROP['ID_RESOURCE'] = $_POST['elementid'];
+$iblock_id = \GetID\Helper\IBlock::getInfoByCodeCache('reviews');
+
 $arLoadProductArray = Array(
     "MODIFIED_BY"    => $USER->GetID(),
     "IBLOCK_SECTION_ID" => false,
-    "IBLOCK_ID"      => 86,
+    "IBLOCK_ID"      => $iblock_id['IBLOCK_ID'],
     "PROPERTY_VALUES"=> $PROP,
     "NAME"           => $_POST['first_name'],
     "ACTIVE"         => "Y",
