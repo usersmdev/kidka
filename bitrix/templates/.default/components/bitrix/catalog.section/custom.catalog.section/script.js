@@ -44,6 +44,7 @@
 		{
 			BX.ready(BX.delegate(this.deferredLoad, this));
 		}
+		this.YandexMAp();
 
 		if (params.lazyLoad)
 		{
@@ -328,6 +329,93 @@
 			BX.ajax.processScripts(processed.SCRIPT);
 		},
 
+		YandexMAp: function (){
+			$('#view_map').on('click', function (){
+				$('#myModal').modal('show');
+				ymaps.load(init);
+			})
+
+
+			function init() {
+				let result = [];
+
+				$('.catalog-row .news-item').each(function () {
+					let ItemObject = new Object();
+					let arr_pointr = [];
+					let arr_address = [];
+					let point;
+					let address;
+					console.log($(this).find('.map_point'))
+					$(this).find('.map_point').each(function () {
+						point = $(this).val().split(',');
+						arr_pointr.push(point);
+					});
+					$(this).find('.address').each(function () {
+						address = $(this).val();
+						arr_address.push(address);
+					});
+					ItemObject['title'] = $(this).find('.title').text();
+					ItemObject['point'] = arr_pointr;
+					ItemObject['address'] = arr_address;
+					ItemObject['link'] = $(this).find('a.about').attr('href');
+					result.push(ItemObject);
+				});
+				console.log(result)
+				//arr_point = ['55.775870837802','37.659226074219'];
+				var myMap = new ymaps.Map("mapYa", {
+					// Координаты центра карты.
+					// Порядок по умолчнию: «широта, долгота».
+					center: result[0].point[0],
+					// Уровень масштабирования. Допустимые значения:
+					// от 0 (весь мир) до 19.
+					zoom: 10,
+					// Элементы управления
+					// https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/controls/standard-docpage/
+					controls: [
+
+						'zoomControl', // Ползунок масштаба
+						'rulerControl', // Линейка
+						'routeButtonControl', // Панель маршрутизации
+						'trafficControl', // Пробки
+						'typeSelector', // Переключатель слоев карты
+						'fullscreenControl', // Полноэкранный режим
+
+						// Поисковая строка
+						new ymaps.control.SearchControl({
+							options: {
+								// вид - поисковая строка
+								size: 'large',
+								// Включим возможность искать не только топонимы, но и организации.
+								provider: 'yandex#search'
+							}
+						})
+
+					]
+				});
+				for (var i = 0; i < result.length; i++) {
+					//console.log(result[i].point)
+					let balun_title = result[i].title;
+					let arr_point_obj = result[i].point;
+					let balun_address = result[i].address;
+					let balun_link = result[i].link;
+					//console.log(result[i].title)
+					for (var l = 0; l < arr_point_obj.length; l++) {
+						//console.log(result[i].title)
+						//console.log(arr_point_obj[l]);
+						myMap.geoObjects.add( new ymaps.Placemark(arr_point_obj[l], {
+							balloonContent: '<h3>'+result[i].title+'</h3><strong>'+balun_address[l]+'</strong><br><a href="'+balun_link+'">Подробнее</a>'
+						}));
+					}
+				};
+				//центровка карты по всем точкам
+				//myMap.setBounds(myMap.geoObjects.getBounds(),{checkZoomRange:true, zoomMargin:9});
+				$('#myModal').on('hidden.bs.modal', function (e) {
+					myMap.destroy();
+				})
+
+			}
+		},
+
 		showHeader: function(animate)
 		{
 			var parentNode = BX.findParent(this.container, {attr: {'data-entity': 'parent-container'}}),
@@ -363,6 +451,35 @@
 					}
 				}
 			}
+			class Rating {
+				constructor(dom) {
+					dom.innerHTML = '<svg width="110" height="20"></svg>';
+					this.svg = dom.querySelector('svg');
+					for(var i = 0; i < 5; i++)
+						this.svg.innerHTML += `<polygon data-value="${i+1}"
+           transform="translate(${i*22},0)" 
+           points="10,1 4,19.8 19,7.8 1,7.8 16,19.8">`;
+					this.svg.onclick = e => this.change(e);
+
+					this.render();
+				}
+
+				change(e) {
+					let value = e.target.dataset.value;
+					value && (this.svg.parentNode.dataset.value = value);
+					this.render();
+				}
+				render() {
+					this.svg.querySelectorAll('polygon').forEach(star => {
+						//let pointer = this.svg.parentNode.style.cssText = "pointer-events:none";
+						let on = +this.svg.parentNode.dataset.value >= +star.dataset.value;
+						star.classList.toggle('active', on);
+
+
+					});
+				}
+			}
+			document.querySelectorAll('.rating').forEach(dom => new Rating(dom));
 			$('#productType').change(function(){
 				//url = BX.util.htmlspecialcharsback(result.FILTER_AJAX_URL);
 				let ID = $('#AJAX_ID').data("id");
@@ -375,6 +492,67 @@
 
 			});
 
+				$().fancybox({
+					selector: '.gal_image',
+					backFocus: false
+				});
+			$('.favor').on('click', function (e) {
+				var favorID = $(this).attr('data-item');
+				if ($(this).hasClass('active_ds')) {
+					var doAction = 'delete';
+					//$('.fav_page').find('.favor[data-item="' + favorID + '"]').parents('.cat_list').remove(); // Моментальное удаление, если мы на странице избранного
+				} else {
+					var doAction = 'add';
+					addFavorite(favorID, doAction);
+				}
+			});
+			/* Favorites */
+			$('.favor').on('click', function (e) {
+				if ($(this).hasClass('active_d')) {
+					$(this).removeClass('active_d')
+				} else {
+					$(this).addClass('active_d')
+				}
+
+			});
+
+			/* Избранное */
+
+			function addFavorite(id, action) {
+				var param = 'id=' + id + "&action=" + action;
+				$.ajax({
+					url: '/local/components/smdev/favorite.elements/ajax.php', // URL отправки запроса
+					type: "GET",
+					dataType: "html",
+					data: param,
+					timeout: 3000,
+					beforeSend: function () {
+						$('.preloader').addClass('loaded_hiding');
+					},
+					error: function (request, error) {
+						if (error == "timeout") {
+							alert('timeout');
+						} else {
+							alert('Error! Please try again!');
+						}
+						console.log('Error: ' + errorThrown);
+					},
+					success: function (response) {
+						var result = response;
+						//$('.favor').text(response)
+						if (result == 1) { // Если всё хорошо, то выполняем действия, которые показывают, что данные отправлены
+							$('.favor[data-item="' + id + '"]').addClass('active_d');
+							var wishCount = parseInt($('#want .col').html()) + 1;
+							$('#want .col').html(wishCount); // Визуально меняем количество у иконки
+						}
+						if (result == 2) {
+							$('.favor[data-item="' + id + '"]').removeClass('active_d');
+							var wishCount = parseInt($('#want .col').html()) - 1;
+							$('#want .col').html(wishCount); // Визуально меняем количество у иконки
+						}
+					}
+				});
+			}
 			$( "#productitem select" ).change(function () {
 				var str = "";
 				let select = $(this);
@@ -405,90 +583,7 @@
 				$( "div.text" ).text( str );
 			})
 
-				$('#view_map').on('click', function (){
-					$('#myModal').modal('show');
-					ymaps.load(init);
-				})
 
-
-				function init() {
-					let result = [];
-
-					$('.catalog-row .news-item').each(function () {
-						let ItemObject = new Object();
-						let arr_pointr = [];
-						let arr_address = [];
-						let point;
-						let address;
-						console.log($(this).find('.map_point'))
-						$(this).find('.map_point').each(function () {
-							point = $(this).val().split(',');
-							arr_pointr.push(point);
-						});
-						$(this).find('.address').each(function () {
-							address = $(this).val();
-							arr_address.push(address);
-						});
-						ItemObject['title'] = $(this).find('.title').text();
-						ItemObject['point'] = arr_pointr;
-						ItemObject['address'] = arr_address;
-						ItemObject['link'] = $(this).find('a.about').attr('href');
-						result.push(ItemObject);
-					});
-					console.log(result[0].point[0])
-					 //arr_point = ['55.775870837802','37.659226074219'];
-					var myMap = new ymaps.Map("map", {
-						// Координаты центра карты.
-						// Порядок по умолчнию: «широта, долгота».
-						center: result[0].point[0],
-						// Уровень масштабирования. Допустимые значения:
-						// от 0 (весь мир) до 19.
-						zoom: 10,
-						// Элементы управления
-						// https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/controls/standard-docpage/
-						controls: [
-
-							'zoomControl', // Ползунок масштаба
-							'rulerControl', // Линейка
-							'routeButtonControl', // Панель маршрутизации
-							'trafficControl', // Пробки
-							'typeSelector', // Переключатель слоев карты
-							'fullscreenControl', // Полноэкранный режим
-
-							// Поисковая строка
-							new ymaps.control.SearchControl({
-								options: {
-									// вид - поисковая строка
-									size: 'large',
-									// Включим возможность искать не только топонимы, но и организации.
-									provider: 'yandex#search'
-								}
-							})
-
-						]
-					});
-					for (var i = 0; i < result.length; i++) {
-						//console.log(result[i].point)
-						let balun_title = result[i].title;
-						let arr_point_obj = result[i].point;
-						let balun_address = result[i].address;
-						let balun_link = result[i].link;
-						//console.log(result[i].title)
-						for (var l = 0; l < arr_point_obj.length; l++) {
-							//console.log(result[i].title)
-							//console.log(arr_point_obj[l]);
-							myMap.geoObjects.add( new ymaps.Placemark(arr_point_obj[l], {
-								balloonContent: '<h3>'+result[i].title+'</h3><strong>'+balun_address[l]+'</strong><br><a href="'+balun_link+'">Подробнее</a>'
-							}));
-						}
-					};
-					//центровка карты по всем точкам
-					//myMap.setBounds(myMap.geoObjects.getBounds(),{checkZoomRange:true, zoomMargin:9});
-					$('#myModal').on('hidden.bs.modal', function (e) {
-						myMap.destroy();
-					})
-
-			}
 
 		}
 
