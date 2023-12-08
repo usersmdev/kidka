@@ -30,9 +30,9 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 
 
 <?php //var_dump($arResult["ITEMS"][1193])?>
-<div class="bx-filter <?=$templateData["TEMPLATE_CLASS"]?> <?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL") echo "bx-filter-horizontal"?>">
+<div class="bx-filter <?=$templateData["TEMPLATE_CLASS"]?> <?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL") echo "bx-filter-horizontal"?>" id="filter_d">
 	<div class="bx-filter-section container-fluid">
-		<div class="row"><div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-lg-12<?endif?> bx-filter-title"><?echo GetMessage("CT_BCSF_FILTER_TITLE")?></div></div>
+		<div class="row"><div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-lg-12<?endif?> bx-filter-title"></div></div>
 		<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
 			<?foreach($arResult["HIDDEN"] as $arItem):?>
 			<input type="hidden" name="<?echo $arItem["CONTROL_NAME"]?>" id="<?echo $arItem["CONTROL_ID"]?>" value="<?echo $arItem["HTML_VALUE"]?>" />
@@ -167,7 +167,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 						<div class="bx-filter-parameters-box-title" onclick="smartFilter.hideFilterProps(this)">
 							<span class="bx-filter-parameters-box-hint"><?=$arItem["NAME"]?>
 								<?if ($arItem["FILTER_HINT"] <> ""):?>
-									<i id="item_title_hint_<?echo $arItem["ID"]?>" class="fa fa-question-circle"></i>
+<!--									<i id="item_title_hint_--><?//echo $arItem["ID"]?><!--" class="fa fa-question-circle"></i>-->
 									<script type="text/javascript">
 										new top.BX.CHint({
 											parent: top.BX("item_title_hint_<?echo $arItem["ID"]?>"),
@@ -180,8 +180,9 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 										});
 									</script>
 								<?endif?>
-								<i data-role="prop_angle" class="fa fa-angle-<?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>up<?else:?>down<?endif?>"></i>
+<!--								<i data-role="prop_angle" class="fa fa-angle---><?//if ($arItem["DISPLAY_EXPANDED"]== "Y"):?><!--up--><?//else:?><!--down--><?//endif?><!--"></i>-->
 							</span>
+                            <span class="arrow "></span>
 						</div>
 
 						<div class="bx-filter-block" data-role="bx_filter_block">
@@ -615,9 +616,8 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 //                                            var_dump($arItem);
                                             ?>
 											<div class="checkbox">
-												<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="bx-filter-param-label <? echo $ar["DISABLED"] ? 'disabled': '' ?>" for="<? echo $ar["CONTROL_ID"] ?>">
-													<span class="bx-filter-input-checkbox">
 
+													<span class="bx-filter-input-checkbox">
 														<input
 															type="checkbox"
                                                             app = "<?=$ar["CHECKED"]?>"
@@ -626,13 +626,16 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 															id="<? echo $ar["CONTROL_ID"] ?>"
 															<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
 															onclick="smartFilter.click(this)"
+                                                            class="custom-checkbox"
+                                                            for="label_<?=$ar["CONTROL_ID"]?>"
 														/>
-														<span class="bx-filter-param-text" title="<?=$ar["VALUE"];?>"><?=$ar["VALUE"];?><?
-														if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
-															?>&nbsp;(<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
-														endif;?></span>
-													</span>
+                                                <label data-role="label_<?=$ar["CONTROL_ID"]?>" class="bx-filter-param-label <? echo $ar["DISABLED"] ? 'disabled': '' ?>" for="<? echo $ar["CONTROL_ID"] ?>">
+                                                    <span class="bx-filter-param-text" title="<?=$ar["VALUE"];?>"><?=$ar["VALUE"];?><?
+                                                        if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
+                                                            ?>&nbsp;(<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
+                                                        endif;?></span>
 												</label>
+                                                        </span>
 											</div>
 										<?endforeach;?>
 									</div>
@@ -651,6 +654,8 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 				<div class="col-xs-12 bx-filter-button-box">
 					<div class="bx-filter-block">
 						<div class="bx-filter-parameters-box-container">
+                            <button id="view_map">Показать на карте</button>
+                            <div style="display: none">
 							<input
 								class="btn btn-themes"
 								type="submit"
@@ -671,6 +676,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
 								<br/>
 								<a href="<?echo $arResult["FILTER_URL"]?>" target=""><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
 							</div>
+                            </div>
 						</div>
 					</div>
 				</div>
