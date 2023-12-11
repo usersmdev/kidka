@@ -95,4 +95,4 @@ local/catalog/delay_modify_products.txt
 bitrix/templates/dm/.verstka/
 *.zip
 bitrix/templates/dm/images/jquery.uniform/sprite.psd
-/local/log/
+

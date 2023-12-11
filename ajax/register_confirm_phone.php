@@ -3,22 +3,31 @@ if (!defined('PUBLIC_AJAX_MODE')) {
     define('PUBLIC_AJAX_MODE', true);
 }
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/local/include/sms.ru.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/local/include/smsc_smpp.php");
 ?>
 <?php
 global $USER;
+$message = array();
 function smscode($phone,$ip){
-    $smsru = new SMSRU('C91C35FD-AF9B-DCDB-A625-0FC43B3AEC54'); // Ваш уникальный программный ключ, который можно получить на главной странице
-    $data = new stdClass();
-    $data->to = $phone;
-    //$data->ip = $ip;
-    $data->text = 'Ваш код: ' . $_SESSION['rand_sms'];
-    $sms = $smsru->send_one($data); // Отправка сообщения и возврат данных в переменную
-    if ($sms->status == "OK") { // Запрос выполнен успешно
-        $message['sms'] = $sms->sms_id;
-    } else {
-        $message['sms_error'] = $sms->status_code;
-    }
+//    $smsru = new SMSRU('C91C35FD-AF9B-DCDB-A625-0FC43B3AEC54'); // Ваш уникальный программный ключ, который можно получить на главной странице
+//    $data = new stdClass();
+//    $data->to = $phone;
+//    //$data->ip = $ip;
+//    $data->text = 'Ваш код: ' . $_SESSION['rand_sms'];
+//    $sms = $smsru->send_one($data); // Отправка сообщения и возврат данных в переменную
+//    if ($sms->status == "OK") { // Запрос выполнен успешно
+//        $message['sms'] = $sms->sms_id;
+//    } else {
+//        $message['sms_error'] = $sms->status_code;
+//    }
+    $S = new SMSC_SMPP();
+    $sms = $S->send_sms(strval($phone), 'Ваш код: ' . $_SESSION['rand_sms']);
+    if ($sms) {
+            $message['sms'] = $sms;
+        } else {
+            $message['sms_error'] = $sms;
+        }
+
 }
 
 
@@ -40,8 +49,9 @@ if (!$USER->IsAuthorized()):
             $_SESSION['rand_sms'] = $rand;
             $_SESSION['sms_phone'] = $phone;
             $message['code'] = $_SESSION['rand_sms'];
+            $message['phone'] = $phone;
             $ip = \Bitrix\Main\Service\GeoIp\Manager::getRealIp();
-            //smscode($phone,$ip);
+            smscode($phone,$ip);
         }
         else{
             //Пользователь существует

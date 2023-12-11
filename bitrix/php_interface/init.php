@@ -431,3 +431,15 @@ function notifyOnAfterAddArchbureauElement($fields) {
 
 	$ok = CEvent::Send($eventType, "s1", $arMail);
 }
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/Smsc/Smsc.php')) {
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/local/Smsc/Smsc.php');
+    $event = \Bitrix\Main\EventManager::getInstance();
+    $event->addEventHandler('messageservice', 'onGetSmsSenders', 'registerSmscService');
+
+    function registerSmscService() {
+        return [
+            // Класс нашего СМС-сервиса
+            new Smsc(),
+        ];
+    }
+}
