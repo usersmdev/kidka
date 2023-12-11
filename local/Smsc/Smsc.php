@@ -18,7 +18,7 @@ class Smsc extends \Bitrix\MessageService\Sender\Base
 
     public function __construct() {
         $this->login = '0882252';
-        $this->password = '5f0f175bcae410c672d55020b176efacf83aa965';
+        $this->password = '111qqq@@@';
 
         $this->client = new \SmsApi($this->login, $this->password);
     }
