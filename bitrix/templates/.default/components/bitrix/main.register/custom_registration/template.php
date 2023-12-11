@@ -129,12 +129,14 @@ list($code, $phoneNumber) = \CUser::GeneratePhoneCode($userId);
 $sms = new \Bitrix\Main\Sms\Event(
     'SMS_USER_CONFIRM_NUMBER', // SMS_USER_RESTORE_PASSWORD - для восстановления
     [
-        'USER_PHONE' => $phoneNumber,
+        'USER_PHONE' => $phone,
         'CODE' => $code,
     ]
 );
-
 var_dump($sms->send(true));
+//include_once($_SERVER['DOCUMENT_ROOT'] . "/local/Smsc/SmsApi.php");
+//$sms = new SmsApi('0882252', '111qqq@@@');;
+//var_dump($sms->getBalance(true));
 ?>
     <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@latest/dist/css/suggestions.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@latest/dist/js/jquery.suggestions.min.js"></script>

@@ -15,8 +15,8 @@ class SmsApi
 
     public function __construct($login, $password)
     {
-        $this->login = $login;
-        $this->password = $password;
+        $this->login = '0882252';
+        $this->password = '5f0f175bcae410c672d55020b176efacf83aa965';
     }
 
     public function getSenderList()
@@ -54,7 +54,7 @@ class SmsApi
 
         $http = new HttpClient();
         if ($httpMethod === HttpClient::HTTP_GET) {
-            $http->query($httpMethod, 'https://smsc.ru/sys/'.$method.'.php?', http_build_query($parameters));
+            $http->query($httpMethod, 'https://smsc.ru/syas/'.$method.'.php?', http_build_query($parameters));
         } else {
             $http->query($httpMethod, 'https://smsc.ru/sys/'.$method.'.php', $parameters);
         }
