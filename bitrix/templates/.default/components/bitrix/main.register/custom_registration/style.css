@@ -18,8 +18,12 @@ div.bx-auth-reg div.bx-auth-secure-unlock {background-image:url(images/sec-unloc
 }
 .success_code {
     position: absolute;
-    top: 8px;
+    top: 3px;
     right: 9px;
+}
+.success_code svg:not(:root) {
+    overflow: hidden;
+    width: 20px;
 }
 .error_mess, .messege_code, .error {
     color: #d90000;
