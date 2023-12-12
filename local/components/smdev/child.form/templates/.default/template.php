@@ -307,7 +307,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         setTimeout(function () {
                             window.location.href = '/test-catalog/';
                         }, 4000);
-
+                        $('html, body').animate({
+                            scrollTop: $(".wrapp_block").offset().top // класс объекта к которому приезжаем
+                        }, 1000); // Скорость прокрутки
                     }else {
                         $('.errortext').html(data)
                     }
@@ -401,6 +403,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                 }
             }
             if (error) {
+                $('html, body').animate({
+                    scrollTop: $(".register_children .title").offset().top // класс объекта к которому приезжаем
+                }, 1000); // Скорость прокрутки
 
                 return false;
             }else {
