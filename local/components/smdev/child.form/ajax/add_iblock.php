@@ -6,12 +6,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.ph
 
 CModule::IncludeModule('iblock');  // это подключит нужный класс для работы с инфоблоком
 $data = json_decode($_POST['data']);
-
-var_dump($data);
-//return false;
-//echo $data[0];
+$result = true;
 foreach ($data as $value){
-    var_dump($value->input->name);
     if ($value->input->name && is_array($value->checkbox)) {
         //Запись в инфоблок
         $el = new CIBlockElement;
@@ -32,13 +28,13 @@ foreach ($data as $value){
             'DETAIL_PICTURE' => $_FILES['DETAIL_PICTURE'] // картинка, загружаемая из файлового поля веб-формы с именем DETAIL_PICTURE
         );
         if ($PRODUCT_ID = $el->Add($arLoadProductArray)) {
-            echo 'New ID: ' . $PRODUCT_ID;
+            $result = false;
         } else {
-            echo 'Error: ' . $el->LAST_ERROR;
+            $result = 'Error: ' . $el->LAST_ERROR;
         }
     }
 }
-//var_dump($_POST['value']);
-//$data['111111'];
+echo json_encode($result);
+
 
 
