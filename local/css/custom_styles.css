@@ -2146,3 +2146,113 @@ img.calendar-icon-hover {
 .register_one input.error_input {
     border-color: rgba(217, 81, 81, 0.40);
 }
+.register_children {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: Ubuntu;
+}
+.register_children .subtitle {
+    margin-top: -8px;
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+}
+.register_children .title {
+    color: #009B9A;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0.2px;
+    margin-bottom: 8px;
+}
+.register_children .desc {
+    color: #777;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    margin-bottom: 4px;
+}
+.register_children .tab_menu{
+margin: 40px 0 24px;
+}
+.register_children .tab_menu ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.register_children .tab_menu ul:not([id*="bx_"]) > li:before {
+    content: " ";
+    margin: 0;
+}
+.register_children .tab_menu ul > li {
+    margin: 0;
+    list-style-type: none;
+    float: none;
+    border-radius: 8px 8px 0px 0px;
+    background: rgba(235, 235, 235, 0.50);
+    backdrop-filter: blur(17px);
+    color: #333;
+    padding: 10px 24px;
+    margin-right: 4px;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(235, 235, 235, 0.50);
+}
+.register_children .tab_menu ul > li.active {
+    color: #009B9A;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px; /* 142.857% */
+    letter-spacing: 0.2px;
+    background: rgba(0, 155, 154, 0.10);
+    border-bottom: 2px solid var(--primary, #009B9A);
+    backdrop-filter: blur(17px);
+}
+.register_children .tab_menu ul > li.addtab div{
+    position: relative;
+    top: 3px;
+}
+.register_children .close_tab{
+    position: relative;
+    left: -21px;
+    top: 3px;
+    color: var(--primary, #009B9A);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    height: 14px;
+    padding: 0px 3px;
+    border-radius: 100%;
+
+    line-height: 13px;
+}
+.register_children .close_tab:hover{
+    background: #fff;
+}
+.register_children input.error_input {
+    border-color: rgba(217, 81, 81, 0.40);
+}
+.register_children img.calendar-icon {
+    vertical-align: top;
+    cursor: pointer;
+    width: 17px;
+    height: 18px;
+    margin: 0 0 0 1px;
+    box-sizing: content-box;
+    border: 1px solid transparent;
+    position: absolute;
+    top: 38px;
+    right: 14px;
+}
+.error_check{
+    color: rgb(217 81 81);;
+}
