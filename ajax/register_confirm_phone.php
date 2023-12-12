@@ -3,34 +3,25 @@ if (!defined('PUBLIC_AJAX_MODE')) {
     define('PUBLIC_AJAX_MODE', true);
 }
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/local/include/smsc_smpp.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/local/include/sms.ru.php");
 ?>
 <?php
 global $USER;
-$message = array();
+
 function smscode($phone,$ip){
-//    $smsru = new SMSRU('C91C35FD-AF9B-DCDB-A625-0FC43B3AEC54'); // Ваш уникальный программный ключ, который можно получить на главной странице
-//    $data = new stdClass();
-//    $data->to = $phone;
-//    //$data->ip = $ip;
-//    $data->text = 'Ваш код: ' . $_SESSION['rand_sms'];
-//    $sms = $smsru->send_one($data); // Отправка сообщения и возврат данных в переменную
-//    if ($sms->status == "OK") { // Запрос выполнен успешно
-//        $message['sms'] = $sms->sms_id;
-//    } else {
-//        $message['sms_error'] = $sms->status_code;
-//    }
-    $S = new SMSC_SMPP();
-    $sms = $S->send_sms(strval($phone), 'Ваш код: ' . $_SESSION['rand_sms']);
-    if ($sms) {
-            $message['sms'] = $sms;
-        } else {
-            $message['sms_error'] = $sms;
-        }
+    $smsru = new SMSRU('E18BF8F1-00BB-1EDD-AEB9-CA729129EC78'); // Ваш уникальный программный ключ, который можно получить на главной странице
+    $data = new stdClass();
+    $data->to = $phone;
+    //$data->ip = $ip;
+    $data->text = 'Ваш код: ' . $_SESSION['rand_sms'];
+    $sms = $smsru->send_one($data); // Отправка сообщения и возврат данных в переменную
+    if ($sms->status == "OK") { // Запрос выполнен успешно
+        $message['sms'] = $sms->sms_id;
+    } else {
+        $message['sms_error'] = $sms->status_code;
+    }
 
 }
-
-
 if (!$USER->IsAuthorized()):
     if ($_REQUEST['phone'] && empty($_REQUEST['scode'])) {
         $message = [];

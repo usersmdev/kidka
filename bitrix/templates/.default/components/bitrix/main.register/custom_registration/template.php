@@ -102,41 +102,27 @@ if (!$_SESSION['sms_phone2']) {
     $arResult["VALUES"]['PERSONAL_PHONE'] = '';
     $arResult["VALUES"]['PHONE_NUMBER'] = '';
 }
-//include_once($_SERVER['DOCUMENT_ROOT'] . "/local/include/smsc_api.php");
-//list($sms_id, $sms_cnt, $cost, $balance) = send_sms('79388718588', 'Ваш код: ', 1);
-//if ($sms_id) {
-//    $message['sms'] = $sms_id;
-//} else {
-//    $message['sms_error'] = $sms_cnt;
-//}
-//curl https://example.com/
-//list($status, $time) = get_status($sms_id, "79180329411");
-//var_dump($sms_id);
-//var_dump($sms_cnt);
-//var_dump($status);
-//var_dump($time);
 
-$userId = 8941;
-$phone = \Bitrix\Main\UserPhoneAuthTable::normalizePhoneNumber('+79180329411');
 
-\Bitrix\Main\UserPhoneAuthTable::add([
-    'USER_ID' => $userId,
-    'PHONE_NUMBER' => $phone,
-]);
+//$userId = 8941;
+//$phone = \Bitrix\Main\UserPhoneAuthTable::normalizePhoneNumber('+79180329411');
+//
+//\Bitrix\Main\UserPhoneAuthTable::add([
+//    'USER_ID' => $userId,
+//    'PHONE_NUMBER' => $phone,
+//]);
+//
+//list($code, $phoneNumber) = \CUser::GeneratePhoneCode($userId);
+//
+//$sms = new \Bitrix\Main\Sms\Event(
+//    'SMS_USER_CONFIRM_NUMBER', // SMS_USER_RESTORE_PASSWORD - для восстановления
+//    [
+//        'USER_PHONE' => $phone,
+//        'CODE' => $code,
+//    ]
+//);
+//var_dump($sms->send(true));
 
-list($code, $phoneNumber) = \CUser::GeneratePhoneCode($userId);
-
-$sms = new \Bitrix\Main\Sms\Event(
-    'SMS_USER_CONFIRM_NUMBER', // SMS_USER_RESTORE_PASSWORD - для восстановления
-    [
-        'USER_PHONE' => $phone,
-        'CODE' => $code,
-    ]
-);
-var_dump($sms->send(true));
-//include_once($_SERVER['DOCUMENT_ROOT'] . "/local/Smsc/SmsApi.php");
-//$sms = new SmsApi('0882252', '111qqq@@@');;
-//var_dump($sms->getBalance(true));
 ?>
     <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@latest/dist/css/suggestions.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@latest/dist/js/jquery.suggestions.min.js"></script>
