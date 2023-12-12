@@ -7,6 +7,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.ph
 CModule::IncludeModule('iblock');  // это подключит нужный класс для работы с инфоблоком
 $data = json_decode($_POST['data']);
 $result = true;
+$iblock_id = \GetID\Helper\IBlock::getInfoByCodeCache('children_info');
 foreach ($data as $value){
     if ($value->input->name && is_array($value->checkbox)) {
         //Запись в инфоблок
@@ -19,7 +20,7 @@ foreach ($data as $value){
         $arLoadProductArray = array(
             'MODIFIED_BY' => $GLOBALS['USER']->GetID(), // элемент изменен текущим пользователем
             'IBLOCK_SECTION_ID' => false, // элемент лежит в корне раздела
-            'IBLOCK_ID' => 84,
+            'IBLOCK_ID' => $iblock_id['IBLOCK_ID'],
             'PROPERTY_VALUES' => $PROP,
             'NAME' => $value->input->name,
             'ACTIVE' => 'Y', // активен
