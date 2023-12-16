@@ -54,8 +54,10 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 	<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/header_include/under_wrapper1.php'));?>
 	<div class="wrapper1 <?=($isIndex && $isShowIndexLeftBlock ? "with_left_block" : "");?> <?=CMax::getCurrentPageClass();?> <?$APPLICATION->AddBufferContent(array('CMax', 'getCurrentThemeClasses'))?>  ">
 		<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/header_include/top_wrapper1.php'));?>
-
-		<div class="wraps hover_<?=$arTheme["HOVER_TYPE_IMG"]["VALUE"];?>" id="content">
+		<?if($APPLICATION->GetCurPage() == "/registratsiya/dobavit-rebenka.php"): ?>
+			<?$reg_clas = 'add_ch'?>
+		<?endif?>
+		<div class="wraps hover_<?=$arTheme["HOVER_TYPE_IMG"]["VALUE"];?> <?=$reg_clas?>" id="content">
 			<?include_once(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/header_include/top_wraps.php'));?>
 
 			<?if($isIndex):?>
@@ -82,7 +84,11 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 							<div class="container">
 								<?//h1?>
 								<?if($isHideLeftBlock && !$isWidePage):?>
-									<div class="maxwidth-theme">
+										<?$maxwidth = 'maxwidth-theme'?>
+									<?if($APPLICATION->GetCurPage() == "/registratsiya/dobavit-rebenka.php"): ?>
+										<?$maxwidth = ''?>
+									<?endif;?>
+									<div class="<?=$maxwidth?>">
 								<?endif;?>
 						<?endif;?>
 						<?CMax::checkRestartBuffer();?>

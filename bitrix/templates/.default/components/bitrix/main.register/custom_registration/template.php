@@ -331,8 +331,14 @@ if (!$_SESSION['sms_phone2']) {
                                                 );
                                             }
 
-                                            ?></div><?
-                                        } else { ?>
+                                            ?></div>
+                                            <?//} elseif ($FIELD == 'PERSONAL_STATE') { ?>
+
+
+
+
+                                        <?
+                                        }else { ?>
                                             <input class="form-control" size="30" type="text"
                                                    name="REGISTER[<?= $FIELD ?>]"
                                                    value="<?= $arResult["VALUES"][$FIELD] ?>"

@@ -6,16 +6,26 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.ph
 
 CModule::IncludeModule('iblock');  // это подключит нужный класс для работы с инфоблоком
 $data = json_decode($_POST['data']);
+//var_dump($data);
 $result = true;
 $iblock_id = \GetID\Helper\IBlock::getInfoByCodeCache('children_info');
+
 foreach ($data as $value){
     if ($value->input->name && is_array($value->checkbox)) {
         //Запись в инфоблок
         $el = new CIBlockElement;
+        //var_dump($value);
         $PROP = [
             'USER' => $GLOBALS['USER']->GetID(),
             'SERVICE' => $value->checkbox,
-            'TEST' => 'test1'
+            'BIRTHDAY' => $value->input->birthday,
+            'HEIGHT' => $value->input->height,
+            'GENDER' => $value->radio,
+            'WEIGHT' => $value->input->weight,
+            'SHOULDER' => $value->input->shoulder,
+            'WAIST' => $value->input->waist,
+            'CHEST' => $value->input->chest,
+            'SIZE' => $value->input->size,
         ];
         $arLoadProductArray = array(
             'MODIFIED_BY' => $GLOBALS['USER']->GetID(), // элемент изменен текущим пользователем

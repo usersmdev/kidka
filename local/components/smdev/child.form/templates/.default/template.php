@@ -14,48 +14,59 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 ?>
-
+<? \Bitrix\Main\UI\Extension::load('calendar');
+CJSCore::Init(array("jquery","date"));
+?>
 <div class="register_children">
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
-            <div class="subtitle">Шаг 2 из 2</div>
-            <div class="title">Дети</div>
-            <div class="desc">Укажите основные данные – это поможет нам подбирать предложения товаров и услуг персонально для вашего ребёнка.
-            </div>
-            <div class="bx-auth-reg">
+    <div class="container_reg">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="subtitle">Шаг 2 из 2</div>
+                <div class="title">Дети</div>
+                <div class="desc">Укажите основные данные – это поможет нам подбирать предложения товаров и услуг персонально для вашего ребёнка.
+                </div>
+                <div class="bx-auth-reg">
+                </div>
             </div>
         </div>
     </div>
-<!--<div class="addtab">Добавить +</div>-->
-<div class="errortext"></div>
-<div class="tab_menu">
-    <ul>
-        <li class="first_tab active" data-id="1011538">
-            <div>Первый ребенок</div>
-        </li>
-        <li class="second_tab" data-id="2022389">
-            <div >Второй ребенок</div>
-        </li>
-        <li class="third_tab" data-id="3033472">
-            <div>Третий ребенок</div>
-        </li>
-        <li class="addtab">
-            <div ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect width="20" height="20" rx="10" fill="#009B9A"/>
-                    <path d="M4 10H10M10 10H16M10 10V4M10 10V16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg></div>
-        </li>
-    </ul>
-</div>
-<div class="clearfix"></div>
-<form action="/" method="post" id="reg_form" name="my-form">
-    <div class="content"></div>
-    <div class="clearfix"></div>
-    <input type="submit" value="отправить" name="submit" id="reg_form">
-</form>
-<div class="out">
-</div>
-</div>
+    <!--<div class="addtab">Добавить +</div>-->
+    <div class="container_reg">
+        <div class="errortext"></div>
+        <div class="tab_menu">
+            <ul>
+                <li class="first_tab active" data-id="1011538">
+                    <div>Первый ребенок</div>
+                </li>
+                <li class="second_tab" data-id="2022389">
+                    <div >Второй ребенок</div>
+                </li>
+                <li class="third_tab" data-id="3033472">
+                    <div>Третий ребенок</div>
+                </li>
+                <li class="addtab">
+                    <div ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect width="20" height="20" rx="10" fill="#009B9A"/>
+                            <path d="M4 10H10M10 10H16M10 10V4M10 10V16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="clearfix"></div>
+        <form action="/" method="post" id="reg_form" name="my-form">
+            <div class="content"></div>
+            <div class="clearfix"></div>
+            <div class="third_block">
+            <div class="container_reg">
+            <input type="submit" value="Сохранить и зарегистрироваться" name="submit" id="reg_form_button" class="btn button">
+            </div>
+            </div>
+        </form>
+        <div class="out">
+        </div>
+    </div>
+
 <script>
     function loadcontent(random) {
         $.ajax({
@@ -210,12 +221,14 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
         let errMSG = "";
         let type = '';
         let value = '';
+        let arr_radio =  new Array();
         let numbers = '';
         let data = new Object();
         let checkbox_arr = new Object();
         let arr = new Array();
         let arr_value = new Object();
         let error_checkbox = true;
+        let error_radio = true;
         let input_elements = '';
         let name = '';
         let error = false;
@@ -261,28 +274,30 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         error_checkbox = false;
                     }
 
-                    if (error_checkbox) {
-                        input_elements[i].style.color = 'red';
-                       // console.log('Не заполнен отдых')
-
+                }else if(type == 'radio'){
+                    if (input_elements[i].checked) {
+                        arr_radio = value;
+                        error_radio = false;
                     }
-                }else {
-                    //arr_value = [name, value]
+                }
+
+                else {
                     arr_value[name] = value;
                 }
-                checkbox_arr = {'checkbox': arr, 'input': arr_value}
+                checkbox_arr = {'checkbox': arr, 'input': arr_value, 'radio':arr_radio}
 
             }
             data[numbers] = checkbox_arr;
             arr = new Array();
             //delete arr_value[name];
             arr_value = new Object();
-
+            //console.log(arr_value)
 
         }
+        //error_form()
         if(error_form()) {
             data = JSON.stringify(data)
-            console.log(data)
+            //console.log(data)
             $.ajax({
                 type: "POST",
                 url: '/local/components/smdev/child.form/ajax/add_iblock.php',
@@ -300,6 +315,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                 },
                 success: function (data) {
                     var answe = JSON.parse(data);
+                    //console.log(data)
                     if(!answe){
                         $('.tab_menu').hide(300);
                         $('#reg_form').hide(300);
