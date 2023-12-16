@@ -2253,6 +2253,443 @@ margin: 40px 0 24px;
     top: 38px;
     right: 14px;
 }
+
+.filter_link{
+    color: #333;
+    line-height: 14px;
+    margin: 0px 0px 3px;
+    font-size: 13px;
+    margin-left: 20px;
+}
+.filter_link.active_link{
+    font-weight: 700;
+}
+
+
+.register_children .form-group > .form-check-label{
+    color:#333;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+.register_children .form-group > .form-check-label span{
+    color: #D95151;
+    margin-left: 5px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+/* для элемента input c type="radio" */
+.custom-radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* для элемента label связанного с .custom-radio */
+.custom-radio+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.register_children .radio:first-child{
+    padding-left: 0px;
+    margin-top: 8px;
+}
+/* создание в label псевдоэлемента  before со следующими стилями */
+.custom-radio+label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #EBEBEB;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+}
+
+/* стили при наведении курсора на радио */
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    /*border-color: #008F8E;*/
+    background-image: url("../images/icons/radio.svg");
+}
+
+/* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio:not(:disabled):active+label::before {
+    background-color: #ffffff;
+    /*border-color: #008F8E;*/
+}
+.custom-radio:not(:disabled):active+label{
+    color: #333;
+}
+/* стили для радиокнопки, находящейся в фокусе */
+.custom-radio:focus+label::before {
+    /*box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);*/
+}
+
+/* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+.custom-radio:checked+label {
+    color: #333;
+}
+
+/* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio:checked+label::before {
+    /*border-color: #008F8E;*/
+    background-color: #008F8E;
+    background-image: url("../images/icons/radio.svg");
+}
+
+/* стили для радиокнопки, находящейся в состоянии disabled */
+.custom-radio:disabled+label::before {
+    background-color: #e9ecef;
+}
+
+.radio-flex{
+    display: flex;
+    align-items: baseline;
+}
+.col-form {
+    max-width: 590px;
+
+}
+.col-form > div {
+    margin-bottom: 25px;
+}
+.col-form label{
+    color:#333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    margin-bottom: 4px;
+}
+.col-form label span{
+    color: #D95151;
+    margin-left: 5px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+.col-form input[type="text"]{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.2px;
+    background: #fff;
+    padding: 10px 16px!important;
+    border-radius: 4px;
+    border: 1px solid #EBEBEB;
+}
+.col-form input[type="text"]::placeholder {
+    color: #AFB2B6;
+}
+.block_radio{
+    margin-bottom: 33px;
+}
+.register_children .tab{
+
+    font-family: Ubuntu;
+    z-index: 3;
+
+    float: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+}
+.register_children .form_title{
+    color: #333;
+    font-size: 20px;
+
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.register_children .form_subtitle{
+    color: #777;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    margin-top: 8px;
+
+}
+.register_children .check_title{
+    margin-top: 40px;
+    color: #333;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    letter-spacing: 0.2px;
+    margin-bottom: 2px;
+}
+.register_children .check_subtitle{
+    color: #777;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+    opacity: 0.5;
+}
+/* для элемента input c type="checkbox" */
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-radius: 6px;
+    border: 1px solid #EBEBEB;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #b3d7ff;
+}
+
+/* стили для активного чекбокса (при нажатии на него) */
+.custom-checkbox:not(:disabled):active+label::before {
+    background-color: #b3d7ff00;
+
+    border: none;
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus+label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0);
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked)+label::before {
+
+    border: none;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox:checked+label::before {
+    /*border-color: #0b76ef;*/
+    /*background-color: #0b76ef;*/
+    background-image: url("../images/icons/checkbox.svg");
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled+label::before {
+    background-color: #e9ecef;
+}
+.form-check .form-check-label{
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+}
+.custom-checkbox:checked+label{
+    color: #333;
+}
+.register_children .checkbox {
+    margin-bottom: 12px;
+    padding-left: 0;
+}
 .error_check{
-    color: rgb(217 81 81);;
+    color: rgb(217 81 81)!important;
+}
+.register_children input.error_input {
+    border-color: rgba(217, 81, 81, 0.40)!important;
+}
+.input_flex {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.input_flex input[type="text"].form-control{
+    padding: 11px 18px;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid #EBEBEB;
+    margin-bottom: 24px;
+}
+.input_flex input[type="text"]::-webkit-input-placeholder {
+    color: #AFB2B6;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.2px;
+}
+.input_flex label{
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+    margin-bottom: 4px;
+}
+.input_flex .form-group:first-child input[type="text"].form-control{
+    border-radius: 2px 0 0 2px;
+    border-right: none;
+}
+.input_flex .form-group:nth-child(2) input[type="text"].form-control:nth-child(2){
+    border-radius: 0;
+
+}
+.input_flex .form-group:nth-child(3) input[type="text"].form-control:nth-child(2){
+    border-radius: 0 2px 2px 0;
+    border-left: none;
+
+}
+.input_flex .form-group {
+    flex: 1 1;
+}
+#reg_form_button{
+    width: 100%;
+    border-radius: 4px;
+    background: #009B9A;
+    color: #F7F7F7;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.2px;
+    max-width: 840px;
+    padding: 18px 16px;
+    margin-top: 17px;
+}
+.add_ch:before{
+    content: "";
+    top: 0%;
+    right: 0%;
+    background: url("../images/colorful.svg");
+    width: 465px;
+    height: 334px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.container_reg{
+    padding: 0px 30px;
+    margin: 0 auto;
+    max-width: 1408px;
+}
+.container_form{
+    max-width: 840px;
+}
+.first_block, .second_block, .third_block{
+    position: relative;
+}
+.first_block:before{
+    content: "";
+    top: 0%;
+    left: 0%;
+    background: url("../images/travel-planning.svg");
+    width: 150px;
+    height: 456px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.first_block:after{
+    content: "";
+    bottom: 0%;
+    right: 0%;
+    background: url("../images/school-concept.png");
+    width: 278px;
+    height: 415px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.second_block:before{
+    content: "";
+    top: 0%;
+    left: 0%;
+    background: url("../images/assortment.png");
+    width: 216px;
+    height: 248px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.second_block:after{
+    content: "";
+    bottom: 0%;
+    right: 0%;
+    background: url("../images/stars.png");
+    width: 363px;
+    height: 278px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.third_block:before{
+    content: "";
+    bottom: -63%;
+    left: 0%;
+    background: url("../images/girld.png");
+    width: 170px;
+    height: 348px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.third_block:after{
+    content: "";
+    bottom: 0%;
+    right: 0%;
+    background: url("../images/bear.png");
+    width: 181px;
+    height: 212px;
+    z-index: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.register_one .row .col-md-6 .row .col-md-6:nth-child(6){
+    display: none;
+}
+.register_one .row .col-md-6 .row .col-md-6:nth-child(7){
+    /*display: none;*/
 }

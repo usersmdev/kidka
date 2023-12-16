@@ -43,6 +43,7 @@ if ($isFilter || $isSidebar): ?>
         if ($isFilter): ?>
             <div class="bx-sidebar-block">
                 <?
+
                 $filter = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",
                     "custom_catalog_filter",
@@ -75,6 +76,7 @@ if ($isFilter || $isSidebar): ?>
                         "INSTANT_RELOAD" => "Y",
                         "AJAX_OPTION_JUMP" => "N",
                         "AJAX_OPTION_HISTORY" => "Y",
+                        "SHOW_ALL_WO_SECTION" => "Y",
                     ),
                     $component,
                     array('HIDE_ICONS' => 'Y')
@@ -325,7 +327,7 @@ if ($count_page == 2) {
             }
             //****************** Фильтрация для текущего пользователя ****************************
             //var_dump($GLOBALS['arrFilter']);
-            //global $arrFilter;
+            global $arrFilter;
 
             $SectionFilter = array(
                 array(
