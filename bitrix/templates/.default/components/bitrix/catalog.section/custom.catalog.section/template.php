@@ -158,7 +158,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 
 ?>
 
-<div class="catalog-section bx-<?= $arParams['TEMPLATE_THEME'] ?>" data-entity="<?= $containerName ?>">
+<span class="catalog-section bx-<?= $arParams['TEMPLATE_THEME'] ?>" data-entity="<?= $containerName ?>">
     <?
     if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS'])) {
         $generalParams = [
@@ -477,7 +477,10 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                             $price_whith_cur = $price_view . ' ' . $currency;
                                         }
                                     }
-
+                                    if(!$USER->IsAuthorized()):
+                                        $sale_lager_auth = $first_offer['PROPERTIES']['SALELAGER']['VALUE'];
+                                        $first_offer['PROPERTIES']['SALELAGER']['VALUE'] = 0;
+                                    endif;
                                     if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                         <?
                                         $sale_s = $price - ((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']); ?>
@@ -496,6 +499,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                         </div>
                                         <?
                                         if ($first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):
+
                                             $sale_percent = round(
                                                 (((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']) * 100 / $price)
                                             );
@@ -558,11 +562,17 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                     <?
                                     endif; ?>
                                     <?
-                                    if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
+                                    if ($first_offer['PROPERTIES']['SALELAGER']['VALUE'] == 0): ?>
+                                    <?if ($sale_lager_auth):?>
+                                        <div class="sale_lager row-flex"><div class="sale_site_auth"><a href="/registratsiya/">Зарегистрируйся</a> и получи скидку от <?=$_SERVER['HTTP_HOST']?></div></div>
+                                    <?endif;?>
+                                    <?else: ?>
+                                    <?if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                         <div class="sale_site row-flex"><span
                                                     class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span>
                                             <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                         </div>
+                                    <?endif;?>
                                     <?
                                     endif; ?>
                                 </div>
@@ -589,8 +599,8 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 
                                 ?>
                             </select>
-
-                            <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn button about">Подробнее</a>
+                            <? //var_dump($arItem)?>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"] ?>" class="btn button about">Подробнее</a>
 
                             <?
                             endif;

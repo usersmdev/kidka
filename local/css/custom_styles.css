@@ -415,7 +415,7 @@
     border-radius: 8px;
     box-shadow: 0px 4px 12px 0px rgba(119, 119, 119, 0.12);
     padding: 24px;
-
+    background: #fff;
 }
 .detail_page .nopadding{
     padding: 0;
@@ -1456,14 +1456,14 @@ ul.price_property_button > li:before {
 
     }
 
-.detail_page:before {
+.detail_page:after {
     content: "";
-    top: 1000px;
+    top: 23%;
     right: -10%;
     background-image: url(../images/wooden-toy.png);
     width: 500px;
     height: 482px;
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     background-repeat: no-repeat;
     }
@@ -1713,7 +1713,7 @@ width: 200px;
     font-weight: 400;
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.2px;
-    flex: 1 0 auto;
+    flex: 1 1 auto;
 }
 .flex_boxs{
     display: flex;
@@ -1873,7 +1873,7 @@ width: 200px;
 
 }
 
-.bx_filter_vertical input[type="checkbox"] + label:after, .filter input[type="checkbox"] + label:after, .bg_block:after{
+.bx_filter_vertical input[type="checkbox"] + label:after{
     height: 20px!important;
     width: 20px!important;
     border-radius: 6px!important;
@@ -1882,7 +1882,7 @@ width: 200px;
     -moz-box-shadow: none!important;
     -webkit-box-shadow: none!important;
 }
-.bx_filter_vertical input[type="checkbox"]:checked + label:after, .filter input[type="checkbox"]:checked + label:after {
+.bx_filter_vertical input[type="checkbox"]:checked + label:after{
     box-shadow: none;
     border: none!important;
     margin: 5px 0px 0px 5px!important;
@@ -1892,7 +1892,7 @@ width: 200px;
 }
 
 
-.bx_filter_vertical input[type="checkbox"] + label:before, .filter input[type="checkbox"] + label:before, .filter input[type="radio"] + label:before, .bg_block:before {
+.bx_filter_vertical input[type="checkbox"] + label:before{
     font-size: 0;
     content: ".";
     display: none;
@@ -1907,7 +1907,8 @@ width: 200px;
 }
 /* стили при наведении курсора на checkbox */
 .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
-    border-color: #b3d7ff;
+    border-color: #00afae;
+    background: #fff;
 }
 /* стили для активного состояния чекбокса (при нажатии на него) */
 .custom-checkbox:not(:disabled):active+label::before {
@@ -2692,4 +2693,35 @@ margin: 40px 0 24px;
 }
 .register_one .row .col-md-6 .row .col-md-6:nth-child(7){
     /*display: none;*/
+}
+#footer {
+    z-index: 5!important;
+}
+.filter input[type="checkbox"] + label:before, .filter input[type="checkbox"] + label:after{
+    height: 20px;
+    width: 20px;
+    border-radius: 6px!important;
+}
+.sale_site_auth {
+    font-size: 14px;
+    line-height: 1.3em;
+    padding: 5px 0 0px;
+}
+.price_block .right_price .sale_site_auth a {
+    padding: 0;
+    color: #009B9A;
+    text-align: left;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4em;
+    letter-spacing: 0.2px;
+    border-radius: 4px;
+    background: #009b9a00;
+    width: 240px;
+    margin-top: 18px;
+    text-transform: none!important;
+}
+#REVIEWS .news-item{
+    box-shadow: none;
 }

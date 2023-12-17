@@ -852,7 +852,7 @@ if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL") echo "bx-filter-horizontal" ?
                                                     ?>
 
                                                     <div>
-                                                        <a href="/test-catalog/<?=$parentUrl?>/<?= $arSect['CODE'] ?>/"
+                                                        <a href="/offers/<?=$parentUrl?>/<?= $arSect['CODE'] ?>/"
                                                            class="filter_link <? if($arSect['ID'] == $arParams['SECTION_ID']){echo 'active_link';}?>"><?= $arSect['NAME'] ?></a>
                                                     </div>
 
@@ -867,7 +867,7 @@ if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL") echo "bx-filter-horizontal" ?
                                                     ?>
 
                                                     <div>
-                                                        <a href="/test-catalog/<?=$ar_Section['CODE']?>/<?= $arSect['CODE'] ?>/"
+                                                        <a href="/offers/<?=$ar_Section['CODE']?>/<?= $arSect['CODE'] ?>/"
                                                            class="filter_link <? if($ar_Section['ID'] == $arParams['SECTION_ID']){echo 'active_link';}?>"><?= $ar_Section['NAME'] ?></a>
                                                     </div>
 

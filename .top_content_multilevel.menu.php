@@ -2,35 +2,35 @@
 $aMenuLinks = Array(
 	Array(
 		"Спорт", 
-		SITE_DIR."/sport/", 
+		SITE_DIR."/offers/sport/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Здоровье", 
-		SITE_DIR."/zdorove/", 
+		SITE_DIR."/offers/zdorove/", 
 		Array(), 
 		Array("ICON"=>"icon_discount"), 
 		"" 
 	),
 	Array(
 		"Праздники", 
-		SITE_DIR."/prazdniki/", 
+		SITE_DIR."/offers/prazdniki/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Учеба", 
-		SITE_DIR."/uchyeba/", 
+		SITE_DIR."/offers/ucheba/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Отдых", 
-		SITE_DIR."/otdykh/", 
+		SITE_DIR."/offers/otdykh/", 
 		Array(), 
 		Array(), 
 		"" 

@@ -71,9 +71,9 @@
 		<div class="form_footer">
 			<?$bShowLicenses = (isset($arParams["SHOW_LICENCE"]) ? $arParams["SHOW_LICENCE"] : COption::GetOptionString("aspro.max", "SHOW_LICENCE", "Y"));?>
 			<?if($bShowLicenses == "Y"):?>
-				<div class="licence_block_<?=$arResult["arForm"]["ID"]?> filter onoff label_block">
-					<input type="checkbox" id="licenses_popup_<?=$arResult["arForm"]["ID"]?>" name="licenses_popup_<?=$arResult["arForm"]["ID"]?>" <?=(COption::GetOptionString("aspro.max", "LICENCE_CHECKED", "N") == "Y" ? "checked" : "");?> required value="Y">
-					<label for="licenses_popup_<?=$arResult["arForm"]["ID"]?>">
+				<div class="licence_block filter onoff label_block">
+					<input type="checkbox" id="licenses_popup<?=$arResult["arForm"]["ID"]?>" name="licenses_popup" <?=(COption::GetOptionString("aspro.max", "LICENCE_CHECKED", "N") == "Y" ? "checked" : "");?> required value="Y">
+					<label for="licenses_popup<?=$arResult["arForm"]["ID"]?>">
 						<?$APPLICATION->IncludeFile(SITE_DIR."include/licenses_text.php", Array(), Array("MODE" => "html", "NAME" => "LICENSES")); ?>
 					</label>
 				</div>

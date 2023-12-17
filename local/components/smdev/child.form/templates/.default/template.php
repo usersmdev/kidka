@@ -321,7 +321,7 @@ CJSCore::Init(array("jquery","date"));
                         $('#reg_form').hide(300);
                         $('.errortext').append('<br><br><div class="alert alert-success" role="alert" style="text-align: center"><h4>Регистрация прошла успешно !</h4>Вы будите перенаправлены на страницу каталога.</div>')
                         setTimeout(function () {
-                            window.location.href = '/test-catalog/';
+                            window.location.href = '/offers/';
                         }, 4000);
                         $('html, body').animate({
                             scrollTop: $(".wrapp_block").offset().top // класс объекта к которому приезжаем

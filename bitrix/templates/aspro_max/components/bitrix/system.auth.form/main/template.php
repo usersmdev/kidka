@@ -81,6 +81,7 @@ if($arResult['PHONE_AUTH_PARAMS']['USE']){
 								</div>
 								<div class="clearboth"></div>
 							<?endif;?>
+                            <div class="registaration_m"><a href="/registratsiya/">Зарегистрироваться</a></div>
 						</div>
 						<div class="form_footer">
 							<div class="filter block">
@@ -144,21 +145,21 @@ if($arResult['PHONE_AUTH_PARAMS']['USE']){
 						</div>
 					</form>
 					<?if($arResult["AUTH_SERVICES"]):?>
-						<div class="reg-new social_block">
-							<div class="soc-avt">
-								<div class="title"><?=GetMessage("SOCSERV_AS_USER_FORM");?></div>
-								<?$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
-									array(
-										"AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
-										"AUTH_URL" => SITE_DIR."auth/?login=yes",
-										"POST" => $arResult["POST"],
-										"SUFFIX" => "form",
-									),
-									$component, array("HIDE_ICONS"=>"Y")
-								);
-								?>
-							</div>
-						</div>
+<!--						<div class="reg-new social_block">-->
+<!--							<div class="soc-avt">-->
+<!--								<div class="title">--><?php //=GetMessage("SOCSERV_AS_USER_FORM");?><!--</div>-->
+<!--								--><?//$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
+//									array(
+//										"AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
+//										"AUTH_URL" => SITE_DIR."auth/?login=yes",
+//										"POST" => $arResult["POST"],
+//										"SUFFIX" => "form",
+//									),
+//									$component, array("HIDE_ICONS"=>"Y")
+//								);
+//								?>
+<!--							</div>-->
+<!--						</div>-->
 					<?endif;?>
 				</div>
 			</div>
