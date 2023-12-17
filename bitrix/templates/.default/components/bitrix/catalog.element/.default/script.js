@@ -621,7 +621,12 @@
             let title_service = $('.bx-title').text();
             $('.lager_name').text(title_service);
             $('.lager_name_name').text(title_service);
-
+            function modal_hide(){
+                $('.modal').on('hidden.bs.modal', function (e) {
+                    $('#win8_wrapper').css('display', 'none');
+                })
+            }
+            modal_hide();
             function add_price_modal() {
                 let result_product = [];
                 $('.price_block').each(function () {
@@ -630,12 +635,13 @@
                     ProductObject['base_sale_price'] = $(this).find('.base_sale_price').text();
                     ProductObject['base_price'] = $(this).find('.base_price').text();
                     ProductObject['sale_price'] = $(this).find('.sale_price').text();
-                    ProductObject['id'] = $(this).find('a').data("id");
+                    ProductObject['id'] = $(this).find('a.btn').data("id");
                     $('#modal_price').append($('<option>', {
-                        value: $(this).find('a').data("id"),
+                        value: $(this).find('a.btn').data("id"),
                         text: $(this).find('.product_name').text()
                     }));
                     result_product.push(ProductObject)
+                    console.log(result_product);
                 });
                 $("#modal_price").change(function () {
                     $(this).find("option:selected").each(function () {
@@ -654,7 +660,7 @@
                 });
 				$('.buy_button a').on('click', function (){
 					let ID = $(this).data("id");
-                    console.log(ID)
+
 					for (let l = 0; l < result_product.length; l++) {
 						if (result_product[l]['id'] == ID) {
                             $('input[name="form_hidden_519"]').val(result_product[l]['product_name']);
@@ -674,7 +680,7 @@
 				})
                 $('#bron').on('click', function (){
                     let ID = $('#id_prodect_price').val();
-                    console.log(ID)
+
                     for (let l = 0; l < result_product.length; l++) {
                         if (result_product[l]['id'] == ID) {
                             $('input[name="form_hidden_519"]').val(result_product[l]['product_name']);
@@ -759,7 +765,10 @@
                 $('#yandexdetail').modal('show');
                 ymaps.load(inityndex);
             })
-
+            $('#view_map2').on('click', function () {
+                $('#yandexdetail').modal('show');
+                ymaps.load(inityndex);
+            })
             function inityndex() {
                 let result = [];
                 let ItemObject = new Object();

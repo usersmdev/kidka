@@ -13,7 +13,9 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
     <a href="javascript:void(0)" class="btn bb">Добавить отзыв</a>
 </div>
 <div class="suc"></div>
+
 <div id="reviews_dev" style="display: none;">
+    <?php if($USER->IsAuthorized()):?>
     <h4>Оставьте отзыв о <span class="lager_review"></span></h4>
     <div class="answer"></div>
     <div class="error_message"></div>
@@ -31,7 +33,12 @@ $this->addExternalCss('/bitrix/css/main/bootstrap.css');
     <input type="hidden" name="id" value="<?=$arParams['IBLOCK_ID']?>">
     <input type="hidden" name="elementid" value="<?=$arParams['ELEMENT_ID']?>">
     <a href="javascript:void(0);" class="btn bb" id="reviews_to" >Отправить</a>
+    <?php else:?>
+        <p>Для того чтобы оставить отзыв <a href="/registratsiya/">зарегистрируйтесь на сайте</a></p>
+
+    <?php endif;?>
 </div>
+
 <?php
 global $arrFilter;
 $arrfilter=array();

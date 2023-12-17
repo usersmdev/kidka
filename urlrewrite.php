@@ -309,7 +309,7 @@ $arUrlRewrite=array (
     'PATH' => '/brands/index.php',
     'SORT' => 100,
   ),
-  122 => 
+  126 => 
   array (
     'CONDITION' => '#^/offers/#',
     'RULE' => '',

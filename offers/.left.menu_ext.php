@@ -14,4 +14,5 @@ if($arMenuParametrs = CMax::GetDirMenuParametrs(__DIR__))
 		CMax::getSectionChilds(false, $arSections, $arSectionsByParentSectionID, $arItemsBySectionID, $aMenuLinksExt);
 }
 $aMenuLinks = array_merge($aMenuLinks, $aMenuLinksExt);
+
 ?>

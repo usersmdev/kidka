@@ -36,6 +36,31 @@ if (isset($_GET['showBy']) && $_GET['showBy'] && in_array($_GET['showBy'], $arAv
 ?>
 
 <div class="cat_items">
+    <?
+    global $USER;
+    //var_dump($USER->GetUserGroupArray());
+    $filter = Array("ID" => $USER->GetID());
+    $rsUsers = CUser::GetList(($by="ID"), ($order="desc"), $filter); // выбираем пользователей
+    $is_filtered = $rsUsers->is_filtered; // отфильтрована ли выборка ?
+    while($arUser = $rsUsers->fetch()) {
+        $user_city = trim(str_replace('г ', '',$arUser['PERSONAL_CITY']));
+
+    }
+    ?>
+    <?
+    echo $user_city;
+    global $mySmartFilter;
+    //$mySmartFilter = Array('PROPERTY_CITY' => "Москва"); // Ваш фильтр для отбора элементов, используемых в умном фильтре
+//    if (!CUser::IsAdmin()) {
+//        global $arrFilter;
+//        $arrFilter .= array('PROPERTY_CITY' => array(13962));
+//        $mySmartFilter = array('PROPERTY_CITY' => array(13962));
+//
+//    }
+    ?>
+
+
+
 <?
 if ($isFilter || $isSidebar): ?>
     <div class="col-md-3 catalog_col filter col-sm-4<?= (isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '') ?>">
@@ -51,7 +76,7 @@ if ($isFilter || $isSidebar): ?>
                         "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
                         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                         "SECTION_ID" => $arCurSection['ID'],
-                        "FILTER_NAME" => 'arrFilter',
+
                         "PRICE_CODE" => $arParams["~PRICE_CODE"],
                         "CACHE_TYPE" => $arParams["CACHE_TYPE"],
                         "CACHE_TIME" => $arParams["CACHE_TIME"],
@@ -60,6 +85,8 @@ if ($isFilter || $isSidebar): ?>
                         "FILTER_VIEW_MODE" => $arParams["FILTER_VIEW_MODE"],
                         "XML_EXPORT" => "N",
                         "SECTION_TITLE" => "NAME",
+                        "PREFILTER_NAME" => "mySmartFilter",
+                        "FILTER_NAME" => $arParams["FILTER_NAME"],
                         "SECTION_DESCRIPTION" => "DESCRIPTION",
                         'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
                         "TEMPLATE_THEME" => 'custom_catalog_filter',

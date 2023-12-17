@@ -192,7 +192,7 @@ $res_price = CCatalogSKU::getOffersList(
 
 
 ?>
-<div class="bx-catalog-element bx-<?= $arParams['TEMPLATE_THEME'] ?>" id="<?= $itemIds['ID'] ?>"
+<span class="bx-catalog-element bx-<?= $arParams['TEMPLATE_THEME'] ?>" id="<?= $itemIds['ID'] ?>"
      itemscope itemtype="http://schema.org/Product">
     <div class="detail_page">
         <div class="container-fluid">
@@ -413,7 +413,7 @@ $res_price = CCatalogSKU::getOffersList(
                                             </div>
                                             <? if ($arProps["MAP"]["VALUE"]): ?>
                                                 <div class="map">
-                                                    <a href="javascript:void(0);" id="view_map">Показать на карте</a>
+                                                    <a href="javascript:void(0);" id="view_map2">Показать на карте</a>
                                                     <? foreach ($arProps["MAP"]["VALUE"] as $mappoint): ?>
                                                         <input type="hidden" class="mappoint" value="<?= $mappoint; ?>">
                                                     <? endforeach; ?>
@@ -574,7 +574,12 @@ $res_price = CCatalogSKU::getOffersList(
 
                                                 </div>
                                                 <div class="right_price">
-                                                    <? if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
+                                                    <?
+                                                    if(!$USER->IsAuthorized()):
+                                                        $sale_lager_auth = $first_offer['PROPERTIES']['SALELAGER']['VALUE'];
+                                                        $first_offer['PROPERTIES']['SALELAGER']['VALUE'] = 0;
+                                                    endif;
+                                                     if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
                                                         <? $sale_s = $price - ((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']); ?>
                                                         <? $sale_s2 = number_format($sale_s, 0, '', ' ') . ' ' . $currency ?>
                                                         <? $price_whith_cur ?>
@@ -626,11 +631,17 @@ $res_price = CCatalogSKU::getOffersList(
                                                             <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                                         </div>
                                                     <? endif; ?>
-                                                    <? if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
+                                                    <?  if ($first_offer['PROPERTIES']['SALELAGER']['VALUE'] == 0): ?>
+                                                        <?  if ($sale_lager_auth): ?>
+                                                        <div class="sale_lager row-flex"><div class="sale_site_auth"><a href="/registratsiya/">Зарегистрируйся</a> и получи скидку от <?=$_SERVER['HTTP_HOST']?></div></div>
+                                                        <?endif;?>
+                                                    <?else: ?>
+                                                     <?if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                                         <div class="sale_site row-flex"><span
                                                                     class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span>
-                                                            <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
+                                                            <span class="price_l"><span class="sale_lag">-<?=number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                                         </div>
+                                                        <? endif; ?>
                                                     <? endif; ?>
                                                     <div class="buy_button">
                                                         <a href="" class="btn bb" id="buy_lager" data-toggle="modal" data-target="#reservation" data-id="<?=$r['ID']?>">Купить</a>
@@ -694,6 +705,10 @@ $res_price = CCatalogSKU::getOffersList(
                                             дешевле? Снизим
                                             цену</a></div>
                                     <?
+                                    if(!$USER->IsAuthorized()):
+                                        $sale_lager_auth = $first_offer['PROPERTIES']['SALELAGER']['VALUE'];
+                                        $first_offer['PROPERTIES']['SALELAGER']['VALUE'] = 0;
+                                    endif;
                                     if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                         <? $sale_s = $price - ((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']); ?>
                                         <div class="row-flex">
@@ -742,12 +757,19 @@ $res_price = CCatalogSKU::getOffersList(
                                             <span class="price_l"> -<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
                                         </div>
                                     <? endif; ?>
-                                    <? if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
+                                    <?  if ($first_offer['PROPERTIES']['SALELAGER']['VALUE'] == 0): ?>
+                                    <?if ($sale_lager_auth):?>
+                                        <div class="sale_lager row-flex"><div class="sale_site_auth"><a href="/registratsiya/">Зарегистрируйся</a> и получи скидку от <?=$_SERVER['HTTP_HOST']?></div></div>
+                                        <? endif;?>
+                                    <?else: ?>
+                                    <?if ($first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                         <div class="sale_site row-flex"><span
-                                                    class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span><span
-                                                    class="price_l"> -<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
-                                        </div>
-                                    <? endif; ?>
+                                                    class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span>
+                                        <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
+                                    </div>
+                                    <?endif;?>
+                                    <?
+                                    endif; ?>
                                 </div>
                                 <input type="hidden" id="id_prodect_price" value="<?=$first_offer['ID']?>">
 

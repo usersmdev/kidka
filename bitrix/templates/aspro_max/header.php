@@ -25,7 +25,7 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=6b4c2a54-1ff3-4f1f-b458-ce0b57678048&lang=ru_RU" type="text/javascript">
     </script>
    <? use Bitrix\Main\Page\Asset;
-   Asset::getInstance()->addCss("/local/css/custom_styles.css");
+	Asset::getInstance()->addCss("/local/css/custom_styles.css");
 	Asset::getInstance()->addJs("/local/js/script.js");?>
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 	<link
@@ -69,7 +69,7 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 				<div class="container_inner clearfix <?=$APPLICATION->ShowViewContent('container_inner_class')?>">
 						<? $url = $APPLICATION->GetCurPage();
 						$count_page = substr_count($url, '/');?>
-				<?if(CSite::InDir("/test-catalog/")): ?>
+				<?if(CSite::InDir("/offers/") || CSite::InDir("/izbrannoe-uslugi1/")): ?>
 				<?$classblock = '';?>
 					<?else:?>
 				<?$classblock = 'right_block';?>

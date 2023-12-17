@@ -11,7 +11,7 @@ $productid = $_POST['productid'];
 $res = CIBlockElement::GetByID($productid);
 $arElem = $res->GetNextElement();
 $arProps = $arElem->GetProperties();
-
+global $USER;
 if (is_array($arProps) && sizeof($arProps)): ?>
 <?
 
@@ -52,6 +52,10 @@ $first_offer = $arProps;
                 $price_whith_cur = $price_view . ' ' . $currency;
             }
         }
+        if(!$USER->IsAuthorized()):
+            $sale_lager_auth = $first_offer['SALELAGER']['VALUE'];
+            $first_offer['SALELAGER']['VALUE'] = 0;
+        endif;
         if ($price && $first_offer['SALE']['VALUE'] || $first_offer['SALELAGER']['VALUE']):?>
             <? $sale_s = $price - ((int)$first_offer['SALE']['VALUE'] + (int)$first_offer['SALELAGER']['VALUE']); ?>
             <div class="row-flex">
@@ -101,10 +105,19 @@ $first_offer = $arProps;
                 <span class="price_l"> - <?= number_format($first_offer['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
-        <? if ($first_offer['SALELAGER']['VALUE']): ?>
-            <div class="sale_site row-flex"><span class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span><span class="price_l"> -<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
+        <?  if ($first_offer['SALELAGER']['VALUE'] == 0): ?>
+        <?if ($sale_lager_auth):?>
+            <div class="sale_lager row-flex"><div class="sale_site_auth"><a href="/registratsiya/">Зарегистрируйся</a> и получи скидку от <?=$_SERVER['HTTP_HOST']?></div></div>
+        <?php endif;?>
+        <?else: ?>
+        <?if ($first_offer['SALELAGER']['VALUE']):?>
+            <div class="sale_site row-flex"><span
+                        class="text_l">Скидка от Kidka.ru</span><span class="point_border"></span>
+                <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['SALELAGER']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
             </div>
-        <? endif; ?>
+        <?php endif;?>
+        <?
+        endif; ?>
         <input type="hidden" id="id_prodect_price" value="<?=$productid?>">
 <!--        --><?// $rsStoreProduct = \Bitrix\Catalog\StoreProductTable::getList(array(
 //            'filter' => array('=PRODUCT_ID' => $first_offer['ID']),
