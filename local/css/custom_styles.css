@@ -2725,3 +2725,8 @@ margin: 40px 0 24px;
 #REVIEWS .news-item{
     box-shadow: none;
 }
+#auth-page-form{
+    text-align: left;
+    margin: 0 auto;
+    width: 1347px;
+}

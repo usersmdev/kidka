@@ -258,7 +258,7 @@ $APPLICATION->SetTitle("Компании");?>
 		"USE_SALE_BESTSELLERS" => "N",
 		"USE_STORE" => "N",
 		"SEF_URL_TEMPLATES" => array(
-			"sections" => "#SECTION_CODE#/11s",
+			"sections" => "#SECTION_CODE#/11",
 			"section" => "#SECTION_CODE_PATH#/",
 			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
 			"compare" => "compare.php?action=#ACTION_CODE#",
