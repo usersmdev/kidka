@@ -35,8 +35,9 @@ if ($_GET['id']) {
             $arElements[] = $_GET['id'];
             $result = 1;
         }
+        $domain = strstr($context->getServer()->getHttpHost(), ':', true);
         $cookie = new Cookie("favorites", serialize($arElements), time() + 60 * 60 * 24 * 60);
-        $cookie->setDomain($context->getServer()->getHttpHost());
+        $cookie->setDomain($domain);
         $cookie->setHttpOnly(false);
         $context->getResponse()->addCookie($cookie);
         $context->getResponse()->writeHeaders();
