@@ -3163,6 +3163,7 @@ margin: 40px 0 24px;
     .detail_tabs .place .map {
         margin-top: 0px;
         margin-left: 0;
+        width: 100%;
     }
     .price_property_button{
         display: none;
@@ -3335,12 +3336,12 @@ margin: 40px 0 24px;
     }
     .top_title:before{
         content: "";
-        top: -1%;
+        top: -2%;
         right: -15px;
         background-image: url(../images/air_mobil.svg);
         width: 122px;
         height: 108px;
-        z-index: 0;
+        z-index: -1;
         position: absolute;
         background-repeat: no-repeat;
     }

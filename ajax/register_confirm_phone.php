@@ -8,7 +8,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/local/include/sms.ru.php");
 <?php
 global $USER;
 
-function smscode($phone,$ip){
+function smscode($phone){
     $smsru = new SMSRU('E18BF8F1-00BB-1EDD-AEB9-CA729129EC78'); // Ваш уникальный программный ключ, который можно получить на главной странице
     $data = new stdClass();
     $data->to = $phone;
@@ -41,8 +41,8 @@ if (!$USER->IsAuthorized()):
             $_SESSION['sms_phone'] = $phone;
             $message['code'] = $_SESSION['rand_sms'];
             $message['phone'] = $phone;
-            $ip = \Bitrix\Main\Service\GeoIp\Manager::getRealIp();
-            smscode($phone,$ip);
+//            $ip = \Bitrix\Main\Service\GeoIp\Manager::getRealIp();
+            smscode($phone);
         }
         else{
             //Пользователь существует
