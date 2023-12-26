@@ -319,7 +319,8 @@
             this.InitModal();
             this.AddReviews();
             this.FuncAll();
-
+            this.TabScroll();
+            this.PriceMobile();
 
             this.obBigSlider = BX(this.visual.BIG_SLIDER_ID);
             this.node.imageContainer = this.getEntity(this.obProduct, 'images-container');
@@ -707,11 +708,15 @@
         Gallery: function () {
             let count_element;
             count_element = $(".cust").length
+            let number_foto;
+            if($(window).width() < 768){
+                number_foto = 5
+            }else { number_foto = 13}
             $(".cust").each(function (key, value) {
-                if (key > 13) {
+                if (key > number_foto) {
                     $(this).addClass('hide_image');
                 }
-                if (key == 13) {
+                if (key == number_foto) {
                     let count = count_element - key;
                     $(this).find('span').html('+' + count);
                     $(this).on('click', function () {
@@ -721,6 +726,29 @@
                 }
 
             });
+        },
+        TabScroll: function (){
+                $('.tab-content a.tab_mobile').on('click', function () {
+                    let id = $(this).data('id');
+                    let elm = $(this)
+                    $('.tab-content .tab-pane').each(function () {
+                        //$(this).removeClass('active');
+                        if ($(this).attr('id') == id) {
+                            if ($(this).hasClass('active')) {
+                                $(this).removeClass('active');
+                                elm.removeClass('active');
+                            } else {
+                                $(this).addClass('active');
+                                elm.addClass('active');
+                            }
+                        }
+                    })
+                })
+        },
+        PriceMobile: function (){
+            if($(window).width() < 996) {
+                $('.right_block').appendTo('.price_mobile')
+            }
         },
         Fansy: function () {
             $().fancybox({

@@ -45,7 +45,7 @@
 			BX.ready(BX.delegate(this.deferredLoad, this));
 		}
 		this.YandexMAp();
-
+		this.FilterMob();
 		if (params.lazyLoad)
 		{
 			this.showMoreButton = document.querySelector('[data-use="show-more-' + this.navParams.NavNum + '"]');
@@ -328,7 +328,11 @@
 			var processed = BX.processHTML(epilogueHtml, false);
 			BX.ajax.processScripts(processed.SCRIPT);
 		},
-
+		FilterMob: function (){
+			$('.button_filter_mob').on('click', function (){
+				$('.filter').toggle(300)
+			});
+		},
 		YandexMAp: function (){
 			$('#view_map').on('click', function (){
 				$('#myModal').modal('show');

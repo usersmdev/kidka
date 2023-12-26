@@ -232,7 +232,7 @@ $res_price = CCatalogSKU::getOffersList(
                                 </script>
                             <? endforeach; ?>
                             <div class="favorite">
-                                <span class="favor" data-item="<?= $arResult['ID']; ?>">В избранное</span>
+                                <span class="favor" data-item="<?= $arResult['ID']; ?>"><span>В избранное</span></span>
                             </div>
                         </div>
                         <div class="address">
@@ -275,21 +275,31 @@ $res_price = CCatalogSKU::getOffersList(
                                 </div>
                             <? endif; ?>
                         </div>
+                        <div class="price_mobile"></div>
                         <div class="gallery">
                             <?
 
                             $Image_count = count($arProps["MORE_PHOTO"]["VALUE"]);
                             $firstBlockImage = $Image_count - 13;
+                            use \Bitrix\Conversion\Internals\MobileDetect;
+                            $detect = new MobileDetect;
+                             if($detect->isMobile())
+                               {
+                                   $number_gall = 5;
+                               }
+                           else{
+                               $number_gall = 13;
+                           }
                             ?>
                             <? foreach ($arProps["MORE_PHOTO"]["VALUE"] as $key => $image): ?>
 
-                                <? if ($key < 13): ?>
+                                <? if ($key < $number_gall): ?>
                                     <a href="<?= CFile::GetPath($image) ?>" class="gal_image cust" id="show">
                                         <img src="<?= $arResult['PICTURE'][$key]['SRC'] ?>"/>
                                         <span class="shadow_image"
                                               style="display: none">+<?= $firstBlockImage ?></span>
                                     </a>
-                                <? elseif ($key == 13): ?>
+                                <? elseif ($key == $number_gall): ?>
                                     <div href="<?= CFile::GetPath($image) ?>" class="cust show_con">
                                         <img src="<?= $arResult['PICTURE'][$key]['SRC'] ?>"/>
                                         <span class="shadow_image"
@@ -356,7 +366,7 @@ $res_price = CCatalogSKU::getOffersList(
                         </div>
                         <!-- Nav tabs -->
                         <div class="detail_tabs">
-                            <ul class="nav nav-tabs">
+                            <ul class="nav nav-tabs pc">
                                 <? if ($arProps['FIRST_TAB_NAME']["VALUE"]): ?>
                                     <li class="active"><a href="#FIRST_TAB_NAME"
                                                           data-toggle="tab"><?= $arProps['FIRST_TAB_NAME']["VALUE"] ?></a>
@@ -383,6 +393,12 @@ $res_price = CCatalogSKU::getOffersList(
                             <div class="tab-content">
 
                                 <? if ($arProps['FIRST_TAB_NAME']["VALUE"]): ?>
+
+                                        <a href="javascript:void(0);" class="tab_mobile active" data-id="FIRST_TAB_NAME"><span><?= $arProps['FIRST_TAB_NAME']["VALUE"] ?></span>
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M7 14.4697L12 10.4697L17 14.4697"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                        </a>
                                     <div class="tab-pane active" id="FIRST_TAB_NAME">
                                         <h4><?= $arProps['FIRST_TAB_NAME']["VALUE"] ?></h4>
                                         <div class="gallery">
@@ -403,6 +419,13 @@ $res_price = CCatalogSKU::getOffersList(
                                     </div>
                                 <? endif; ?>
                                 <? if ($arProps['SECOND_TAB_NAME']["VALUE"]): ?>
+                                    <? if ($arProps['SECOND_TAB_NAME']["VALUE"]): ?>
+                                        <a href="javascript:void(0);" class="tab_mobile " data-id="SECOND_TAB"><span><?= $arProps['SECOND_TAB_NAME']["VALUE"]; ?></span>
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M7 14.4697L12 10.4697L17 14.4697"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                        </a>
+                                    <? endif; ?>
                                     <div class="tab-pane" id="SECOND_TAB">
                                         <h4><?= $arProps['SECOND_TAB_NAME']["VALUE"] ?></h4>
                                         <div class="place">
@@ -437,6 +460,11 @@ $res_price = CCatalogSKU::getOffersList(
                                     </div>
                                 <? endif; ?>
                                 <? if ($arProps['THIRD_TAB_NAME']["VALUE"]): ?>
+                                    <a href="javascript:void(0);" class="tab_mobile " data-id="THIRD_TAB"><span><?= $arProps['THIRD_TAB_NAME']["VALUE"]; ?></span>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M7 14.4697L12 10.4697L17 14.4697"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    </a>
                                     <div class="tab-pane" id="THIRD_TAB">
                                         <h4><?= $arProps['THIRD_TAB_NAME']["VALUE"] ?></h4>
                                         <div class="gallery">
@@ -456,6 +484,11 @@ $res_price = CCatalogSKU::getOffersList(
                                     </div>
                                 <? endif; ?>
                                 <? if ($arProps['FOURTH_TAB_NAME']["VALUE"]): ?>
+                                    <a href="javascript:void(0);" class="tab_mobile " data-id="FOURTH_TAB"><span><?= $arProps['FOURTH_TAB_NAME']["VALUE"]; ?></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M7 14.4697L12 10.4697L17 14.4697"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    </a>
                                     <div class="tab-pane" id="FOURTH_TAB">
                                         <h4><?= $arProps['FOURTH_TAB_NAME']["VALUE"] ?></h4>
                                         <div class="description">
@@ -499,7 +532,13 @@ $res_price = CCatalogSKU::getOffersList(
                                         </div>
                                     </div>
                                 <? endif; ?>
+                                <a href="javascript:void(0);" class="tab_mobile " data-id="REVIEWS"><span>Отзывы</span>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M7 14.4697L12 10.4697L17 14.4697"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
                                 <div class="tab-pane" id="REVIEWS">
+                                     <h4>Отзывы</h4>
                                     <?
                                     $APPLICATION->IncludeComponent(
                                         "smdev:reviews",
@@ -514,6 +553,11 @@ $res_price = CCatalogSKU::getOffersList(
                                         $component);
                                     ?>
                                 </div>
+                                <a href="javascript:void(0);" class="tab_mobile " data-id="BAY"><span>Стоимость</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M7 14.4697L12 10.4697L17 14.4697"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
                                 <div class="tab-pane" id="BAY">
                                     <h4>Стоимость</h4>
                                     <div class="description">
@@ -624,6 +668,16 @@ $res_price = CCatalogSKU::getOffersList(
                                                     </div>
                                                     <? endif; ?>
                                                 </div>
+                                                <div class="price_mobile_bottom">
+                                                    <div class="fcol">
+                                                        <div class="base_sale_price_mob"><?= $sale_s2 ?></div>
+                                                        <div class="base_price_mob"><?=$price_whith_cur ?></div>
+                                                    </div>
+                                                     <div class="fcol">
+                                                        <div class="price_count_day_mob"><? echo number_format($slsz, 0, '', ' ') . ' ' . $currency . '<span> /день</span>' ?></div>
+                                                        <div class="sale_price_mob">Скидка -<?=$sale_percent?>%</div>
+                                                     </div>
+                                                </div>
                                                 <div class="right_price">
                                                     <? if ($first_offer['PROPERTIES']['SALE']['VALUE']): ?>
                                                         <div class="sale_lager row-flex">
@@ -644,7 +698,7 @@ $res_price = CCatalogSKU::getOffersList(
                                                         <? endif; ?>
                                                     <? endif; ?>
                                                     <div class="buy_button">
-                                                        <a href="" class="btn bb" id="buy_lager" data-toggle="modal" data-target="#reservation" data-id="<?=$r['ID']?>">Купить</a>
+                                                        <a href="" class="btn bb" id="buy_lager" data-toggle="modal" data-target="#reservation" data-id="<?=$r['ID']?>"><span class="pc_name">Купить</span><span class="mob_name">Забронировать</span></a>
                                                     </div>
                                                 </div>
                                                 <? // echo sizeof($res[$arResult['ID']]) . ' смены:'; ?>

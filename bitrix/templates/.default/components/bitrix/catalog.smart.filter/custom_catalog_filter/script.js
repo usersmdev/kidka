@@ -7,6 +7,8 @@ function JCSmartFilter(ajaxURL, viewMode, params)
 	this.cache = [];
 	this.popups = [];
 	this.viewMode = viewMode;
+
+	//console.log(params.SEF_SET_FILTER_URL= ajaxURL)
 	if (params && params.SEF_SET_FILTER_URL)
 	{
 		this.bindUrlToButton('set_filter', params.SEF_SET_FILTER_URL);
@@ -43,8 +45,10 @@ JCSmartFilter.prototype.click = function(checkbox)
 
 JCSmartFilter.prototype.reload = function(input)
 {
+
 	if (this.cacheKey !== '')
 	{
+
 		//Postprone backend query
 		if(!!this.timer)
 		{
@@ -87,6 +91,7 @@ JCSmartFilter.prototype.reload = function(input)
 				this.values2post(values),
 				BX.delegate(this.postHandler, this)
 			);
+
 		}
 	}
 };
@@ -313,6 +318,7 @@ JCSmartFilter.prototype.values2post = function (values)
 	var i = 0;
 
 	while(i < values.length)
+
 	{
 		var p = values[i].name.indexOf('[');
 		if(p == -1)
