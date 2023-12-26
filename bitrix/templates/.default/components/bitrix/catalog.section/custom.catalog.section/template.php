@@ -283,7 +283,8 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                     <?
                     endforeach; ?>
                     <div class="row">
-                        <div class="col-md-3 col-xs-12">
+                        <div class="col-md-3 col-xs-12 col-sm-8">
+                            <div class="title_mob"><?= $arItem['NAME']; ?></div>
                             <? if ($arItem['PROPERTIES']['MORE_PHOTO']):?>
                             <div class="gallery">
                                 <a href="<?
@@ -328,7 +329,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                             </div>
                             <?endif;?>
                         </div>
-                        <div class="col-md-6 col-xs-12">
+                        <div class="col-md-6 col-xs-12 col-sm-8">
                             <div class="title"><?= $arItem['NAME']; ?></div>
                             <div class="address">
                                 <?
@@ -359,6 +360,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                     <span class="count_reviews">Отзывы: (<?= round(floatval($arItem['PROPERTIES']["COUNT_REVIEWS"]["VALUE"]),2); ?>)</span>
                                 </div>
                             </div>
+                            <div class="flex_mob">
                             <div class="fast_answer">
                                 <div>Быстрый ответ</div>
                             </div>
@@ -367,6 +369,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                 <div class="fast_travel">Горящая путёвка</div>
                             <?
                             endif; ?>
+                            </div>
                             <div class="intro-text"><p><?= $arItem['PREVIEW_TEXT'] ?></p></div>
 
                             <?
@@ -435,7 +438,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                         $first_offer = current($res[$arItem['ID']]);
                         //var_dump($first_offer);
                         ?>
-                        <div class="col-md-3 col-xs-12" id="productitem">
+                        <div class="col-md-3 col-xs-12 col-sm-4" id="productitem">
                             <div class="blockoffer">
 
                                 <div class="price_ajax">
@@ -617,79 +620,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
             endforeach;
             ?>
         </div>
-
-
-
-        <?
-//		foreach ($arResult['ITEM_ROWS'] as $rowData)
-//		{
-//			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
-//
-        ?>
-        <!--			<div class="row --><?php
-        //=$rowData['CLASS']
-        ?><!--" data-entity="items-row">-->
-        <!--				--><?
-        //
-//				switch ($rowData['VARIANT'])
-//				{
-//					case 2:
-//
-        ?>
-        <!--						<div class="col-xs-12 product-item-small-card">-->
-        <!--							<div class="row">-->
-        <!--								--><?
-        //
-//								foreach ($rowItems as $item)
-//								{
-//
-        ?>
-        <!--									<div class="col-sm-4 product-item-big-card">-->
-        <!--										<div class="row">-->
-        <!--											<div class="col-md-12">-->
-        <!--												--><?
-        //
-//												$APPLICATION->IncludeComponent(
-//													'bitrix:catalog.item',
-//													'custom.catalog.item',
-//													array(
-//														'RESULT' => array(
-//															'ITEM' => $item,
-//															'AREA_ID' => $areaIds[$item['ID']],
-//															'TYPE' => $rowData['TYPE'],
-//															'BIG_LABEL' => 'N',
-//															'BIG_DISCOUNT_PERCENT' => 'N',
-//															'BIG_BUTTONS' => 'Y',
-//															'SCALABLE' => 'N'
-//														),
-//														'PARAMS' => $generalParams + $itemParameters[$item['ID']],
-//													),
-//													$component,
-//													array('HIDE_ICONS' => 'Y')
-//												);
-//
-        ?>
-        <!--											</div>-->
-        <!--										</div>-->
-        <!--									</div>-->
-        <!--									--><?
-        //
-//								}
-//
-        ?>
-        <!--							</div>-->
-        <!--						</div>-->
-        <!--						--><?
-        //
-//						break;
-//
-//				}
-//
-        ?>
-        <!--			</div>-->
-        <!--			--><?
-        //
-//		}
+<?
         unset($rowItems);
 
         unset($itemParameters);

@@ -62,7 +62,9 @@ if (isset($_GET['showBy']) && $_GET['showBy'] && in_array($_GET['showBy'], $arAv
     ?>
     <?
     if ($isFilter || $isSidebar): ?>
-        <div class="col-md-3 catalog_col filter col-sm-4<?= (isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '') ?>">
+        <div class="title_main_mob"><? $APPLICATION->ShowTitle(false)?></div>
+        <div class="button_filter_mob"><span>Фильтры</span></div>
+        <div class="col-md-3 catalog_col filter col-sm-3<?= (isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '') ?>">
             <?
             if ($isFilter): ?>
                 <div class="bx-sidebar-block">
@@ -145,7 +147,7 @@ if (isset($_GET['showBy']) && $_GET['showBy'] && in_array($_GET['showBy'], $arAv
     }
     ?>
 
-    <div class="<?= (($isFilter || $isSidebar) ? "col-md-9 catalog_col col-sm-8 " : "col-xs-12") ?>">
+    <div class="<?= (($isFilter || $isSidebar) ? "col-md-9 catalog_col col-sm-9 " : "col-xs-12") ?>">
         <span id="AJAX_ID" data-id="<?= $arParams['AJAX_ID']; ?>"></span>
         <?
         $new_arrFilter = array();

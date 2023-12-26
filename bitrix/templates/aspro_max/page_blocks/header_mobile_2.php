@@ -4,11 +4,7 @@
 		<?=CMax::showIconSvg("close dark", SITE_TEMPLATE_PATH."/images/svg/Close.svg");?>
 	</div>
 	<div class="title-block col-sm-5 col-xs-5 pull-left">
-		<? if ($APPLICATION->GetCurPage(true) === '/index.php'): ?>
-			<?= 'Дети с нами' ?>
-		<? else: ?>
-			<?($APPLICATION->GetTitle() ? $APPLICATION->ShowTitle(false) : $APPLICATION->ShowTitle());?>
-		<? endif; ?>
+        <?=CMax::ShowLogo();?>
 	</div>
 	<div class="right-icons pull-right">
 		<div class="pull-right">

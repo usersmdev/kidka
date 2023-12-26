@@ -6,7 +6,7 @@
                 <h4 class="modal-title" id="myModalLabel">Область на карте</h4>
             </div>
             <div class="modal-body">
-                <div id="map" style="width: 100%; height: 543px"></div>
+                <div id="map"></div>
             </div>
 
         </div>
@@ -208,9 +208,18 @@
                         <div class="lager">Смена:</div>
                         <div class="lager_name_type"></div>
                     </div>
-                    <div class="form_flex">
+                    <div class="form_flex mob">
                         <div class="lager">Стоимость:</div>
-                        <div class="lager_price">
+                        <div class="lager_real_price mob"></div>
+                    </div>
+                    <div class="form_flex mob">
+                        <div class="lager_sale_price mob"></div>
+                        <div class="lager_base_price mob"></div>
+                    </div>
+                    <div class="form_flex">
+                        <div class="lager pc">Стоимость:</div>
+
+                        <div class="lager_price pc">
                             <div class="lager_real_price"></div>
                             <div class="lager_base_price"></div>
                             <div class="lager_sale_price"></div>
@@ -285,7 +294,7 @@
             </div>
 
             <div class="modal-body">
-                <div id="mapYa" style="width: 100%; height: 543px"></div>
+                <div id="mapYa"></div>
             </div>
 
         </div>
