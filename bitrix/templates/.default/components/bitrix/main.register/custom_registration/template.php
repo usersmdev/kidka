@@ -588,7 +588,7 @@ if ($_SESSION['sms_phone2']) {
                         success: function (data) {
                             var answe = JSON.parse(data);
                             if (answe) {
-                                // $('.message_code').html(answe.code);
+                                //$('.message_code').html(answe.code);
                                 if (answe.error == 101) {
                                     $('.error_mess').html("Пользователь с таким номером уже существует")
                                     $('.error_mess').show(500);

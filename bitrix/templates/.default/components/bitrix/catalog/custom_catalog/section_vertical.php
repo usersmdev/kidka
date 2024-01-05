@@ -163,11 +163,11 @@ if (isset($_GET['showBy']) && $_GET['showBy'] && in_array($_GET['showBy'], $arAv
         <div class="catalog_top_setting">
             <div class="find_elements">Найдено <?= $count_element;
                 if ($count_element == 1) {
-                    echo ' лагерь';
+                    echo ' ';
                 } elseif ($count_element < 5) {
-                    echo ' лагеря';
+                    echo ' ';
                 } else {
-                    echo ' лагерей';
+                    echo ' ';
                 } ?>
             </div>
             <div class="text-right">

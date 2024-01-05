@@ -409,11 +409,15 @@ $res_price = CCatalogSKU::getOffersList(
                                                 </a>
                                             <? endforeach; ?>
                                         </div>
+
                                         <div class="description">
-                                            <? $dwkwa_out = $arProps['FIRST_TAB']["VALUE"]['TEXT'];
-                                            $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
-                                            $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
-                                            echo $dwkwa_out;
+                                            <?
+                                            if ($arProps['FIRST_TAB']['VALUE']){
+                                            $dwkwa_out = $arProps['FIRST_TAB']["VALUE"]['TEXT'];
+                                                $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
+                                                $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
+                                                echo $dwkwa_out;
+                                            }
                                             ?>
                                         </div>
                                     </div>
@@ -451,10 +455,13 @@ $res_price = CCatalogSKU::getOffersList(
                                             <? endforeach; ?>
                                         </div>
                                         <div class="description">
-                                            <? $dwkwa_out = $arProps['SECOND_TAB']["VALUE"]['TEXT'];
-                                            $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
-                                            $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
-                                            echo $dwkwa_out;
+
+                                            <?if($arProps['SECOND_TAB']["VALUE"]) {
+                                                $dwkwa_out = $arProps['SECOND_TAB']["VALUE"]['TEXT'];
+                                                $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
+                                                $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
+                                                echo $dwkwa_out;
+                                            }
                                             ?>
                                         </div>
                                     </div>
@@ -475,10 +482,13 @@ $res_price = CCatalogSKU::getOffersList(
                                             <? endforeach; ?>
                                         </div>
                                         <div class="description">
-                                            <? $dwkwa_out = $arProps['THIRD_TAB']["VALUE"]['TEXT'];
-                                            $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
-                                            $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
-                                            echo $dwkwa_out;
+                                            <? if($arProps['THIRD_TAB']["VALUE"]) {
+                                            $dwkwa_out = $arProps['THIRD_TAB']["VALUE"]['TEXT'];
+
+                                                $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
+                                                $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
+                                                echo $dwkwa_out;
+                                            }
                                             ?>
                                         </div>
                                     </div>
@@ -492,10 +502,14 @@ $res_price = CCatalogSKU::getOffersList(
                                     <div class="tab-pane" id="FOURTH_TAB">
                                         <h4><?= $arProps['FOURTH_TAB_NAME']["VALUE"] ?></h4>
                                         <div class="description">
-                                            <? $dwkwa_out = $arProps['FOURTH_TAB']["VALUE"]['TEXT'];
-                                            $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
-                                            $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
-                                            echo $dwkwa_out;
+
+                                            <?
+                                            if($arProps['FOURTH_TAB']["VALUE"]) {
+                                                $dwkwa_out = $arProps['FOURTH_TAB']["VALUE"]['TEXT'];
+                                                $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
+                                                $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
+                                                echo $dwkwa_out;
+                                            }
                                             ?>
                                         </div>
                                         <? if ($arProps['EMPLOYEESS']['VALUE']): ?>
@@ -659,9 +673,11 @@ $res_price = CCatalogSKU::getOffersList(
                                                     <div class="description_wrapp">
                                                         <div class="price_desc hide_desc">
                                                             <?$dwkwa_out = $first_offer['PROPERTIES']['DESCRIPTION_PRICE']['VALUE']["TEXT"];
-                                                            $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
-                                                            $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
-                                                            echo $dwkwa_out;
+                                                             if($dwkwa_out) {
+                                                                 $dwkwa_out = str_replace("&lt;", "<", $dwkwa_out);
+                                                                 $dwkwa_out = str_replace("&gt;", ">", $dwkwa_out);
+                                                                 echo $dwkwa_out;
+                                                             }
                                                             ?>
                                                         </div>
                                                         <div class="show_text">Развернуть</div>
@@ -681,7 +697,7 @@ $res_price = CCatalogSKU::getOffersList(
                                                 <div class="right_price">
                                                     <? if ($first_offer['PROPERTIES']['SALE']['VALUE']): ?>
                                                         <div class="sale_lager row-flex">
-                                                            <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
+                                                            <span class="text_l">Скидка</span><span class="point_border"></span>
                                                             <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                                         </div>
                                                     <? endif; ?>
@@ -807,7 +823,7 @@ $res_price = CCatalogSKU::getOffersList(
                                     <? endif; ?>
                                     <? if ($first_offer['PROPERTIES']['SALE']['VALUE']): ?>
                                         <div class="sale_lager row-flex">
-                                            <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
+                                            <span class="text_l">Скидка</span><span class="point_border"></span>
                                             <span class="price_l"> -<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
                                         </div>
                                     <? endif; ?>

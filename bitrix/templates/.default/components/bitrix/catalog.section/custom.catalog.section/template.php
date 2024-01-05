@@ -405,12 +405,8 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                 <div class="prop">Трансфер</div>
                                 <div class="prop_desc"><?= $arItem['PROPERTIES']['TRANSFER']['VALUE'] ?></div>
                             </div>
+                            <? endif;?>
                         </div>
-
-                        <?endif;
-                        ?>
-
-
                         <?
                         $res = CCatalogSKU::getOffersList(
                             $productID = array($arItem['ID']),
@@ -429,14 +425,9 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                         );
                         if (is_array($res) && sizeof($res)): ?>
                         <?
-
-                        //var_dump($arItem['ID']);
-                        //var_dump($res[$arItem['ID']][58231]); //ДЛЯ AJAX
-
                         $first_offer['PROPERTIES']['SALE']['VALUE'] = 0;
                         $first_offer['PROPERTIES']['SALELAGER']['VALUE'] = 0;
                         $first_offer = current($res[$arItem['ID']]);
-                        //var_dump($first_offer);
                         ?>
                         <div class="col-md-3 col-xs-12 col-sm-4" id="productitem">
                             <div class="blockoffer">
@@ -559,7 +550,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                     <?
                                     if ($first_offer['PROPERTIES']['SALE']['VALUE']): ?>
                                         <div class="sale_lager row-flex">
-                                            <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
+                                            <span class="text_l">Скидка</span><span class="point_border"></span>
                                             <span class="price_l"><span class="sale_lag">-<?= number_format($first_offer['PROPERTIES']['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span></span>
                                         </div>
                                     <?
@@ -580,18 +571,6 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                     endif; ?>
                                 </div>
                             </div>
-                            <?
-//                            $rsStoreProduct = \Bitrix\Catalog\StoreProductTable::getList(array(
-//                                'filter' => array('=PRODUCT_ID' => $first_offer['ID']),
-//                            ));
-//                            while ($arStoreProduct = $rsStoreProduct->fetch()) {
-//                                if (IntVal($arStoreProduct["AMOUNT"]) < 10):?>
-<!--                                    --><?//
-//                                    echo "<div class='amount'>Осталось мест: " . $arStoreProduct["AMOUNT"] . '</div>';
-//                                endif;
-//                            } ?>
-<!--                            <div class="pack">--><?//
-//                                echo sizeof($res[$arItem['ID']]) . ' смены:'; ?><!--</div>-->
                             <select name="offerselect" id="offerselect">
                                 <?
                                 foreach ($res[$arItem['ID']] as $r):
@@ -599,27 +578,16 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                     <option value="<?= $r['ID'] ?>"><?= $r['NAME']; ?></option>
                                 <?
                                 endforeach;
-
                                 ?>
                             </select>
                             <? //var_dump($arItem)?>
                             <a href="<?=$arItem["DETAIL_PAGE_URL"] ?>" class="btn button about">Подробнее</a>
-
-                            <?
-                            endif;
-
-
-                            ?>
-
                         </div>
+                        <?endif;?>
                     </div>
                 </div>
+            <?endforeach; ?>
 
-
-            <?
-            endforeach;
-            ?>
-        </div>
 <?
         unset($rowItems);
 
