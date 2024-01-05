@@ -1217,8 +1217,8 @@ margin-bottom: 2px;
 .price_ajax .thwer a:hover{
     color: #009B9A;
 }
-.price_ajax .thwer{margin-bottom: 24px;}
-.price_ajax .thwer a:after {
+.price_ajax .thwer{margin-bottom: 24px; position: relative}
+.price_ajax .thwer:after {
     content: "";
     background-image: url("../images/icons/desh.svg") ;
     background-position: center;
@@ -1230,6 +1230,7 @@ margin-bottom: 2px;
     margin-left: 4px;
     transition: 0.5s;
     position: absolute;
+    right: 0;
     background-repeat: no-repeat;
 }
 .price_ajax .sale_s{

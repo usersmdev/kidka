@@ -101,7 +101,7 @@ $first_offer = $arProps;
         <? endif; ?>
         <? if ($first_offer['SALE']['VALUE']): ?>
             <div class="sale_lager row-flex">
-                <span class="text_l">Скидка от лагеря</span><span class="point_border"></span>
+                <span class="text_l">Скидка</span><span class="point_border"></span>
                 <span class="price_l"> - <?= number_format($first_offer['SALE']['VALUE'], 0, '', ' ') . ' ' . $currency ?></span>
             </div>
         <? endif; ?>
