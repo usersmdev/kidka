@@ -1396,7 +1396,7 @@ a.about{
     opacity: 0.5;
     flex: 0 0 auto;
 }
-.lager_sale_price {
+.lager_sale_price span{
     width: 22%;
     color: #FFF;
     font-size: 14px;

@@ -31,7 +31,17 @@
             }
         }
 
-        if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
+        if($price && !$first_offer['PROPERTIES']['SALE']['VALUE'] && !$first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
+            <div class="row-flex">
+                <div>
+                    <div class="sale_s"><?= $price_whith_cur ?></div>
+                </div>
+                <div>
+                    <div class="price_s"></div>
+                </div>
+            </div>
+
+        <? elseif  ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
             <? $sale_s = $price - ((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']); ?>
             <div class="row-flex">
                 <div>

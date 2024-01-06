@@ -642,7 +642,7 @@
                         text: $(this).find('.product_name').text()
                     }));
                     result_product.push(ProductObject)
-                    console.log(result_product);
+                    //console.log(result_product);
                 });
                 $("#modal_price").change(function () {
                     $(this).find("option:selected").each(function () {
@@ -653,7 +653,12 @@
 								$('.lager_name_type').text(result_product[l]['product_name'])
 								$('.lager_real_price').text(result_product[l]['base_sale_price'])
 								$('.lager_base_price').text(result_product[l]['base_price'])
-								$('.lager_sale_price').text(result_product[l]['sale_price'])
+                                if(result_product[l]['sale_price'].length > 0) {
+                                    $('.lager_sale_price').html('<span>' + result_product[l]['sale_price'] + '</span>')
+                                }else{
+                                    $('.lager_sale_price').html('<div></div>');
+                                }
+
                             }
                         }
                     });
@@ -668,7 +673,12 @@
 							$('.lager_name_type').text(result_product[l]['product_name'])
 							$('.lager_real_price').text(result_product[l]['base_sale_price'])
 							$('.lager_base_price').text(result_product[l]['base_price'])
-							$('.lager_sale_price').text(result_product[l]['sale_price'])
+                            //console.log(result_product[l]['sale_price'].length)
+                            if(result_product[l]['sale_price'].length > 0) {
+                                $('.lager_sale_price').html('<span>' + result_product[l]['sale_price'] + '</span>')
+                            }else{
+                                $('.lager_sale_price').html('<div></div>');
+                            }
 						}
 
 					}
@@ -688,7 +698,11 @@
                             $('.lager_name_type').text(result_product[l]['product_name'])
                             $('.lager_real_price').text(result_product[l]['base_sale_price'])
                             $('.lager_base_price').text(result_product[l]['base_price'])
-                            $('.lager_sale_price').text(result_product[l]['sale_price'])
+                            if(result_product[l]['sale_price'].length > 0) {
+                                $('.lager_sale_price').html('<span>' + result_product[l]['sale_price'] + '</span>')
+                            }else{
+                                $('.lager_sale_price').html('<div></div>');
+                            }
                         }
 
                     }
@@ -885,7 +899,7 @@
                         } else {
                             alert('Error! Please try again!');
                         }
-                        console.log('Error: ' + errorThrown);
+                        //console.log('Error: ' + errorThrown);
                     },
                     success: function (response) {
                         var result = response;

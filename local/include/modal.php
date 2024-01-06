@@ -201,7 +201,7 @@
             <div class="modal-body">
                 <div class="text_before">
                     <div class="form_flex">
-                        <div class="lager">Лагерь:</div>
+                        <div class="lager">Организация:</div>
                         <div class="lager_name_name"></div>
                     </div>
                     <div class="form_flex">
