@@ -46,6 +46,7 @@
 		}
 		this.YandexMAp();
 		this.FilterMob();
+		this.LagerName();
 		if (params.lazyLoad)
 		{
 			this.showMoreButton = document.querySelector('[data-use="show-more-' + this.navParams.NavNum + '"]');
@@ -332,6 +333,13 @@
 			$('.button_filter_mob').on('click', function (){
 				$('.filter').toggle(300)
 			});
+		},
+		LagerName: function (){
+			$('.thwer a').on('click', function (){
+				let name_lager = $(this).parents('.news-item').find('.title').text();
+				$('#cheaper .lager_name').html(name_lager);
+				$('input[name="form_hidden_518"]').val(name_lager);
+			})
 		},
 		YandexMAp: function (){
 			$('#view_map').on('click', function (){

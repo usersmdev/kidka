@@ -1,9 +1,7 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-if ($APPLICATION->GetCurPage() === '/uslugi/') {
-	$APPLICATION->SetPageProperty("body_class", "page-products");
-}
-$APPLICATION->SetTitle("Компании");?>
-<div class="service_catalog">
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Компании");
+?><div class="service_catalog">
 	 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	"custom_catalog", 
@@ -203,7 +201,7 @@ $APPLICATION->SetTitle("Компании");?>
 		"SECTION_COUNT_ELEMENTS" => "N",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_TOP_DEPTH" => "0",
-		"SEF_FOLDER" => "/offers/",
+		"SEF_FOLDER" => "/uslugi/",
 		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
@@ -274,4 +272,4 @@ $APPLICATION->SetTitle("Компании");?>
 );?>
 </div>
  <br>
- <br><? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

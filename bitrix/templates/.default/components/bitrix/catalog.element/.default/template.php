@@ -236,8 +236,11 @@ $res_price = CCatalogSKU::getOffersList(
                             </div>
                         </div>
                         <div class="address">
-                            <? foreach ($arProps["ADDRESS"]["VALUE"] as $address): ?>
-                                <div><?= $address; ?></div>
+                            <? //var_dump(count($arProps["ADDRESS"]["VALUE"]));
+                            //$address_count = count($arProps["ADDRESS"]["VALUE"])
+                            ?>
+                            <? foreach ($arProps["ADDRESS"]["VALUE"] as $key => $address): ?>
+                                <div class="address_name"><?= $address; ?></div>
                             <? endforeach; ?>
                         </div>
                         <? if ($arProps["MAP"]["VALUE"]): ?>
@@ -385,8 +388,8 @@ $res_price = CCatalogSKU::getOffersList(
                                     <li><a href="#FOURTH_TAB"
                                            data-toggle="tab"><?= $arProps['FOURTH_TAB_NAME']["VALUE"] ?></a></li>
                                 <? endif; ?>
-                                <li><a href="#REVIEWS" data-toggle="tab">Отзывы</a></li>
-                                <li><a href="#BAY" data-toggle="tab">Стоимость</a></li>
+                                <li class="reviews_cl"><a href="#REVIEWS" data-toggle="tab">Отзывы</a></li>
+                                <li class="pricebd_cl"><a href="#BAY" data-toggle="tab">Стоимость</a></li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -637,34 +640,45 @@ $res_price = CCatalogSKU::getOffersList(
                                                         $sale_lager_auth = $first_offer['PROPERTIES']['SALELAGER']['VALUE'];
                                                         $first_offer['PROPERTIES']['SALELAGER']['VALUE'] = 0;
                                                     endif;
-                                                     if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
+                                                    if($price && !$first_offer['PROPERTIES']['SALE']['VALUE'] && !$first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
+                                                        <? if ($first_offer['PROPERTIES']['DAYS']['VALUE']): ?>
+                                                            <? $slsz = (int)$price / (int)$first_offer['PROPERTIES']['DAYS']['VALUE']; ?>
+                                                        <? endif; ?>
+                                                        <div class="price-row-flex" style="justify-content: flex-end;">
+                                                            <div class="price_count_day"><? if($first_offer['PROPERTIES']['DAYS']['VALUE']):?><? echo number_format($slsz, 0, '', ' ') . ' ' . $currency . '<span> /день</span>' ?><?endif;?></div>
+                                                            <div class="base_sale_price" style="margin-right: 0px;"><?= $price_whith_cur ?></div>
+                                                            <div class="base_price"></div>
+                                                        </div>
+                                                    <? elseif ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']): ?>
                                                         <? $sale_s = $price - ((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']); ?>
                                                         <? $sale_s2 = number_format($sale_s, 0, '', ' ') . ' ' . $currency ?>
-                                                        <? $price_whith_cur ?>
                                                         <? if ($first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):
                                                             $sale_percent = round((((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']) * 100 / $price));
                                                         endif; ?>
                                                         <? if ($first_offer['PROPERTIES']['DAYS']['VALUE']): ?>
 
-                                                            <? $slsz = (int)$sale_s / (int)$first_offer['PROPERTIES']['DAYS']['VALUE'];
-                                                            // echo number_format($slsz, 0, '', ' ') . ' ' . $currency . ' /день' ?>
+                                                            <? $slsz = (int)$sale_s / (int)$first_offer['PROPERTIES']['DAYS']['VALUE']; ?>
                                                         <? endif; ?>
                                                         <? $sale_percent ?>
                                                     <? else: ?>
                                                         <? if ($first_offer['PROPERTIES']['DAYS']['VALUE']): ?>
-                                                            <? $slsz = $price / (int)$first_offer['PROPERTIES']['DAYS']['VALUE'];
-                                                            //number_format($slsz, 0, '', ' ') . ' ' . $currency . ' /день' ?>
+                                                            <? $slsz = $price / (int)$first_offer['PROPERTIES']['DAYS']['VALUE']; ?>
                                                         <? endif; ?>
                                                         <? $price_whith_cur ?>
+
                                                     <? endif; ?>
+                                                    <?if($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                                     <div class="price-row-flex">
-                                                        <div class="price_count_day"><? echo number_format($slsz, 0, '', ' ') . ' ' . $currency . '<span> /день</span>' ?></div>
-                                                        <div class="base_sale_price"><?= $sale_s2 ?></div>
-                                                        <div class="base_price"><?= $price_whith_cur ?></div>
+                                                        <? if($first_offer['PROPERTIES']['DAYS']['VALUE']):?><div class="price_count_day"><? echo number_format($slsz, 0, '', ' ') . ' ' . $currency . '<span> /день</span>' ?></div><?endif;?>
+                                                        <? if($sale_s2):?><div class="base_sale_price"><?= $sale_s2 ?></div><?endif;?>
+                                                        <? if($sale_s2):?><div class="base_price"><?= $price_whith_cur ?></div><?endif;?>
                                                     </div>
+                                                    <? if($sale_percent):?>
                                                     <div class="sale_block">
                                                         <div class="sale_price">Скидка -<?=$sale_percent?>%</div>
                                                     </div>
+                                                    <?endif;?>
+                                                    <?endif;?>
                                                 </div>
                                                 </div>
                                                     <div class="price-col">
@@ -686,12 +700,17 @@ $res_price = CCatalogSKU::getOffersList(
                                                 </div>
                                                 <div class="price_mobile_bottom">
                                                     <div class="fcol">
-                                                        <div class="base_sale_price_mob"><?= $sale_s2 ?></div>
-                                                        <div class="base_price_mob"><?=$price_whith_cur ?></div>
+                                                        <? //var_dump($sale_s2)?>
+                                                        <?if($first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
+                                                            <div class="base_sale_price_mob"><?= $sale_s2 ?></div>
+                                                            <div class="base_price_mob"><?=$price_whith_cur ?></div>
+                                                        <?else:?>
+                                                            <div class="base_sale_price_mob"><?= $price_whith_cur ?></div>
+                                                        <?endif;?>
                                                     </div>
                                                      <div class="fcol">
-                                                        <div class="price_count_day_mob"><? echo number_format($slsz, 0, '', ' ') . ' ' . $currency . '<span> /день</span>' ?></div>
-                                                        <div class="sale_price_mob">Скидка -<?=$sale_percent?>%</div>
+                                                        <? if($first_offer['PROPERTIES']['DAYS']['VALUE']):?><div class="price_count_day_mob"><? echo number_format($slsz, 0, '', ' ') . ' ' . $currency . '<span> /день</span>' ?></div><? endif; ?>
+                                                         <? if($first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?> <div class="sale_price_mob">Скидка -<?=$sale_percent?>%</div><? endif; ?>
                                                      </div>
                                                 </div>
                                                 <div class="right_price">
@@ -779,7 +798,18 @@ $res_price = CCatalogSKU::getOffersList(
                                         $sale_lager_auth = $first_offer['PROPERTIES']['SALELAGER']['VALUE'];
                                         $first_offer['PROPERTIES']['SALELAGER']['VALUE'] = 0;
                                     endif;
-                                    if ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
+
+                                    if($price && !$first_offer['PROPERTIES']['SALE']['VALUE'] && !$first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
+                                        <div class="row-flex">
+                                            <div>
+                                                <div class="sale_s"><?= $price_whith_cur ?></div>
+                                            </div>
+                                            <div>
+                                                <div class="price_s"></div>
+                                            </div>
+                                        </div>
+
+                                    <? elseif  ($price && $first_offer['PROPERTIES']['SALE']['VALUE'] || $first_offer['PROPERTIES']['SALELAGER']['VALUE']):?>
                                         <? $sale_s = $price - ((int)$first_offer['PROPERTIES']['SALE']['VALUE'] + (int)$first_offer['PROPERTIES']['SALELAGER']['VALUE']); ?>
                                         <div class="row-flex">
                                             <div>

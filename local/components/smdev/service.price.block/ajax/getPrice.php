@@ -56,7 +56,17 @@ $first_offer = $arProps;
             $sale_lager_auth = $first_offer['SALELAGER']['VALUE'];
             $first_offer['SALELAGER']['VALUE'] = 0;
         endif;
-        if ($price && $first_offer['SALE']['VALUE'] || $first_offer['SALELAGER']['VALUE']):?>
+        if($price && !$first_offer['SALE']['VALUE'] && !$first_offer['SALELAGER']['VALUE']):?>
+            <div class="row-flex">
+                <div>
+                    <div class="sale_s"><?= $price_whith_cur ?></div>
+                </div>
+                <div>
+                    <div class="price_s"></div>
+                </div>
+            </div>
+
+        <? elseif ($price && $first_offer['SALE']['VALUE'] || $first_offer['SALELAGER']['VALUE']):?>
             <? $sale_s = $price - ((int)$first_offer['SALE']['VALUE'] + (int)$first_offer['SALELAGER']['VALUE']); ?>
             <div class="row-flex">
                 <div>
@@ -71,10 +81,11 @@ $first_offer = $arProps;
             endif; ?>
             <div class="row-flex">
                 <div>
+                    <?if ($first_offer['DAYS']['VALUE']):?>
                     <div class="sale_p">
-                        <?if ($first_offer['DAYS']['VALUE']):?>
                         <? $slsz = (int)$sale_s / (int)$first_offer['DAYS']['VALUE'];
-                        echo number_format($slsz, 0, '', ' ') . ' ' . $currency . ' /день' ?></div>
+                        echo number_format($slsz, 0, '', ' ') . ' ' . $currency . ' /день' ?>
+                    </div>
                     <?endif;?>
                 </div>
                 <div>
@@ -84,10 +95,11 @@ $first_offer = $arProps;
         <? else: ?>
             <div class="row-flex">
                 <div>
+                    <?if ($first_offer['DAYS']['VALUE']):?>
                     <div class="sale_p">
-                        <?if ($first_offer['DAYS']['VALUE']):?>
                         <? $pslsz = $price / (int)$first_offer['DAYS']['VALUE'];
-                        echo number_format($pslsz, 0, '', ' ') . ' ' . $currency . ' /день' ?></div>
+                        echo number_format($pslsz, 0, '', ' ') . ' ' . $currency . ' /день' ?>
+                    </div>
                     <?endif;?>
                 </div>
                 <div>
