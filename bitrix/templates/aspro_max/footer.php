@@ -16,13 +16,13 @@
 					<?if(($isIndex && ($isShowIndexLeftBlock || $bActiveTheme)) || (!$isIndex && !$isHideLeftBlock)):?>
 						</div> <?// .right_block?>
 							<?if($APPLICATION->GetProperty("HIDE_LEFT_BLOCK") != "Y" && !defined("ERROR_404")):?>
-								<?if(CSite::InDir("/offers/") || CSite::InDir("/izbrannoe-uslugi/")): ?>
+								<?if(CSite::InDir("/uslugi/") || CSite::InDir("/izbrannoe-uslugi/")): ?>
 								<?else:?>
 								<?CMax::ShowPageType('left_block');?>
                             <?endif;?>
 							<?endif;?>
 							<?if($APPLICATION->GetProperty("HIDE_LEFT_BLOCK") != "Y" && !defined("ERROR_404")):?>
-							<?if($APPLICATION->GetCurPage() != "/offers/" && $count_page < 3): ?>
+							<?if($APPLICATION->GetCurPage() != "/uslugi/" && $count_page < 3): ?>
                                     <?if(CSite::InDir("/izbrannoe-uslugi1/")): ?>
                                     <?else:?>
 								<?CMax::ShowPageType('left_block');?>

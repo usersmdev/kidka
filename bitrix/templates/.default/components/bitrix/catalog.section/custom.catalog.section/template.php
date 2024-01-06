@@ -284,11 +284,11 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                     endforeach; ?>
                     <div class="row">
                         <div class="col-md-3 col-xs-12 col-sm-8">
-                            <div class="title_mob"><?= $arItem['NAME']; ?></div>
+                            <div class="title_mob"><a href="<?=$arItem["DETAIL_PAGE_URL"] ?>"><?= $arItem['NAME']; ?></a></div>
                             <? if ($arItem['PROPERTIES']['MORE_PHOTO']):?>
+
                             <div class="gallery">
-                                <a href="<?
-                                echo CFile::GetPath($arItem['PROPERTIES']['MORE_PHOTO']['VALUE'][0]); ?>"
+                                <a href="<?=$arItem["DETAIL_PAGE_URL"] ?>"
                                    class="gal_image">
                                     <img src="<?= $resize_image['src']; ?>"
                                          title="<?= $arItem['NAME']; ?>"
@@ -330,7 +330,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                             <?endif;?>
                         </div>
                         <div class="col-md-6 col-xs-12 col-sm-8">
-                            <div class="title"><?= $arItem['NAME']; ?></div>
+                            <div class="title"><a href="<?=$arItem["DETAIL_PAGE_URL"] ?>"><?= $arItem['NAME']; ?></a></div>
                             <div class="address">
                                 <?
                                 if ($arItem['PROPERTIES']['ADDRESS']['VALUE'][0]): ?>
@@ -357,7 +357,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
                                             floatval($arItem['PROPERTIES']["rating"]["VALUE"]),
                                             1
                                         ); ?>)</span>
-                                    <span class="count_reviews">Отзывы: (<?= round(floatval($arItem['PROPERTIES']["COUNT_REVIEWS"]["VALUE"]),2); ?>)</span>
+                                    <a href="<?=$arItem["DETAIL_PAGE_URL"] ?>?reviews=1" class="count_reviews">Отзывы: (<?= round(floatval($arItem['PROPERTIES']["COUNT_REVIEWS"]["VALUE"]),2); ?>)</a>
                                 </div>
                             </div>
                             <div class="flex_mob">

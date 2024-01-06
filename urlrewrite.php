@@ -317,6 +317,14 @@ $arUrlRewrite=array (
     'PATH' => '/offers/index.php',
     'SORT' => 100,
   ),
+  127 => 
+  array (
+    'CONDITION' => '#^/uslugi/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/uslugi/index.php',
+    'SORT' => 100,
+  ),
   17 => 
   array (
     'CONDITION' => '#^/auth/#',

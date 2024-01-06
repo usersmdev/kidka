@@ -69,7 +69,7 @@ $bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.max"));?>
 				<div class="container_inner clearfix <?=$APPLICATION->ShowViewContent('container_inner_class')?>">
 						<? $url = $APPLICATION->GetCurPage();
 						$count_page = substr_count($url, '/');?>
-				<?if(CSite::InDir("/offers/") || CSite::InDir("/izbrannoe-uslugi1/")): ?>
+				<?if(CSite::InDir("/uslugi/") || CSite::InDir("/izbrannoe-uslugi1/")): ?>
 				<?$classblock = '';?>
 					<?else:?>
 				<?$classblock = 'right_block';?>

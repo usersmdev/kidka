@@ -601,6 +601,33 @@
             $('h4 .lager_review').text($('.bx-title').text());
         },
         FuncAll: function () {
+            function address_modal() {
+                let Elements = $('.address .address_name');
+                let countElements = Elements.length;
+                if(countElements > 1){
+                    for (let l = 0; l < Elements.length; l++) {
+                        if (l == 0){
+                            $(Elements[l]).after('<a href="#"  data-toggle="modal" data-target="#modalAddress">Все адреса</a>')
+                            $(Elements[l]).show();
+                        }
+
+                    }
+                }
+                let address = $('.main_block .address').clone()
+                $('#modalAddress .modal-body').html(address)
+            }
+            address_modal();
+            function reviews_show(){
+                let strGET = window.location.search.replace( '?', '');
+                console.log(strGET)
+                if(strGET == 'reviews=1'){
+                    $('.detail_tabs .nav li').removeClass('active');
+                    $('.tab-content .tab-pane').removeClass('active');
+                    $('.tab-content .tab-pane#REVIEWS').addClass('active');
+                    $('li.reviews_cl').addClass('active');
+                }
+            }
+            reviews_show()
             $('.description_wrapp').each(function () {
                 let description = $(this).find('.price_desc').text().replace(/(<([^>]+)>)/gi, '');
                 let deck_this = $(this);

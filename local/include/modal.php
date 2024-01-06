@@ -138,10 +138,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Нашли этот лагерь дешевле?</h4>
+                <h4 class="modal-title" id="myModalLabel">Нашли дешевле?</h4>
             </div>
             <div class="modal-body">
-                <p style="text-align: center; color: #333;">Сообщите нам, если вы нашли дешевле лагерь
+                <p style="text-align: center; color: #333;">Сообщите нам, если вы нашли дешевле
                     <span class="lager_name"></span>, и мы снизим цену.</p>
                 <?
                 $APPLICATION->IncludeComponent("bitrix:form", "popup1", Array(
@@ -179,7 +179,7 @@
 		"START_PAGE" => "new",	// Начальная страница
 		"SUCCESS_URL" => "",	// Страница с сообщением об успешной отправке
 		"USE_EXTENDED_ERRORS" => "N",	// Использовать расширенный вывод сообщений об ошибках
-		"WEB_FORM_ID" => "18",	// ID веб-формы
+		"WEB_FORM_ID" => "19",	// ID веб-формы
 		"COMPONENT_TEMPLATE" => "popup",
 		"VARIABLE_ALIASES" => array(
 			"action" => "action",
@@ -295,6 +295,21 @@
 
             <div class="modal-body">
                 <div id="mapYa"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalAddress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Адреса</h4>
+            </div>
+            <div class="modal-body">
+
             </div>
 
         </div>

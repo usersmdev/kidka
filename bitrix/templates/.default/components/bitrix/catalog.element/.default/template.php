@@ -236,8 +236,11 @@ $res_price = CCatalogSKU::getOffersList(
                             </div>
                         </div>
                         <div class="address">
-                            <? foreach ($arProps["ADDRESS"]["VALUE"] as $address): ?>
-                                <div><?= $address; ?></div>
+                            <? //var_dump(count($arProps["ADDRESS"]["VALUE"]));
+                            //$address_count = count($arProps["ADDRESS"]["VALUE"])
+                            ?>
+                            <? foreach ($arProps["ADDRESS"]["VALUE"] as $key => $address): ?>
+                                <div class="address_name"><?= $address; ?></div>
                             <? endforeach; ?>
                         </div>
                         <? if ($arProps["MAP"]["VALUE"]): ?>
@@ -385,8 +388,8 @@ $res_price = CCatalogSKU::getOffersList(
                                     <li><a href="#FOURTH_TAB"
                                            data-toggle="tab"><?= $arProps['FOURTH_TAB_NAME']["VALUE"] ?></a></li>
                                 <? endif; ?>
-                                <li><a href="#REVIEWS" data-toggle="tab">Отзывы</a></li>
-                                <li><a href="#BAY" data-toggle="tab">Стоимость</a></li>
+                                <li class="reviews_cl"><a href="#REVIEWS" data-toggle="tab">Отзывы</a></li>
+                                <li class="pricebd_cl"><a href="#BAY" data-toggle="tab">Стоимость</a></li>
                             </ul>
 
                             <!-- Tab panes -->

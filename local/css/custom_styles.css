@@ -1643,6 +1643,9 @@ width: 200px;
 .rating polygon:hover {
     fill: black;
 }
+.main_block .favorite{
+    min-width: 125px;
+}
 .rating polygon {
     fill: lightgray;
 }
@@ -1960,6 +1963,7 @@ div#view_map{
     width: 100%;
     padding: 12px;
     background: #fff;
+    cursor: pointer;
 }
 .bx-filter-button-box{
     padding: 0;
@@ -3357,4 +3361,48 @@ margin: 40px 0 24px;
 @media (min-width: 768px) {
 .tab_mobile.active {display: none}
 }
-
+.address_name{
+    display: none;
+}
+.address_name:first-child{
+    display: block;
+}
+#modalAddress .modal-body .address_name{display: block}
+#modalAddress .modal-body a{display: none}
+#modalAddress .address div {
+    color: var(--Black, #333);
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 5px;
+}
+#modalAddress .address div:before {
+    content: "";
+    background-image: url(../images/icons/location.svg);
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height: 20px;
+    top: 0px;
+    left: 0px;
+    transition: 0.5s;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.title_mob a, .title a{
+    color: #333;
+}
+@media (max-width: 768px) {
+    #mobileheader .mobileheader-v2 .svg.inline path {
+        fill: #333!important;
+    }
+    #mobileheader .mobileheader-v2 {
+        background: #ffffff!important;
+    }
+}
