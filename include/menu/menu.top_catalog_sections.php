@@ -1,18 +1,24 @@
 <?global $arTheme;?>
-<?$APPLICATION->IncludeComponent("bitrix:menu", "custom_menu", Array(
-	"ALLOW_MULTI_SELECT" => "Y",	// Разрешить несколько активных пунктов одновременно
-		"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
-		"COMPONENT_TEMPLATE" => "top_catalog_wide",
+<?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"custom_menu", 
+	array(
+		"ALLOW_MULTI_SELECT" => "Y",
+		"CHILD_MENU_TYPE" => "left",
+		"COMPONENT_TEMPLATE" => "custom_menu",
 		"COUNT_ITEM" => "6",
-		"DELAY" => "N",	// Откладывать выполнение шаблона меню
-		"MAX_LEVEL" => "3",	// Уровень вложенности меню
-		"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
-		"MENU_CACHE_TIME" => "3600000",	// Время кеширования (сек.)
-		"MENU_CACHE_TYPE" => "A",	// Тип кеширования
-		"MENU_CACHE_USE_GROUPS" => "N",	// Учитывать права доступа
+		"DELAY" => "N",
+		"MAX_LEVEL" => "3",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "3600000",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_USE_GROUPS" => "N",
 		"CACHE_SELECTED_ITEMS" => "N",
-		"ROOT_MENU_TYPE" => "top_content_multilevel",	// Тип меню для первого уровня
-		"USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+		"ROOT_MENU_TYPE" => "razdel_infoblock_uslug",
+		"USE_EXT" => "Y",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO"
 	),
 	false
 );?>
