@@ -43,7 +43,7 @@
 
 		<?//FLOAT_BANNERS?>
                        
-		<?if(!$isIndex):?>
+		<?if(1 == 2):?>
 			<div class="middle  ">
 				<div class="container float_banners text-inside" data-class="middle_adv_drag">
 					<?include(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/'.SITE_DIR.'include/mainpage/components/middle_adv/type_4.php'));?>
