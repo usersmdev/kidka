@@ -26,7 +26,7 @@ if($arResult){
 	$bRightSide = $arTheme['SHOW_RIGHT_SIDE']['VALUE'] == 'Y';
     $bRightBrand = $bRightSide && $arTheme['SHOW_RIGHT_SIDE']['DEPENDENT_PARAMS']['RIGHT_CONTENT']['VALUE'] == 'BRANDS';
 
-    if($MENU_TYPE == 4) {
+    if($MENU_TYPE == 1) {
         $arMenuIblocks = array();
         foreach($arResult as $itemKey => $item) {
             if( isset( $item['PARAMS']['FROM_IBLOCK'] ) && $item['PARAMS']['FROM_IBLOCK'] ) {
@@ -39,7 +39,6 @@ if($arResult){
         //var_dump($arResult);
         if($arMenuIblocks) {
             foreach($arMenuIblocks as $catalog_id) {
-                var_dump($catalog_id);
                 if($catalog_id){
                     if($arCatalogIblock = CMaxCache::$arIBlocksInfo[$catalog_id]){
                         if($catalogPageUrl = str_replace('#'.'SITE_DIR'.'#', SITE_DIR, $arCatalogIblock['LIST_PAGE_URL'])){
@@ -65,7 +64,7 @@ if($arResult){
         
         CMax::replaceMenuChilds($arResult, $arParams);
 	}
-    //var_dump($arResult);
+
 	if($bRightBrand) {
         $arBrandsID = array();
         foreach($arResult as $key=>$arItem)
