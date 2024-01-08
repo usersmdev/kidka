@@ -100,4 +100,14 @@ class IBlock
             return ['ERROR' => 'Свойства не найдены'];
         }
     }
+    public static function GetFormByCode(string $code): string{
+        $rsForm = \CForm::GetBySID($code);
+        $arForm = $rsForm->Fetch();
+        if($arForm['ID']){
+            return $arForm['ID'];
+        }else{
+            return 'Форма не найдена';
+        }
+
+    }
 }

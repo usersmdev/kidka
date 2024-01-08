@@ -338,7 +338,7 @@
 			$('.thwer a').on('click', function (){
 				let name_lager = $(this).parents('.news-item').find('.title').text();
 				$('#cheaper .lager_name').html(name_lager);
-				$('input[name="form_hidden_518"]').val(name_lager);
+				$('.name_org').val(name_lager);
 			})
 		},
 		YandexMAp: function (){

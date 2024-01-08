@@ -3406,3 +3406,22 @@ margin: 40px 0 24px;
         background: #ffffff!important;
     }
 }
+.succ_page {
+    text-align: center;
+}
+.succ_page h1 {
+    text-transform: uppercase;
+    color: #009b9a;
+}
+@media (min-width: 1200px) {
+.succ_page:after {
+    content: "";
+    top: 50%;
+    right: 0;
+    background-image: url(../images/wooden-toy.png);
+    width: 500px;
+    height: 482px;
+    z-index: -1;
+    position: absolute;
+    background-repeat: no-repeat;
+}

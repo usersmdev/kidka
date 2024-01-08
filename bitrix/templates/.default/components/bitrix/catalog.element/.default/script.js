@@ -649,6 +649,7 @@
             let title_service = $('.bx-title').text();
             $('.lager_name').text(title_service);
             $('.lager_name_name').text(title_service);
+            $('.name_org').val(title_service);
             function modal_hide(){
                 $('.modal').on('hidden.bs.modal', function (e) {
                     $('#win8_wrapper').css('display', 'none');
