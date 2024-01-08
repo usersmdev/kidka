@@ -87,7 +87,7 @@
                     "bitrix:form",
                     "popup1",
                     array(
-                        "AJAX_MODE" => "Y",
+                        "AJAX_MODE" => "N",
                         "AJAX_OPTION_ADDITIONAL" => "",
                         "AJAX_OPTION_HISTORY" => "N",
                         "AJAX_OPTION_JUMP" => "N",
@@ -112,17 +112,17 @@
                         ),
                         "RESULT_ID" => $_REQUEST["RESULT_ID"],
                         "SEF_MODE" => "N",
-                        "SHOW_ADDITIONAL" => "Y",
+                        "SHOW_ADDITIONAL" => "N",
                         "SHOW_ANSWER_VALUE" => "N",
                         "SHOW_EDIT_PAGE" => "N",
                         "SHOW_LIST_PAGE" => "N",
-                        "SHOW_STATUS" => "N",
+                        "SHOW_STATUS" => "Y",
                         "SHOW_VIEW_PAGE" => "N",
                         "START_PAGE" => "new",
-                        "SUCCESS_URL" => "",
+                        "SUCCESS_URL" => "/spasibo/",
                         "USE_EXTENDED_ERRORS" => "N",
-                        "WEB_FORM_ID" => "12",
-                        "COMPONENT_TEMPLATE" => "popup",
+                        "WEB_FORM_ID" => \GetID\Helper\IBlock::GetFormByCode('GetInformation'),
+                        "COMPONENT_TEMPLATE" => "popup1",
                         "VARIABLE_ALIASES" => array(
                             "action" => "action1",
                         )
@@ -144,49 +144,50 @@
                 <p style="text-align: center; color: #333;">Сообщите нам, если вы нашли дешевле
                     <span class="lager_name"></span>, и мы снизим цену.</p>
                 <?
+
                 $APPLICATION->IncludeComponent("bitrix:form", "popup1", Array(
-	"AJAX_MODE" => "Y",	// Включить режим AJAX
-		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
-		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
-		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
-		"AJAX_OPTION_STYLE" => "N",	// Включить подгрузку стилей
-		"CACHE_TIME" => "3600",	// Время кеширования (сек.)
-		"CACHE_TYPE" => "A",	// Тип кеширования
-		"CHAIN_ITEM_LINK" => "",	// Ссылка на дополнительном пункте в навигационной цепочке
-		"CHAIN_ITEM_TEXT" => "",	// Название дополнительного пункта в навигационной цепочке
-		"COMPOSITE_FRAME_MODE" => "A",	// Голосование шаблона компонента по умолчанию
-		"COMPOSITE_FRAME_TYPE" => "AUTO",	// Содержимое компонента
-		"EDIT_ADDITIONAL" => "N",	// Выводить на редактирование дополнительные поля
-		"EDIT_STATUS" => "N",	// Выводить форму смены статуса
-		"IGNORE_CUSTOM_TEMPLATE" => "N",	// Игнорировать свой шаблон
-		"NAME_TEMPLATE" => "",
-		"NOT_SHOW_FILTER" => array(	// Коды полей, которые нельзя показывать в фильтре
-			0 => "",
-			1 => "",
-		),
-		"NOT_SHOW_TABLE" => array(	// Коды полей, которые нельзя показывать в таблице
-			0 => "",
-			1 => "",
-		),
-		"RESULT_ID" => $_REQUEST["RESULT_ID"],	// ID результата
-		"SEF_MODE" => "N",	// Включить поддержку ЧПУ
-		"SHOW_ADDITIONAL" => "N",	// Показать дополнительные поля веб-формы
-		"SHOW_ANSWER_VALUE" => "N",	// Показать значение параметра ANSWER_VALUE
-		"SHOW_EDIT_PAGE" => "N",	// Показывать страницу редактирования результата
-		"SHOW_LIST_PAGE" => "N",	// Показывать страницу со списком результатов
-		"SHOW_STATUS" => "N",	// Показать текущий статус результата
-		"SHOW_VIEW_PAGE" => "N",	// Показывать страницу просмотра результата
-		"START_PAGE" => "new",	// Начальная страница
-		"SUCCESS_URL" => "",	// Страница с сообщением об успешной отправке
-		"USE_EXTENDED_ERRORS" => "N",	// Использовать расширенный вывод сообщений об ошибках
-		"WEB_FORM_ID" => "19",	// ID веб-формы
-		"COMPONENT_TEMPLATE" => "popup",
-		"VARIABLE_ALIASES" => array(
-			"action" => "action",
-		)
-	),
-	false
-); ?>
+                "AJAX_MODE" => "Y",	// Включить режим AJAX
+                    "AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+                    "AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+                    "AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+                    "AJAX_OPTION_STYLE" => "N",	// Включить подгрузку стилей
+                    "CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                    "CACHE_TYPE" => "A",	// Тип кеширования
+                    "CHAIN_ITEM_LINK" => "",	// Ссылка на дополнительном пункте в навигационной цепочке
+                    "CHAIN_ITEM_TEXT" => "",	// Название дополнительного пункта в навигационной цепочке
+                    "COMPOSITE_FRAME_MODE" => "A",	// Голосование шаблона компонента по умолчанию
+                    "COMPOSITE_FRAME_TYPE" => "AUTO",	// Содержимое компонента
+                    "EDIT_ADDITIONAL" => "N",	// Выводить на редактирование дополнительные поля
+                    "EDIT_STATUS" => "N",	// Выводить форму смены статуса
+                    "IGNORE_CUSTOM_TEMPLATE" => "N",	// Игнорировать свой шаблон
+                    "NAME_TEMPLATE" => "",
+                    "NOT_SHOW_FILTER" => array(	// Коды полей, которые нельзя показывать в фильтре
+                        0 => "",
+                        1 => "",
+                    ),
+                    "NOT_SHOW_TABLE" => array(	// Коды полей, которые нельзя показывать в таблице
+                        0 => "",
+                        1 => "",
+                    ),
+                    "RESULT_ID" => $_REQUEST["RESULT_ID"],	// ID результата
+                    "SEF_MODE" => "N",	// Включить поддержку ЧПУ
+                    "SHOW_ADDITIONAL" => "N",	// Показать дополнительные поля веб-формы
+                    "SHOW_ANSWER_VALUE" => "N",	// Показать значение параметра ANSWER_VALUE
+                    "SHOW_EDIT_PAGE" => "N",	// Показывать страницу редактирования результата
+                    "SHOW_LIST_PAGE" => "N",	// Показывать страницу со списком результатов
+                    "SHOW_STATUS" => "N",	// Показать текущий статус результата
+                    "SHOW_VIEW_PAGE" => "N",	// Показывать страницу просмотра результата
+                    "START_PAGE" => "new",	// Начальная страница
+                    "SUCCESS_URL" => "/spasibo/",	// Страница с сообщением об успешной отправке
+                    "USE_EXTENDED_ERRORS" => "N",	// Использовать расширенный вывод сообщений об ошибках
+                    "WEB_FORM_ID" => \GetID\Helper\IBlock::GetFormByCode('SERVICE_CHEAPER'),	// ID веб-формы
+                    "COMPONENT_TEMPLATE" => "popup1",
+                    "VARIABLE_ALIASES" => array(
+                        "action" => "action",
+                    )
+                ),
+                false
+            ); ?>
             </div>
         </div>
     </div>
@@ -269,9 +270,9 @@
                         "SHOW_STATUS" => "N",
                         "SHOW_VIEW_PAGE" => "N",
                         "START_PAGE" => "new",
-                        "SUCCESS_URL" => "",
+                        "SUCCESS_URL" => "/spasibo/",
                         "USE_EXTENDED_ERRORS" => "N",
-                        "WEB_FORM_ID" => "19",
+                        "WEB_FORM_ID" => \GetID\Helper\IBlock::GetFormByCode('reservation'),
                         "COMPONENT_TEMPLATE" => "popup",
                         "VARIABLE_ALIASES" => array(
                             "action" => "action",

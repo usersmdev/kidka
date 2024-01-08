@@ -81,7 +81,7 @@ $(document).ready(function () {
                 type: "POST",
                 url: '/local/components/smdev/reviews/templates/.default/ajax/ajax.php',
                 data: {first_name: first_name, email:email, textarea:textarea ,id:id, rating:rating, elementid: elementid },
-                timeout: 3000,
+                timeout: 10000,
                 error: function (request, error) {
                     if (error == "timeout") {
                         alert('timeout');

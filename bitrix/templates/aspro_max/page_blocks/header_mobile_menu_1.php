@@ -15,7 +15,7 @@
 				"DELAY" => "N",
 				"MAX_LEVEL" => \Bitrix\Main\Config\Option::get("aspro.max", "MAX_DEPTH_MENU", 2),
 				"ALLOW_MULTI_SELECT" => "Y",
-				"ROOT_MENU_TYPE" => "top_content_multilevel",
+				"ROOT_MENU_TYPE" => "razdel_infoblock_uslug",
 				"CHILD_MENU_TYPE" => "left",
 				"CACHE_SELECTED_ITEMS" => "N",
 				"ALLOW_MULTI_SELECT" => "Y",
