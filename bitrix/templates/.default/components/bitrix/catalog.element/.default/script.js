@@ -677,7 +677,8 @@
                         let str = $(this).val();
                         for (let l = 0; l < result_product.length; l++) {
                             if (result_product[l]['id'] == str) {
-                                $('input[name="form_hidden_519"]').val(result_product[l]['product_name']);
+                                let title_gl = $('.title h1').text();
+                                $('.reservation_service').val(title_gl+': '+result_product[l]['product_name']);
 								$('.lager_name_type').text(result_product[l]['product_name'])
 								$('.lager_real_price').text(result_product[l]['base_sale_price'])
 								$('.lager_base_price').text(result_product[l]['base_price'])
@@ -697,7 +698,8 @@
 
 					for (let l = 0; l < result_product.length; l++) {
 						if (result_product[l]['id'] == ID) {
-                            $('input[name="form_hidden_519"]').val(result_product[l]['product_name']);
+                            let title_gl = $('.title h1').text();
+                            $('.reservation_service').val(title_gl+': '+result_product[l]['product_name']);
 							$('.lager_name_type').text(result_product[l]['product_name'])
 							$('.lager_real_price').text(result_product[l]['base_sale_price'])
 							$('.lager_base_price').text(result_product[l]['base_price'])
@@ -722,7 +724,8 @@
 
                     for (let l = 0; l < result_product.length; l++) {
                         if (result_product[l]['id'] == ID) {
-                            $('input[name="form_hidden_519"]').val(result_product[l]['product_name']);
+                            let title_gl = $('.title h1').text();
+                            $('.reservation_service').val(title_gl+': '+result_product[l]['product_name']);
                             $('.lager_name_type').text(result_product[l]['product_name'])
                             $('.lager_real_price').text(result_product[l]['base_sale_price'])
                             $('.lager_base_price').text(result_product[l]['base_price'])
