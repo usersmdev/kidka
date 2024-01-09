@@ -95,35 +95,19 @@ $bPrintButton = ($arTheme['PRINT_BUTTON']['VALUE'] == 'Y' ? true : false);
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-12 contact-block">
-						<div class="info">
-							<div class="row">
-								<?if(\Bitrix\Main\Loader::includeModule('subscribe')):?>
-									<div class="col-md-12 col-sm-12">
-										<div class="subscribe_button">
-											<span class="btn" data-event="jqm" data-param-id="subscribe" data-param-type="subscribe" data-name="subscribe"><?=GetMessage('SUBSCRIBE_TITLE')?><?=CMax::showIconSvg('subscribe', SITE_TEMPLATE_PATH.'/images/svg/subscribe_small_footer.svg')?></span>
-										</div>
-									</div>
-								<?endif;?>
-								<div class="col-md-12 col-sm-12">
-									<div class="phone blocks">
-										<div class="inline-block">
-											<?CMax::ShowHeaderPhones('white sm', true);?>
-										</div>
-										<?if($arTheme['SHOW_CALLBACK']['VALUE'] == 'Y'):?>
-											<div class="inline-block callback_wrap">
-												<span class="callback-block animate-load colored" data-event="jqm" data-param-form_id="CALLBACK" data-name="callback"><?=GetMessage("CALLBACK")?></span>
-											</div>
-										<?endif;?>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-12">
-									<?=CMax::showEmail('email blocks')?>
-								</div>
-								<div class="col-md-12 col-sm-12">
-									<?=CMax::showAddress('address blocks')?>
-								</div>
-							</div>
-						</div>
+                        <?
+                        $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+
+                                "PATH" => SITE_DIR . "include/footer/right_block_f2.php"
+                            )
+                        );
+                        ?>
+
 					</div>
 				</div>
 			</div>

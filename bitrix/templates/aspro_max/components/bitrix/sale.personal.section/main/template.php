@@ -139,101 +139,101 @@ else
 	</div>*/?>
 	<div class="personal_wrapper">
 		<div class="row sale-personal-section-row-flex">
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/orders/">-->
+<!--						<span class="sale-personal-section-index-block-ico"><i class="cur_orders"><img src="/upload/design-new/kabinet_01.jpg" class="kabinet_img"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Мои заказы</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/basket/">-->
+<!--					<span class="sale-personal-section-index-block-ico"><i class="cart"><img src="/upload/design-new/kabinet_02.jpg" class="kabinet_img"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Корзина</h2></a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/discounts/">-->
+<!--					<span class="sale-personal-section-index-block-ico"><i class="filter_orders"><img src="/upload/design-new/kabinet_03.jpg" class="kabinet_img"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Скидки</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
 			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/orders/">
-						<span class="sale-personal-section-index-block-ico"><i class="cur_orders"><img src="/upload/design-new/kabinet_01.jpg" class="kabinet_img"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Мои заказы</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/basket/">
-					<span class="sale-personal-section-index-block-ico"><i class="cart"><img src="/upload/design-new/kabinet_02.jpg" class="kabinet_img"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Корзина</h2></a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/discounts/">
-					<span class="sale-personal-section-index-block-ico"><i class="filter_orders"><img src="/upload/design-new/kabinet_03.jpg" class="kabinet_img"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Скидки</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/private/">
+					<a class="sale-personal-section-index-block-link" href="/personal/profile/">
 					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_04.jpg" class="kabinet_img"><i class="personal"></i></span>
 					<h2 class="sale-personal-section-index-block-name">Личные данные</h2>
 					</a>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/profiles/">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_05.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Реквизиты для оплаты</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/subscribe/">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_06.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Уведомления</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/designer/">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_13.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Кабинет дизайнера</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/surveys/">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_07.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Опросы</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="https://portal.decomaster.su/online/msk" target="_blank">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_08.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Обращения</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/archbureau/" target="_blank">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_10.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Архбюро</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/designer/" target="_blank">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_11.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Полезные материалы</h2>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="sale-personal-section-index-block bx-theme-">
-					<a class="sale-personal-section-index-block-link" href="/personal/online-training/" target="_blank">
-					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_12.jpg" class="kabinet_img"><i class="subscribe"></i></span>
-					<h2 class="sale-personal-section-index-block-name">Онлайн-обучение</h2>
-					</a>
-				</div>
-			</div>
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/profiles/">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_05.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Реквизиты для оплаты</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/subscribe/">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_06.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Уведомления</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/designer/">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_13.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Кабинет дизайнера</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/surveys/">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_07.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Опросы</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="https://portal.decomaster.su/online/msk" target="_blank">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_08.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Обращения</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/archbureau/" target="_blank">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_10.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Архбюро</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/designer/" target="_blank">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_11.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Полезные материалы</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">-->
+<!--				<div class="sale-personal-section-index-block bx-theme-">-->
+<!--					<a class="sale-personal-section-index-block-link" href="/personal/online-training/" target="_blank">-->
+<!--					<span class="sale-personal-section-index-block-ico"><img src="/upload/design-new/kabinet_12.jpg" class="kabinet_img"><i class="subscribe"></i></span>-->
+<!--					<h2 class="sale-personal-section-index-block-name">Онлайн-обучение</h2>-->
+<!--					</a>-->
+<!--				</div>-->
+<!--			</div>-->
 		</div>
 	</div>
 	<?

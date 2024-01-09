@@ -23,7 +23,7 @@
 							<?endif;?>
 							<?if($APPLICATION->GetProperty("HIDE_LEFT_BLOCK") != "Y" && !defined("ERROR_404")):?>
 							<?if($APPLICATION->GetCurPage() != "/uslugi/" && $count_page < 3): ?>
-                                    <?if(CSite::InDir("/izbrannoe-uslugi1/")): ?>
+                                    <?if(CSite::InDir("/izbrannoe-uslugi/")): ?>
                                     <?else:?>
 								<?CMax::ShowPageType('left_block');?>
                                 <?endif;?>
