@@ -3414,14 +3414,23 @@ margin: 40px 0 24px;
     color: #009b9a;
 }
 @media (min-width: 1200px) {
-.succ_page:after {
-    content: "";
-    top: 50%;
-    right: 0;
-    background-image: url(../images/wooden-toy.png);
-    width: 500px;
-    height: 482px;
-    z-index: -1;
-    position: absolute;
-    background-repeat: no-repeat;
+    .succ_page:after {
+        content: "";
+        top: 50%;
+        right: 0;
+        background-image: url(../images/wooden-toy.png);
+        width: 500px;
+        height: 482px;
+        z-index: -1;
+        position: absolute;
+        background-repeat: no-repeat;
+    }
+}
+.left_menu_block img {width: 100%}
+
+#headerfixed .logo-row.v2 .burger {
+    display: none!important;
+}
+#callback_m .form_head, #auth_lk .form_head{
+    display: none;
 }

@@ -1248,7 +1248,8 @@ class CMax{
 		else
 		{
 			$url = ((isset($_GET['backurl']) && $_GET['backurl']) ? $_GET['backurl'] : $APPLICATION->GetCurUri());
-			$html .= '<a rel="nofollow" title="'.Loc::getMessage('CABINET_LINK').'" class="personal-link dark-color animate-load" data-event="jqm" data-param-type="auth" data-param-backurl="'.$url.'" data-name="auth" href="'.$arTheme['PERSONAL_PAGE_URL']['VALUE'].'">';
+			//$html .= '<a rel="nofollow" title="'.Loc::getMessage('CABINET_LINK').'" class="personal-link dark-color animate-load" data-event="jqm" data-param-type="auth" data-param-backurl="'.$url.'" data-name="auth" href="'.$arTheme['PERSONAL_PAGE_URL']['VALUE'].'">';
+			$html .= '<a rel="nofollow" id="auth_lk" title="'.Loc::getMessage('CABINET_LINK').'" class="personal-link dark-color " data-param-type="auth" data-event="jqm" data-param-backurl="'.$url.'" data-name="auth" href="'.$arTheme['PERSONAL_PAGE_URL']['VALUE'].'">';
 			if($icon)
 				$html .= self::showIconSvg('cabinet', SITE_TEMPLATE_PATH.'/images/svg/user.svg', $message, $class_icon);
 			if($text)
@@ -1633,17 +1634,25 @@ class CMax{
 		<?if($bShowBasket):?>
 			<div class="menu middle">
 				<ul>
+<!--					<li class="counters">-->
+<!--						<a rel="nofollow" class="dark-color basket-link basket ready --><?php //=($arBasketPrices['BASKET_COUNT'] ? 'basket-count' : '');?><!--" href="--><?php //=$basketUrl?><!--">-->
+<!--							--><?php //=CMax::showIconSvg("basket", SITE_TEMPLATE_PATH.'/images/svg/basket.svg', '', '', true, false);?>
+<!--							<span>--><?php //=Loc::getMessage('JS_BASKET_TITLE')?><!--<span class="count--><?php //=(!$arBasketPrices['BASKET_COUNT'] ? ' empted' : '')?><!--">--><?php //=$arBasketPrices['BASKET_COUNT'];?><!--</span></span>-->
+<!--						</a>-->
+<!--					</li>-->
 					<li class="counters">
-						<a rel="nofollow" class="dark-color basket-link basket ready <?=($arBasketPrices['BASKET_COUNT'] ? 'basket-count' : '');?>" href="<?=$basketUrl?>">
-							<?=CMax::showIconSvg("basket", SITE_TEMPLATE_PATH.'/images/svg/basket.svg', '', '', true, false);?>
-							<span><?=Loc::getMessage('JS_BASKET_TITLE')?><span class="count<?=(!$arBasketPrices['BASKET_COUNT'] ? ' empted' : '')?>"><?=$arBasketPrices['BASKET_COUNT'];?></span></span>
-						</a>
-					</li>
-					<li class="counters">
-						<a rel="nofollow" class="dark-color basket-link delay ready <?=($arBasketPrices['DELAY_COUNT'] ? 'basket-count' : '');?>" href="<?=$basketUrl?>#delayed">
-							<?=CMax::showIconSvg("basket", SITE_TEMPLATE_PATH.'/images/svg/chosen_small.svg', '', '', true, false);?>
-							<span><?=Loc::getMessage('JS_BASKET_DELAY_TITLE')?><span class="count<?=(!$arBasketPrices['DELAY_COUNT'] ? ' empted' : '')?>"><?=$arBasketPrices['DELAY_COUNT'];?></span></span>
-						</a>
+<!--                        <a id="want" class="block" href="/izbrannoe-uslugi/">-->
+<!--                            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><path data-name="Ellipse 270 copy 3" class="clsw-1" d="M682.741,81.962L682.75,82l-0.157.142a5.508,5.508,0,0,1-1.009.911L675,89h-2l-6.5-5.9a5.507,5.507,0,0,1-1.188-1.078l-0.057-.052,0-.013A5.484,5.484,0,1,1,674,75.35,5.485,5.485,0,1,1,682.741,81.962ZM678.5,75a3.487,3.487,0,0,0-3.446,3H675a1,1,0,0,1-2,0h-0.054a3.491,3.491,0,1,0-5.924,2.971L667,81l7,6,7-6-0.023-.028A3.5,3.5,0,0,0,678.5,75Z" transform="translate(-664 -73)"></path></svg></div>-->
+<!--                            <span class="col">1</span>-->
+<!--                        </a>-->
+                        <a id="want" rel="nofollow" class="dark-color basket-link delay ready <?=($arBasketPrices['DELAY_COUNT'] ? 'basket-count' : '');?>" href="/izbrannoe-uslugi/">
+                            <?=CMax::showIconSvg("basket", SITE_TEMPLATE_PATH.'/images/svg/chosen_small.svg', '', '', true, false);?>
+                            <span>Избранное</span>
+                        </a>
+<!--						<a  rel="nofollow" class="dark-color basket-link delay ready --><?php //=($arBasketPrices['DELAY_COUNT'] ? 'basket-count' : '');?><!--" href="--><?php //=$basketUrl?><!--#delayed">-->
+<!--							--><?php //=CMax::showIconSvg("basket", SITE_TEMPLATE_PATH.'/images/svg/chosen_small.svg', '', '', true, false);?>
+<!--							<span>--><?php //=Loc::getMessage('JS_BASKET_DELAY_TITLE')?><!--<span class="count--><?php //=(!$arBasketPrices['DELAY_COUNT'] ? ' empted' : '')?><!--">--><?php //=$arBasketPrices['DELAY_COUNT'];?><!--</span></span>-->
+<!--						</a>-->
 					</li>
 				</ul>
 			</div>

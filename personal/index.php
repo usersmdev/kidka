@@ -34,8 +34,7 @@ else{
 		"CHECK_RIGHTS_PRIVATE" => "N",
 		"COMPATIBLE_LOCATION_MODE_PROFILE" => "N",
 		"CUSTOM_PAGES" => "",
-		"CUSTOM_SELECT_PROPS" => array(
-		),
+		"CUSTOM_SELECT_PROPS" => "",
 		"NAV_TEMPLATE" => "",
 		"ORDER_HISTORIC_STATUSES" => array(
 			0 => "P",
@@ -46,10 +45,8 @@ else{
 		"PATH_TO_CONTACT" => "/contacts",
 		"PATH_TO_PAYMENT" => "/order/payment/",
 		"PER_PAGE" => "20",
-		"PROP_1" => array(
-		),
-		"PROP_2" => array(
-		),
+		"PROP_1" => "",
+		"PROP_2" => "",
 		"SAVE_IN_SESSION" => "Y",
 		"SEF_FOLDER" => "/personal/",
 		"SEF_MODE" => "Y",
@@ -58,9 +55,9 @@ else{
 		"SHOW_ACCOUNT_COMPONENT" => "Y",
 		"SHOW_ACCOUNT_PAGE" => "N",
 		"SHOW_ACCOUNT_PAY_COMPONENT" => "Y",
-		"SHOW_BASKET_PAGE" => "Y",
+		"SHOW_BASKET_PAGE" => "N",
 		"SHOW_CONTACT_PAGE" => "N",
-		"SHOW_ORDER_PAGE" => "Y",
+		"SHOW_ORDER_PAGE" => "N",
 		"SHOW_PRIVATE_PAGE" => "Y",
 		"SHOW_PROFILE_PAGE" => "Y",
 		"SHOW_SUBSCRIBE_PAGE" => "Y",

@@ -64,7 +64,7 @@ $bLongHeader = true;
 							<?endif?>
 							<?if($arTheme['SHOW_CALLBACK']['VALUE'] == 'Y'):?>
 								<div class="inline-block">
-									<span class="callback-block animate-load font_upper_xs colored" data-event="jqm" data-param-form_id="CALLBACK" data-name="callback"><?=GetMessage("CALLBACK")?></span>
+									<span class="callback-block font_upper_xs colored" style="cursor: pointer" data-toggle="modal" data-target="#callback_m"><?=GetMessage("CALLBACK")?></span>
 								</div>
 							<?endif;?>
 						</div>
